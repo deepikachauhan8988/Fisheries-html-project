@@ -127,6 +127,9 @@ body{
 
 @media (max-width: 576px) {
 
+    .hero-content{
+padding: 8px !important;
+    }
     .top-header{
         padding: 10px;
     }
@@ -576,18 +579,383 @@ font-size:14px;
     background: linear-gradient(135deg, #00b4d8, #48cae4);
 }
 
-@media (max-width: 576px) {
+/* ================= TABLET RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .hero-content {
+        padding: 25px;
+    }
+    
+    .portal-title {
+        font-size: 32px;
+    }
+    
+    .section-title {
+        font-size: 15px;
+
+    }
+    
+    .quick-card {
+        min-height: 100px;
+        padding: 12px 5px;
+    }
+    
+    .quick-card i {
+        font-size: 24px;
+    }
+    
+    .quick-card p {
+        font-size: 11px;
+    }
+    
+    .stats-card {
+        min-height: 100px;
+        padding: 12px;
+    }
+    
+    .stats-card i {
+        font-size: 20px;
+    }
+    
+    .stats-card h4 {
+        font-size: 18px;
+    }
+    
+    .stats-card p {
+        font-size: 11px;
+    }
+    
     .service-card {
         padding: 15px;
     }
-
+    
     .service-icon {
-        width: 50px;
-        height: 50px;
-        min-width: 50px;
-        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 16px;
+    }
+    
+    .service-content h6 {
+        font-size: 14px;
+    }
+    
+    .login-card {
+        padding: 20px;
     }
 }
+
+/* ================= MOBILE RESPONSIVE (576px to 768px) ================= */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 400px;
+    }
+    
+    .hero-content {
+        padding: 20px;
+    }
+    
+    .portal-title {
+        font-size: 28px;
+    }
+    
+    .portal-subtitle {
+        font-size: 15px;
+    }
+    
+    .portal-desc {
+        font-size: 15px;
+    }
+    
+    .icon-row {
+        margin-top: 20px;
+    }
+    
+    .feature-circle {
+        width: 70px;
+        height: 70px;
+        font-size: 24px;
+    }
+    
+    .feature-text {
+        font-size: 12px;
+    }
+    
+    .dashboard {
+        padding: 20px;
+    }
+    
+    .quick-card {
+        min-height: 90px;
+        padding: 10px 5px;
+    }
+    
+    .quick-card i {
+        font-size: 22px;
+    }
+    
+    .quick-card p {
+        font-size: 10px;
+    }
+    
+    .stats-card {
+        min-height: 90px;
+        padding: 12px 8px;
+    }
+    
+    .stats-card i {
+        font-size: 18px;
+    }
+    
+    .stats-card h4 {
+        font-size: 16px;
+    }
+    
+    .stats-card p {
+        font-size: 10px;
+    }
+    
+    .service-card {
+        padding: 12px;
+    }
+    
+    .service-icon {
+        width: 35px;
+        height: 35px;
+        min-width: 35px;
+        font-size: 14px;
+    }
+    
+    .service-content h6 {
+        font-size: 13px;
+    }
+}
+
+/* ================= SMALL MOBILE (below 576px) ================= */
+@media (max-width: 576px) {
+    .hero-section {
+        min-height: 350px;
+        background-position: top;
+    }
+    
+    .hero-content {
+        padding: 15px;
+    }
+    
+    .welcome-badge {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+    
+    .portal-title {
+        font-size: 22px;
+        line-height: 1.2;
+    }
+    
+    .portal-subtitle {
+        font-size: 13px;
+    }
+    
+    .portal-desc {
+        font-size: 13px;
+        margin-top: 8px;
+    }
+    
+    .icon-row {
+        margin-top: 15px;
+    }
+    
+    .feature-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 20px;
+    }
+    
+    .feature-text {
+        font-size: 11px;
+        margin-top: 5px;
+    }
+    
+    .dashboard {
+        padding: 15px;
+    }
+    
+    .section-title {
+        font-size: 14px;
+        margin-top: 12px;
+    }
+    
+    .login-card {
+        padding: 15px;
+        margin-top: 12px;
+    }
+    
+    .login-card h4 {
+        font-size: 16px;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+    
+    .login-type {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+    
+    .login-option {
+        font-size: 12px;
+    }
+    
+    .btn-login {
+        padding: 10px 30px;
+        font-size: 14px;
+        min-width: 180px;
+    }
+    
+    .quick-card {
+        min-height: 80px;
+        padding: 8px 4px;
+        border-radius: 8px;
+    }
+    
+    .quick-card i {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    
+    .quick-card p {
+        font-size: 9px;
+    }
+    
+    .stats-card {
+        min-height: 80px;
+        padding: 10px 5px;
+        border-radius: 8px;
+    }
+    
+    .stats-card i {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    
+    .stats-card h4 {
+        font-size: 14px;
+    }
+    
+    .stats-card p {
+        font-size: 9px;
+    }
+    
+    .service-card {
+        padding: 12px;
+        border-radius: 12px;
+        gap: 10px;
+    }
+    
+    .service-icon {
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        font-size: 12px;
+        border-radius: 8px;
+    }
+    
+    .service-content h6 {
+        font-size: 12px;
+    }
+    
+    .form-control,
+    .form-select {
+        font-size: 13px;
+    }
+    
+    .form-label {
+        font-size: 13px;
+    }
+    
+    .captcha-box {
+        font-size: 16px;
+    }
+    
+    .captcha-refresh {
+        width: 40px;
+    }
+    
+    .footer {
+        padding: 12px 15px;
+    }
+    
+    .footer-text,
+    .browser-text {
+        font-size: 12px;
+    }
+    
+    .browser-icons i {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portal-title {
+        font-size: 20px;
+    }
+    
+    .feature-circle {
+        width: 55px;
+        height: 55px;
+        font-size: 18px;
+    }
+    
+    .quick-card {
+        min-height: 70px;
+    }
+    
+    .quick-card i {
+        font-size: 18px;
+    }
+    
+    .stats-card {
+        min-height: 70px;
+    }
+    
+    .stats-card h4 {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 375px) {
+    .portal-title {
+        font-size: 18px;
+    }
+    
+    .welcome-badge {
+        font-size: 11px;
+    }
+    
+    .feature-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+    
+    .feature-text {
+        font-size: 10px;
+    }
+    
+    .quick-card i {
+        font-size: 16px;
+    }
+    
+    .stats-card h4 {
+        font-size: 12px;
+    }
+}
+
+/* Feature icons responsive - handled by col classes */
+@media (max-width: 360px) {
+    .icon-row .col {
+        width: 100%;
+    }
+}
+
 .green{
     background:#e7f7ea;
 }
@@ -692,4 +1060,18 @@ font-size:14px;
     -webkit-text-fill-color: transparent;
     display: inline-block;
     font-size: 22px;
+}
+
+/* ================= FOOTER MOBILE ================= */
+@media (max-width: 576px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .footer-right {
+        flex-direction: column;
+        gap: 8px;
+    }
 }
