@@ -14,12 +14,12 @@
 <div class="main-wrapper">
 
     <!-- HEADER -->
-   <div class="top-header">
+ <div class="top-header">
     <div class="row align-items-center">
 
-        <div class="col-lg-8 col-md-8 col-12">
+        <!-- Left Side -->
+        <div class="col-10 col-md-8">
             <div class="logo-box">
-
                 <div class="logo">
                     <img src="../images/uk_logo.jpeg" alt="Logo" class="img-fluid">
                 </div>
@@ -28,14 +28,24 @@
                     <h3>Department of Fisheries</h3>
                     <p>Government of Uttarakhand</p>
                 </div>
-
             </div>
         </div>
 
-        <div class="col-lg-4 col-md-4 col-12">
+        <!-- Mobile Toggle -->
+        <div class="col-2 d-md-none text-end">
+            <button class="menu-toggle"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#portalMenu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Desktop View -->
+        <div class="col-md-4 d-none d-md-block">
             <div class="portal-right">
                 <h2>
-                    <i class="fas fa-users me-2"></i>
+                    <i class="fas fa-users"></i>
                     MIS Portal
                 </h2>
                 <small>Digital • Transparent • Efficient</small>
@@ -43,6 +53,18 @@
         </div>
 
     </div>
+
+    <!-- Mobile Collapse -->
+    <div class="collapse d-md-none mt-2" id="portalMenu">
+        <div class="portal-mobile-card">
+            <h2>
+                <i class="fas fa-users"></i>
+                MIS Portal
+            </h2>
+            <small>Digital • Transparent • Efficient</small>
+        </div>
+    </div>
+
 </div>
 
     <!-- HERO -->
