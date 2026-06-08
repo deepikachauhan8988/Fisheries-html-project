@@ -170,132 +170,136 @@
         <i class="fas fa-chevron-right"></i>
     </div>
 
-</div>
-                </div>
+   </div>
+ </div>
 
-                <!-- LOGIN -->
+                
                <!-- LOGIN -->
 <div class="col-lg-5">
- 
+
     <div class="login-card">
- 
+
         <h4>
-<i class="fas fa-user-circle"></i>
+            <i class="fas fa-user-circle"></i>
             Login to Your Account
-</h4>
- 
-        <div class="login-type">
-<i class="fas fa-th"></i>
-            Choose Login Type
-</div>
- 
-        <!-- 3 Column Login Types -->
-<div class="row g-2 mb-4">
- 
-            <div class="col-md-4 col-6">
-<label class="login-option">
-<input type="radio" name="loginType" checked>
-                    Secretary Login
-</label>
-</div>
- 
-            <div class="col-md-4 col-6">
-<label class="login-option">
-<input type="radio" name="loginType">
-                    Director Login
-</label>
-</div>
- 
-            <div class="col-md-4 col-6">
-<label class="login-option">
-<input type="radio" name="loginType">
-                    Deputy Director Login
-</label>
-</div>
- 
-            <div class="col-md-4 col-6">
-<label class="login-option">
-<input type="radio" name="loginType">
-                    AD Login
-</label>
-</div>
- 
-            <div class="col-md-4 col-6">
-<label class="login-option">
-<input type="radio" name="loginType">
-                    Inspector Login
-</label>
-</div>
- 
-            <div class="col-md-4 col-6">
-<label class="login-option">
-<input type="radio" name="loginType">
-                    Farmer Login
-</label>
-</div>
- 
-            <div class="col-md-4 col-6">
-<label class="login-option">
-<input type="radio" name="loginType">
-                    Finance Login
-</label>
-</div>
- 
-        </div>
- 
-        <!-- Selected Login Type Strip -->
-<div class="login-strip">
-<i class="fas fa-lock"></i>
-            Secretary Login
-</div>
- 
-        <div class="row mb-3">
-<div class="col-md-6">
-<select class="form-select">
-<option>Choose Secretary</option>
-</select>
-</div>
- 
-            <div class="col-md-6">
-<input type="password"
-                       class="form-control"
-                       placeholder="Password">
-</div>
-</div>
- 
-        <div class="row mb-4">
- 
-            <div class="col-md-6">
-<label class="form-label">Captcha</label>
-<input class="form-control"
-                       placeholder="Enter 6 digit Captcha code">
-</div>
- 
-            <div class="col-md-6">
-<label class="form-label">Captcha Code</label>
- 
-                <div class="d-flex gap-2">
-<div class="captcha-box">
-                        812895
-</div>
- 
-                    <button class="captcha-refresh">
-<i class="fas fa-sync-alt"></i>
-</button>
-</div>
-</div>
- 
-        </div>
- 
-        <div class="text-center">
-<button class="btn-login">
-                Proceed
-<i class="fas fa-chevron-right ms-2"></i>
-</button>
-</div>
- 
+        </h4>
+
+        <!-- FORM START -->
+        <form action="login.php" method="POST">
+
+            <div class="login-type">
+                <i class="fas fa-th"></i>
+                Choose Login Type
+            </div>
+
+            <!-- LOGIN OPTIONS -->
+            <div class="row g-2 mb-4">
+
+                <div class="col-md-4 col-6">
+                    <label class="login-option">
+                        <input type="radio" name="loginType" value="Secretary Login" checked>
+                        Secretary Login
+                    </label>
+                </div>
+
+                <div class="col-md-4 col-6">
+                    <label class="login-option">
+                        <input type="radio" name="loginType" value="Director Login">
+                        Director Login
+                    </label>
+                </div>
+
+                <div class="col-md-4 col-6">
+                    <label class="login-option">
+                        <input type="radio" name="loginType" value="Deputy Director Login">
+                        Deputy Director Login
+                    </label>
+                </div>
+
+                <div class="col-md-4 col-6">
+                    <label class="login-option">
+                        <input type="radio" name="loginType" value="AD Login">
+                        AD Login
+                    </label>
+                </div>
+
+                <div class="col-md-4 col-6">
+                    <label class="login-option">
+                        <input type="radio" name="loginType" value="Inspector Login">
+                        Inspector Login
+                    </label>
+                </div>
+
+                <div class="col-md-4 col-6">
+                    <label class="login-option">
+                        <input type="radio" name="loginType" value="Farmer Login">
+                        Farmer Login
+                    </label>
+                </div>
+
+                <div class="col-md-4 col-6">
+                    <label class="login-option">
+                        <input type="radio" name="loginType" value="Finance Login">
+                        Finance Login
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- DYNAMIC TITLE -->
+            <div class="login-strip" id="loginTitle">
+                <i class="fas fa-lock"></i>
+                Secretary Login
+            </div>
+
+            <!-- FORM FIELDS -->
+            <div class="row mb-3">
+
+                <div class="col-md-6">
+                    <select class="form-select" name="user">
+                        <option>Choose Secretary</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <input type="password" name="password" class="form-control" placeholder="Password">
+                </div>
+
+            </div>
+
+            <div class="row mb-4">
+
+                <div class="col-md-6">
+                    <label class="form-label">Captcha</label>
+                    <input class="form-control" name="captcha" placeholder="Enter 6 digit Captcha code">
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Captcha Code</label>
+
+                    <div class="d-flex gap-2">
+                        <div class="captcha-box">812895</div>
+                        <button type="button" class="captcha-refresh">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SUBMIT BUTTON -->
+            <div class="text-center">
+                <button type="submit" class="btn-login">
+                    Proceed
+                    <i class="fas fa-chevron-right ms-2"></i>
+                </button>
+            </div>
+
+        </form>
+        <!-- FORM END -->
+
     </div>
- 
+
 </div>
 
             </div>
