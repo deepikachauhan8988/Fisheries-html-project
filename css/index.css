@@ -37,16 +37,129 @@
   border: none;
   padding: 10px 20px;
   border-radius: 6px;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
 }
+/* =========================================
+   LOGIN MODAL STYLES
+   ========================================= */
 
+/* Modal Main Container */
+#loginModal .modal-content {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Modal Header */
+#loginModal .modal-header {
+  background-color: #1f14a3;
+  color: #ffffff;
+  padding: 1.25rem 1.5rem;
+  border-bottom: none;
+}
+
+#loginModal .modal-title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#loginModal .modal-title i {
+  font-size: 1.2rem;
+}
+
+/* Make the default Bootstrap close (X) button white */
+#loginModal .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+  opacity: 0.8;
+}
+
+#loginModal .btn-close:hover {
+  opacity: 1;
+}
+
+/* Modal Body */
+#loginModal .modal-body {
+  padding: 2rem 1.5rem;
+  background-color: #f8f9fa;
+}
+
+/* Form Labels */
+#loginModal .form-label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Input Group Styling (Icon + Box) */
+#loginModal .input-group {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#loginModal .input-group-text {
+  background-color: #ffffff;
+  border: 1px solid #ced4da;
+  border-right: none;
+  color: #007bff;
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+}
+
+#loginModal .form-control {
+  border: 1px solid #ced4da;
+  border-left: none;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  height: auto;
+}
+
+#loginModal .form-control:focus {
+  border-color: #80bdff;
+  box-shadow: none;
+  border-left: none;
+}
+
+/* When input is clicked, highlight the icon border too */
+#loginModal .input-group:focus-within .input-group-text {
+  border-color: #80bdff;
+  color: #0056b3;
+}
+
+/* Submit Button */
+#loginModal .btn-primary {
+  background-color: #1f14a3;
+  border: none;
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+#loginModal .btn-primary:hover {
+  background-color: #1f14a3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+#loginModal .btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 7px rgba(0, 123, 255, 0.3);
+}
 /* Hover Effect */
 .panel-header .btn-primary:hover {
-  background: linear-gradient(135deg, #0056b3, #004085);
+  background-color: #1f14a3;
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
 }
