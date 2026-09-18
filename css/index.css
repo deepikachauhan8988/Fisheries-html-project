@@ -1,4 +1,4 @@
-  
+
       :root {
         --primary: #1f14a3;
         --primary-dark: #161078;
@@ -26,7 +26,42 @@
         font-family: Inter, Arial, sans-serif;
         line-height: 1.6;
       }
+/* Login Button Styles */
+.panel-header .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #1f14a3;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
 
+/* Hover Effect */
+.panel-header .btn-primary:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Active/Click Effect */
+.panel-header .btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+/* Icon spacing */
+.panel-header .btn-primary i {
+  font-size: 14px;
+  color:#fff;
+}
       /* =========================
        HEADER & NAVIGATION
        ========================= */
@@ -37,6 +72,7 @@
         z-index: 1000;
         box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
       }
+
 
   .topbar {
     background: #ffffff;
@@ -54,6 +90,7 @@
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
   }
+  
   .gov-name {
     text-decoration: none;
     color: #1a5276;
@@ -90,7 +127,7 @@
     transition: all 0.3s ease;
   }
   .top-links a:hover {
-    color: #1a5276;
+   
     border-bottom: 2px solid #e67e22;
   }
 
