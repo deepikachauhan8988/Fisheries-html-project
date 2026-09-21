@@ -492,6 +492,7 @@
       grid-template-columns:repeat(2,1fr);
       gap:11px;
     }
+    /* Added cursor:pointer so user knows it's clickable */
     .service{
       min-height:90px;
       border-radius:8px;
@@ -503,7 +504,7 @@
       position:relative;
       overflow:hidden;
       transition:.2s;
-      cursor:default;
+      cursor:pointer; 
     }
     .service:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(0,0,0,.07)}
     .service-img{
@@ -993,50 +994,55 @@
         </div>
       </section>
 
-      <!-- CENTER: SERVICES (Non-clickable & CM Card Format) -->
+      <!-- CENTER: SERVICES (Clickable to open image in modal) -->
       <section class="panel services-panel">
         <div class="panel-heading">
           <div class="heading-left"><span>हमारी प्रमुख सेवाएँ</span></div>
         </div>
 
         <div class="service-grid">
-          <!-- Non-clickable divs formatted like the CM card -->
-          <div class="service pink">
+          <!-- Added onclick attributes to pass the image source and title -->
+          <div class="service pink" onclick="openServiceModal('../images/images-3.jpeg', 'आंगनवाड़ी सेवाएँ')">
             <img src="../images/images-3.jpeg" alt="आंगनवाड़ी" class="service-img">
             <div class="service-text">
               <h4>आंगनवाड़ी सेवाएँ</h4>
               <p>पूरक पोषण एवं प्रारंभिक शिक्षा</p>
             </div>
           </div>
-          <div class="service blue">
+          
+          <div class="service blue" onclick="openServiceModal('../images/image-1.jpeg', 'मातृत्व एवं शिशु कल्याण')">
             <img src="../images/image-1.jpeg" alt="मातृत्व" class="service-img">
             <div class="service-text">
               <h4>मातृत्व एवं शिशु कल्याण</h4>
               <p>गर्भवती एवं धात्री महिला सहायता</p>
             </div>
           </div>
-          <div class="service green">
-            <img src="../images/../images/images-4.jpeg" alt="बाल संरक्षण" class="service-img">
+          
+          <div class="service green" onclick="openServiceModal('../images/images-4.jpeg', 'बाल संरक्षण')">
+            <img src="../images/images-4.jpeg" alt="बाल संरक्षण" class="service-img">
             <div class="service-text">
               <h4>बाल संरक्षण</h4>
               <p>बाल अधिकार एवं सुरक्षा व्यवस्था</p>
             </div>
           </div>
-          <div class="service yellow">
+          
+          <div class="service yellow" onclick="openServiceModal('../images/images-6.jpeg', 'पोषण अभियान')">
             <img src="../images/images-6.jpeg" alt="पोषण" class="service-img">
             <div class="service-text">
               <h4>पोषण अभियान</h4>
               <p>कुपोषण मुक्त उत्तराखंड अभियान</p>
             </div>
           </div>
-          <div class="service purple">
+          
+          <div class="service purple" onclick="openServiceModal('../images/images-11.jpeg', 'महिला सशक्तिकरण')">
             <img src="../images/images-11.jpeg" alt="महिला सशक्तिकरण" class="service-img">
             <div class="service-text">
               <h4>महिला सशक्तिकरण</h4>
               <p>आत्मनिर्भर महिला योजनाएँ</p>
             </div>
           </div>
-          <div class="service cyan">
+          
+          <div class="service cyan" onclick="openServiceModal('../images/images-12.jpeg', 'योजनाओं की सूची')">
             <img src="../images/images-12.jpeg" alt="योजना सूची" class="service-img">
             <div class="service-text">
               <h4>योजनाओं की सूची</h4>
@@ -1044,7 +1050,7 @@
             </div>
           </div>
           
-          <div class="service pink">
+          <div class="service pink" onclick="openServiceModal('../images/images-8.jpeg', 'आवेदन / पंजीकरण')">
             <img src="../images/images-8.jpeg" alt="आवेदन" class="service-img">
             <div class="service-text">
               <h4>आवेदन / पंजीकरण</h4>
@@ -1052,8 +1058,7 @@
             </div>
           </div>
 
-        
-          <div class="service blue">
+          <div class="service blue" onclick="openServiceModal('../images/images-9.jpeg', 'सूचना का अधिकार')">
             <img src="../images/images-9.jpeg" alt="सूचना अधिकार" class="service-img">
             <div class="service-text">
               <h4>सूचना का अधिकार</h4>
@@ -1062,104 +1067,81 @@
           </div>
         </div>
 
-        
+        <!-- Bootstrap Modal for Image -->
+        <div class="modal fade" id="serviceImageModal" tabindex="-1" aria-labelledby="serviceImageModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="serviceImageModalLabel">सेवा विवरण</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                <img src="" alt="Service Image" id="modalServiceImage" class="img-fluid rounded" style="max-height: 70vh; width: auto;">
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
 
       <!-- RIGHT: SIDEBAR -->
-    <!-- RIGHT: SIDEBAR -->
-<aside class="sidebar">
+      <aside class="sidebar">
 
-  <!-- CM -->
-  <div class="panel cm-card">
-    <img
-      class="cm-avatar"
-      src="../images/cm.png"
-      alt="Chief Minister"
-    >
+        <!-- CM -->
+        <div class="panel cm-card">
+          <img class="cm-avatar" src="../images/cm.png" alt="Chief Minister">
+          <div class="cm-text">
+            <span class="designation"></span>
+            <h4>Sh.Pushkar Singh Dhami</h4>
+            <p>Hon'ble Chief Minister<br>Uttarakhand</p>
+          </div>
+        </div>
 
-    <div class="cm-text">
-      <span class="designation"></span>
-      <h4>Sh.Pushkar Singh Dhami</h4>
-      <p>Hon'ble Chief Minister<br>Uttarakhand</p>
-     
-    </div>
-  </div>
+        <!-- Rekha Arya -->
+        <div class="panel cm-card">
+          <img class="cm-avatar" src="../images/rekha.png" alt="Rekha Arya">
+          <div class="cm-text">
+            <span class="designation"></span>
+            <h4>Smt.Rekha Arya</h4>
+            <p>Cabinet Minister of Women and Child Welfare <br>Uttarakhand</p>
+          </div>
+        </div>
 
+        <!-- Quick Links -->
+        <div class="panel quick-links">
+          <div class="panel-heading">
+            <div class="heading-left">
+              <span>त्वरित लिंक / Quick Links</span>
+            </div>
+          </div>
 
-  <!-- Rekha Arya -->
-  <div class="panel cm-card">
-    <img
-      class="cm-avatar"
-      src="../images/rekha.png";
-      alt="Rekha Arya"
-    >
+          <a class="quick-link" href="#">
+            <span><i class="fa-regular fa-file-lines"></i> विभागीय आदेश</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
 
-    <div class="cm-text">
-      <span class="designation"></span>
-      <h4>Smt.Rekha Arya</h4>
-      <p>Cabinet Minister of Women and Child Welfare <br>Uttarakhand</p>
-   
-    </div>
-  </div>
+          <a class="quick-link" href="#">
+            <span><i class="fa-solid fa-chart-column"></i> बजट एवं वित्तीय विवरण</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
 
+          <a class="quick-link" href="#">
+            <span><i class="fa-solid fa-people-roof"></i> आंगनवाड़ी केंद्र सूची</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
 
-  <!-- Chief Secretary -->
- 
+          <a class="quick-link" href="#">
+            <span><i class="fa-solid fa-list-check"></i> योजनाओं की जानकारी</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
 
+          <a class="quick-link" href="#">
+            <span><i class="fa-solid fa-circle-question"></i> प्रश्न / शिकायत दर्ज करें</span>
+            <i class="fa-solid fa-chevron-right"></i>
+          </a>
+        </div>
 
-  <!-- Quick Links -->
-  <div class="panel quick-links">
-    <div class="panel-heading">
-      <div class="heading-left">
-        <span>त्वरित लिंक / Quick Links</span>
-      </div>
-    </div>
-
-    <a class="quick-link" href="#">
-      <span>
-        <i class="fa-regular fa-file-lines"></i>
-        विभागीय आदेश
-      </span>
-      <i class="fa-solid fa-chevron-right"></i>
-    </a>
-
-    <a class="quick-link" href="#">
-      <span>
-        <i class="fa-solid fa-chart-column"></i>
-        बजट एवं वित्तीय विवरण
-      </span>
-      <i class="fa-solid fa-chevron-right"></i>
-    </a>
-
-    <a class="quick-link" href="#">
-      <span>
-        <i class="fa-solid fa-people-roof"></i>
-        आंगनवाड़ी केंद्र सूची
-      </span>
-      <i class="fa-solid fa-chevron-right"></i>
-    </a>
-
-    <a class="quick-link" href="#">
-      <span>
-        <i class="fa-solid fa-list-check"></i>
-        योजनाओं की जानकारी
-      </span>
-      <i class="fa-solid fa-chevron-right"></i>
-    </a>
-
-    <a class="quick-link" href="#">
-      <span>
-        <i class="fa-solid fa-circle-question"></i>
-        प्रश्न / शिकायत दर्ज करें
-      </span>
-      <i class="fa-solid fa-chevron-right"></i>
-    </a>
-  </div>
-
-
-  
-
-</aside>
+      </aside>
     </div>
 
     <!-- IMPORTANT LINKS & INCOMPLETE APPLICATIONS -->
@@ -1269,6 +1251,9 @@
     </div>
   </footer>
 
+  <!-- Bootstrap JS Bundle (Required for Modal to function) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
   <script>
     // Mobile menu toggle
     const mobileToggle = document.getElementById("mobileToggle");
@@ -1342,6 +1327,18 @@
 
     // Start autoplay
     startAuto();
+
+    // ===== SERVICE IMAGE MODAL LOGIC =====
+    function openServiceModal(imageSrc, title) {
+      var modalImage = document.getElementById('modalServiceImage');
+      var modalTitle = document.getElementById('serviceImageModalLabel');
+      
+      modalImage.src = imageSrc;
+      modalTitle.innerText = title;
+      
+      var myModal = new bootstrap.Modal(document.getElementById('serviceImageModal'));
+      myModal.show();
+    }
   </script>
 </body>
 </html>
