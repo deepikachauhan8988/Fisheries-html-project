@@ -139,43 +139,68 @@
       line-height:1.45;
       font-weight:600;
     }
-    .brand-right{
-      min-width:350px;
-      height:126px;
-      display:flex;
-      align-items:center;
-      justify-content:flex-end;
-      overflow:hidden;
-      position:relative;
-      border-radius:2px;
-      background:
-        linear-gradient(90deg,rgba(255,255,255,0),rgba(221,242,255,.6)),
-        url("../images/wecd-uk-5.jpg") center/cover;
+    /* ================= HEADER RIGHT & LOGIN ================= */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
     }
-    .brand-right:before{
-      content:"बेटी बचाओ बेटी पढ़ाओ";
-      white-space:pre;
-      position:absolute;
-      left:18px;
-      top:33px;
-      z-index:2;
-      color:#083f78;
-      font-size:19px;
-      line-height:1.35;
-      font-weight:700;
-      text-align:center;
-      text-shadow:0 1px #fff;
+    .icds-logo {
+      width: 100px;
+      height: 90px;
+      object-fit: contain;
     }
-    .beti-icon{
-      position:absolute;
-      left:25px;
-      top:10px;
-      font-size:62px;
-      color:#f29b0b;
-      opacity:.95;
-      z-index:1;
+    .login-btn {
+      background: linear-gradient(90deg, #073f73, #0b4e8b);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 5px rgba(7, 59, 112, .2);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      border: 1px solid #063a70;
+    }
+    .login-btn:hover {
+      background: #063a70;
+      color: #ffd45b;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(7, 59, 112, .25);
+    }
+    .login-btn i {
+      font-size: 14px;
     }
 
+    /* Responsive adjustments for Login/Header */
+    @media (max-width: 992px) {
+      .icds-logo {
+        width: 80px;
+        height: 70px;
+      }
+      .login-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+    }
+    @media (max-width: 768px) {
+      .header-right {
+        gap: 12px;
+      }
+      .icds-logo {
+        width: 60px;
+        height: 55px;
+      }
+      .login-btn span {
+        display: none; /* Hides text on very small screens, just shows icon */
+      }
+      .login-btn {
+        padding: 10px 12px;
+      }
+    }
     /* ================= MAIN NAV ================= */
     .main-nav{
       background:linear-gradient(90deg,#073f73,#06477f,#073f73);
@@ -213,7 +238,7 @@
     }
     .nav-item i{font-size:15px}
 
-    /* ================= HERO ================= */
+    /* ================= HERO CAROUSEL ================= */
     .hero-wrap{
       padding:12px 0 15px;
       background:#f5f9fd;
@@ -221,29 +246,68 @@
     .hero{
       width:min(1425px,94%);
       margin:auto;
-      height:245px;
+      height:380px;
       border-radius:8px;
       overflow:hidden;
       position:relative;
-      background:linear-gradient(233deg, rgba(238, 249, 255, .98) 0%, rgba(239, 249, 255, .88) 34%, rgba(255, 255, 255, .05) 58%), url(../images/wecd-uk-3.jpg) center / cover;
       box-shadow:0 2px 10px rgba(4,52,91,.08);
       border:1px solid #e0ebf4;
     }
-    .hero:after{
+    /* Slider track */
+    .hero-slider{
+      position:absolute;
+      inset:0;
+      display:flex;
+      width:100%;
+      height:100%;
+      transition:transform .7s cubic-bezier(.4,.0,.2,1);
+      z-index:1;
+      /* Fixes transition blur */
+      transform: translateZ(0);
+      will-change: transform;
+    }
+    .hero-slide{
+      position:relative;
+      min-width:100%;
+      height:100%;
+      flex:0 0 100%;
+      /* Fixes transition blur */
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+    .hero-slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      /* Keeps image sharp during transforms */
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+    /* gradient overlay on top of image so text is readable */
+    .hero-slide::after{
       content:"";
       position:absolute;
-      right:0;top:0;bottom:0;
-      width:52%;
-      background:
-        linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.08)),
-        url("../images/wecd-uk-1.jpg") center/cover;
-      opacity:.96;
+      inset:0;
+      /* Fixed syntax and matched site theme (blue) */
+      background: linear-gradient(90deg, rgba(7, 59, 112, 0.85) 0%, rgba(7, 59, 112, 0.4) 50%, transparent 100%);
     }
-    .hero-content{
-      position:relative;
+
+    /* Overlay content (above slides) */
+    .hero-overlay{
+      position:absolute;
+      inset:0;
       z-index:3;
+      pointer-events:none;
+    }
+    .hero-overlay > *{pointer-events:auto}
+
+    .hero-content{
+      position:absolute;
+      left:0; top:0; bottom:0;
       width:48%;
-      height:100%;
       padding:20px 18px 10px 52px;
       display:flex;
       flex-direction:column;
@@ -253,18 +317,19 @@
     }
     .hero-title{
       margin:0;
-      color:#063f78;
+      color:#fff;
       font-size:31px;
       line-height:1.2;
       font-weight:700;
     }
     .hero-subtitle{
       margin:13px 0 0;
-      color:#184d7e;
+      color:#fff;
       font-size:17px;
       line-height:1.45;
       font-weight:600;
     }
+
     .hero-controls{
       position:absolute;
       left:30px;
@@ -275,14 +340,25 @@
       gap:7px;
     }
     .hero-arrow{
-      width:34px;height:34px;
-      border:0;border-radius:5px;
+      width:38px;height:38px;
+      border:0;border-radius:50%;
       background:#084477;
       color:#fff;
+      cursor:pointer;
+      transition:.2s;
+      display:grid;place-items:center;
     }
-    .dots{display:flex;gap:8px;margin-left:7px}
-    .dot{width:8px;height:8px;border-radius:50%;background:#7ca4c5}
-    .dot.active{background:#075095}
+    .hero-arrow:hover{background:#063f73;transform:scale(1.08)}
+    .hero-arrow i{font-size:14px}
+    .dots{display:flex;gap:8px;margin-left:10px}
+    .dot{
+      width:11px;height:11px;border-radius:50%;
+      background:rgba(255,255,255,.7);
+      border:2px solid #075095;
+      cursor:pointer;
+      transition:.2s;
+    }
+    .dot.active{background:#075095;transform:scale(1.15)}
 
     .hero-topics{
       position:absolute;
@@ -301,6 +377,10 @@
       color:#084477;
       font-weight:700;
       font-size:15px;
+      background:rgba(255,255,255,.6);
+      padding:6px 10px;
+      border-radius:8px;
+      backdrop-filter:blur(2px);
     }
     .topic-icon{
       width:36px;height:36px;
@@ -349,7 +429,6 @@
     .heading-left i{color:#0870bd}
     .view-all{font-size:13px;color:#0564ad;font-family:Inter,sans-serif}
 
-    /* updates */
     .updates-body{padding:2px 12px 8px}
     .update{
       min-height:95px;
@@ -406,7 +485,6 @@
       font-weight:600;
     }
 
-    /* services */
     .services-panel{padding-bottom:0}
     .service-grid{
       padding:10px 12px 12px;
@@ -429,21 +507,9 @@
       transition:.2s;
     }
     .service:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(0,0,0,.07)}
-    .service i{
-      font-size:31px;
-      margin-bottom:7px;
-    }
-    .service strong{
-      font-size:15px;
-      line-height:1.25;
-      color:#174d80;
-    }
-    .service small{
-      margin-top:4px;
-      font-size:13px;
-      color:#0d71ad;
-      font-weight:700;
-    }
+    .service i{font-size:31px;margin-bottom:7px}
+    .service strong{font-size:15px;line-height:1.25;color:#174d80}
+    .service small{margin-top:4px;font-size:13px;color:#0d71ad;font-weight:700}
     .pink{background:#fff0f7;border-color:#f5cade}.pink i{color:#df3780}
     .blue{background:#edf8ff;border-color:#c7e2f6}.blue i{color:#1189cb}
     .green{background:#effcf1;border-color:#cbe8d0}.green i{color:#179445}
@@ -463,17 +529,13 @@
       font-weight:700;
       font-size:20px;
       text-align:center;
-      background:
-        linear-gradient(90deg,rgba(255,255,255,.85),rgba(255,255,255,.48)),
+      background:linear-gradient(90deg,rgba(255,255,255,.85),rgba(255,255,255,.48)),
         url("https://images.unsplash.com/photo-1509099836639-18ba02c7c56a?auto=format&fit=crop&w=1100&q=80") center/cover;
     }
 
-    /* right sidebar */
     .cm-card{
       min-height:113px;
-      background:
-        linear-gradient(90deg,rgba(236,247,255,.94),rgba(226,242,255,.72)),
-        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80") center/cover;
+      background:linear-gradient(90deg,rgba(236,247,255,.94),rgba(226,242,255,.72));
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -481,57 +543,31 @@
       overflow:hidden;
     }
     .cm-avatar{
-      width:95px;
-      height:94px;
-      object-fit:cover;
-      object-position:center;
-      border-radius:5px;
-      background:#dbe8f1;
+      width:95px;height:94px;
+      object-fit:cover;object-position:center;
+      border-radius:5px;background:#dbe8f1;
     }
     .cm-text{padding-left:9px;flex:1}
-    .cm-text h4{
-      margin:0;
-      font-size:15px;
-      color:#07447a;
-      font-weight:700;
-    }
+    .cm-text h4{margin:0;font-size:15px;color:#07447a;font-weight:700}
     .cm-text p{margin:2px 0 5px;font-size:12px;line-height:1.2;color:#194f7c}
     .message-btn{
-      display:inline-flex;
-      align-items:center;
-      gap:5px;
-      color:#fff;
-      background:#0868b2;
-      border-radius:4px;
-      padding:5px 10px;
-      font-size:11px;
-      font-weight:700;
+      display:inline-flex;align-items:center;gap:5px;
+      color:#fff;background:#0868b2;border-radius:4px;
+      padding:5px 10px;font-size:11px;font-weight:700;
     }
     .quick-links{margin-top:12px}
     .quick-link{
       min-height:34px;
       border-bottom:1px solid #e5edf3;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:0 10px;
-      color:#164c7f;
-      font-size:13px;
-      font-weight:600;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 10px;color:#164c7f;font-size:13px;font-weight:600;
     }
     .quick-link span{display:flex;align-items:center;gap:9px}
     .quick-link i:first-child{color:#1168a8}
     .yojana{
-      margin-top:12px;
-      min-height:78px;
-      padding:9px 12px;
-      display:flex;
-      align-items:center;
-      gap:12px;
-      border-radius:7px;
-      background:
-        linear-gradient(90deg,rgba(255,255,255,.92),rgba(255,241,203,.85)),
-        url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80") center/cover;
+      margin-top:12px;min-height:78px;padding:9px 12px;
+      display:flex;align-items:center;gap:12px;border-radius:7px;
+      background:linear-gradient(90deg,rgba(255,255,255,.92),rgba(255,241,203,.85));
       border:1px solid #f1dca9;
     }
     .yojana-icon{
@@ -541,6 +577,87 @@
     }
     .yojana strong{display:block;font-size:21px;color:#0961a0;line-height:1}
     .yojana span{font-size:12px;color:#16507c;font-weight:600}
+
+    /* ================= IMPORTANT LINKS TABLE ================= */
+    .important-links-section{
+      width:min(1425px,94%);
+      margin:0 auto 14px;
+    }
+    .app-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: "Inter", sans-serif;
+      font-size: 14px;
+    }
+    .app-table th {
+      background: #eaf5ff;
+      color: #063f78;
+      font-weight: 700;
+      padding: 12px 10px;
+      text-align: left;
+      border-bottom: 2px solid #d6e7f4;
+    }
+    .app-table td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #e5edf3;
+      color: #164c7f;
+    }
+    .app-table tr:last-child td {
+      border-bottom: none;
+    }
+    .app-table tr:hover td {
+      background: #f8fbff;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      background: #ffeef0;
+      color: #ef2943;
+      border: 1px solid #ffd1d7;
+    }
+    .pdf-link {
+      color: #0868af;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .pdf-link:hover {
+      text-decoration: underline;
+    }
+    /* Responsive table adjustments */
+    @media (max-width: 768px) {
+      .app-table thead { display: none; }
+      .app-table, .app-table tbody, .app-table tr, .app-table td {
+        display: block;
+        width: 100%;
+      }
+      .app-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #cfe0ef;
+        border-radius: 8px;
+        padding: 10px;
+      }
+      .app-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+        border-bottom: 1px solid #e5edf3;
+        padding: 8px 0;
+      }
+      .app-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: #063f78;
+        text-align: left;
+        padding-right: 10px;
+      }
+      .app-table td:last-child { border-bottom: none; }
+    }
 
     /* ================= STATS ================= */
     .stats{
@@ -554,60 +671,39 @@
       border:1px solid #d6e7f4;
     }
     .stat{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:11px;
-      border-right:1px solid #c9dceb;
-      padding:8px 10px;
-      text-align:left;
+      display:flex;align-items:center;justify-content:center;gap:11px;
+      border-right:1px solid #c9dceb;padding:8px 10px;text-align:left;
     }
     .stat:last-child{border-right:0}
     .stat-icon{
       width:39px;height:39px;border-radius:50%;
       background:#d1eafb;color:#1265a3;
-      display:grid;place-items:center;
-      font-size:17px;
+      display:grid;place-items:center;font-size:17px;
     }
     .stat strong{display:block;color:#0c5a96;font-family:Inter,sans-serif;font-size:17px;line-height:1.1}
     .stat span{display:block;color:#174d7c;font-size:12px;line-height:1.2}
 
     /* ================= FOOTER ================= */
-    footer{
-      background:#063968;
-      color:#fff;
-      margin-top:0;
-    }
+    footer{background:#063968;color:#fff;margin-top:0}
     .footer-main{
-      width:min(1425px,94%);
-      margin:auto;
+      width:min(1425px,94%);margin:auto;
       padding:20px 0 14px;
-      display:grid;
-      grid-template-columns:1.6fr 1fr 1fr;
-      gap:35px;
+      display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:35px;
     }
     .footer-title{font-size:17px;font-weight:700;margin:0 0 7px}
     footer p,footer a{color:#dceaf5;font-size:13px;line-height:1.5}
     footer a{display:block;margin:4px 0}
     .footer-bottom{
       border-top:1px solid rgba(255,255,255,.16);
-      width:min(1425px,94%);
-      margin:auto;
-      padding:10px 0;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:15px;
-      font-family:Inter,sans-serif;
-      font-size:11px;
-      color:#dbeaf6;
+      width:min(1425px,94%);margin:auto;padding:10px 0;
+      display:flex;align-items:center;justify-content:space-between;gap:15px;
+      font-family:Inter,sans-serif;font-size:11px;color:#dbeaf6;
     }
 
     /* ================= MOBILE ================= */
     @media (max-width:1200px){
       .department-copy h1{font-size:29px}
       .department-copy p{font-size:16px}
-      .brand-right{min-width:285px}
       .content-grid{grid-template-columns:1fr 1.35fr}
       .sidebar{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
       .quick-links,.yojana{margin-top:0}
@@ -621,11 +717,9 @@
       .uk-logo{width:100px;height:90px}
       .department-copy h1{font-size:24px}
       .department-copy p{font-size:14px}
-      .brand-right{display:none}
-      .hero{height:230px}
+      .hero{height:340px}
       .hero-content{width:58%;padding-left:25px}
       .hero-title{font-size:27px}
-      .hero:after{width:48%}
       .hero-topics{width:190px;right:10px}
       .content-grid{grid-template-columns:1fr}
       .sidebar{grid-column:auto;display:grid;grid-template-columns:1fr 1fr 1fr}
@@ -654,29 +748,20 @@
       .main-nav{overflow-x:auto}
       .nav-inner{width:max-content;min-width:100%}
       .nav-item{min-width:125px;font-size:13px;min-height:45px}
-      .hero{height:360px}
-      .hero:after{
-        top:150px;left:0;bottom:0;width:100%;
-        background-position:center;
-      }
+      .hero{height:480px}
       .hero-content{
-        width:100%;
-        height:160px;
-        padding:15px 18px 0;
+        width:100%;height:180px;padding:15px 18px 0;
         justify-content:flex-start;
       }
       .hero-title{font-size:25px}
       .hero-subtitle{font-size:14px;margin-top:8px}
       .hero-topics{
-        top:auto;bottom:14px;left:15px;right:15px;
-        width:auto;
-        flex-direction:row;
-        justify-content:center;
-        gap:5px;
+        top:auto;bottom:60px;left:15px;right:15px;
+        width:auto;flex-direction:row;justify-content:center;gap:5px;
       }
       .topic{flex-direction:column;gap:3px;text-align:center;font-size:9px;max-width:68px}
       .topic-icon{width:31px;height:31px;flex-basis:31px;font-size:12px}
-      .hero-controls{left:12px;bottom:60px}
+      .hero-controls{left:12px;bottom:14px}
       .content-grid{width:94%}
       .service-grid{grid-template-columns:repeat(2,1fr)}
       .sidebar{display:grid;grid-template-columns:1fr}
@@ -696,7 +781,7 @@
       .department-copy p{font-size:10px}
       .uk-logo{width:62px;height:60px}
       .nav-item{min-width:112px}
-      .hero{height:350px}
+      .hero{height:440px}
       .hero-title{font-size:21px}
       .hero-subtitle{font-size:12px}
       .panel-heading{font-size:17px}
@@ -753,12 +838,15 @@
               <p>Women Empowerment &amp; Child Development Department,<br>Uttarakhand</p>
             </div>
           </div>
-  <div class="department-brand">
-            <img src="../images/icds_logo.jpeg" class="uk-logo" alt="Uttarakhand Government Logo">
-           
-          <div class="brand-right">
-           
+          
+          <div class="header-right">
+            <img src="../images/icds_logo.jpeg" class="icds-logo" alt="ICDS Logo">
+            <a href="#" class="login-btn">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <span>लॉगिन / Login</span>
+            </a>
           </div>
+
         </div>
       </div>
     </div>
@@ -778,27 +866,54 @@
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO CAROUSEL -->
   <section class="hero-wrap">
-    <div class="hero">
-      <div class="hero-content">
-        <h2 class="hero-title">सशक्त महिला<br>सुरक्षित बालक<br>समृद्ध उत्तराखंड</h2>
-        <p class="hero-subtitle">“महिला एवं बाल विकास के माध्यम से<br>सशक्त समाज की ओर”</p>
+    <div class="hero" id="hero">
+
+      <!-- Slides with real <img> tags -->
+      <div class="hero-slider" id="heroSlider">
+        <div class="hero-slide">
+          <img src="../images/wecd-uk-1.jpg" alt="Women and Child Development 1">
+        </div>
+        <div class="hero-slide">
+          <img src="../images/wecd-uk-3.jpg" alt="Women and Child Development 2">
+        </div>
+        <div class="hero-slide">
+          <img src="../images/wecd-uk-5.jpg" alt="Women and Child Development 3">
+        </div>
+        <div class="hero-slide">
+          <img src="../images/wecd-uk-1.jpg" alt="Women and Child Development 4">
+        </div>
+        <div class="hero-slide">
+          <img src="../images/wecd-uk-3.jpg" alt="Women and Child Development 5">
+        </div>
       </div>
 
-      <div class="hero-topics">
-        <div class="topic"><span class="topic-icon"><i class="fa-solid fa-venus"></i></span><span>महिला सशक्तिकरण</span></div>
-        <div class="topic"><span class="topic-icon"><i class="fa-solid fa-child"></i></span><span>बाल विकास</span></div>
-        <div class="topic"><span class="topic-icon"><i class="fa-solid fa-heart-pulse"></i></span><span>पोषण एवं स्वास्थ्य</span></div>
-        <div class="topic"><span class="topic-icon"><i class="fa-solid fa-shield-halved"></i></span><span>सुरक्षित बचपन</span></div>
-        <div class="topic"><span class="topic-icon"><i class="fa-solid fa-people-group"></i></span><span>संवेदनशील समाज</span></div>
-      </div>
+      <!-- Overlay content -->
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h2 class="hero-title">सशक्त महिला<br>सुरक्षित बालक<br>समृद्ध उत्तराखंड</h2>
+          <p class="hero-subtitle">"महिला एवं बाल विकास के माध्यम से<br>सशक्त समाज की ओर"</p>
+        </div>
 
-      <div class="hero-controls">
-        <button class="hero-arrow"><i class="fa-solid fa-chevron-left"></i></button>
-        <button class="hero-arrow"><i class="fa-solid fa-chevron-right"></i></button>
-        <div class="dots">
-          <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="hero-topics">
+          <div class="topic"><span class="topic-icon"><i class="fa-solid fa-venus"></i></span><span>महिला सशक्तिकरण</span></div>
+          <div class="topic"><span class="topic-icon"><i class="fa-solid fa-child"></i></span><span>बाल विकास</span></div>
+          <div class="topic"><span class="topic-icon"><i class="fa-solid fa-heart-pulse"></i></span><span>पोषण एवं स्वास्थ्य</span></div>
+          <div class="topic"><span class="topic-icon"><i class="fa-solid fa-shield-halved"></i></span><span>सुरक्षित बचपन</span></div>
+          <div class="topic"><span class="topic-icon"><i class="fa-solid fa-people-group"></i></span><span>संवेदनशील समाज</span></div>
+        </div>
+
+        <div class="hero-controls">
+          <button class="hero-arrow" id="prevBtn" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="hero-arrow" id="nextBtn" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="dots" id="dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -945,6 +1060,61 @@
       </aside>
     </div>
 
+    <!-- IMPORTANT LINKS & INCOMPLETE APPLICATIONS -->
+    <section class="panel important-links-section">
+      <div class="panel-heading">
+        <div class="heading-left">
+          <i class="fa-solid fa-link"></i>
+          <span>महत्वपूर्ण लिंक एवं अपूर्ण आवेदन / Important Links</span>
+        </div>
+        <a class="view-all" href="#">View All →</a>
+      </div>
+      <div style="padding: 5px 12px 12px; overflow-x: auto;">
+        <table class="app-table">
+          <thead>
+            <tr>
+              <th>क्र. (S.No)</th>
+              <th>आवेदन नाम (Application Name)</th>
+              <th>समय (Time)</th>
+              <th>शुरू तिथि (Start Date)</th>
+              <th>समाप्ति तिथि (End Date)</th>
+              <th>स्थिति (Status)</th>
+              <th>लिंक (PDF Link)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="क्र.">1</td>
+              <td data-label="आवेदन नाम">आंगनवाड़ी कार्यकर्ती/सहायिका भर्ती 2026</td>
+              <td data-label="समय">10:00 AM - 5:00 PM</td>
+              <td data-label="शुरू तिथि">01-09-2026</td>
+              <td data-label="समाप्ति तिथि">15-09-2026</td>
+              <td data-label="स्थिति"><span class="status-badge">Application Closed</span></td>
+              <td data-label="लिंक"><a href="#" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> Download</a></td>
+            </tr>
+            <tr>
+              <td data-label="क्र.">2</td>
+              <td data-label="आवेदन नाम">प्रधानमंत्री मातृ वंदना योजना आवेदन</td>
+              <td data-label="समय">11:00 AM - 4:00 PM</td>
+              <td data-label="शुरू तिथि">05-09-2026</td>
+              <td data-label="समाप्ति तिथि">20-09-2026</td>
+              <td data-label="स्थिति"><span class="status-badge">Application Closed</span></td>
+              <td data-label="लिंक"><a href="#" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> Download</a></td>
+            </tr>
+            <tr>
+              <td data-label="क्र.">3</td>
+              <td data-label="आवेदन नाम">बाल विकास परियोजना कार्यालय अधिकारी आवेदन</td>
+              <td data-label="समय">10:00 AM - 5:00 PM</td>
+              <td data-label="शुरू तिथि">10-09-2026</td>
+              <td data-label="समाप्ति तिथि">25-09-2026</td>
+              <td data-label="स्थिति"><span class="status-badge">Application Closed</span></td>
+              <td data-label="लिंक"><a href="#" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> Download</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     <!-- STATISTICS -->
     <section class="stats">
       <div class="stat">
@@ -998,12 +1168,78 @@
   </footer>
 
   <script>
+    // Mobile menu toggle
     const mobileToggle = document.getElementById("mobileToggle");
     const topLinks = document.getElementById("topLinks");
+    mobileToggle.addEventListener("click", () => topLinks.classList.toggle("open"));
 
-    mobileToggle.addEventListener("click", () => {
-      topLinks.classList.toggle("open");
+    // ===== HERO CAROUSEL =====
+    const slider     = document.getElementById("heroSlider");
+    const slides     = slider.querySelectorAll(".hero-slide");
+    const dots       = document.querySelectorAll(".dot");
+    const prevBtn    = document.getElementById("prevBtn");
+    const nextBtn    = document.getElementById("nextBtn");
+    const hero       = document.getElementById("hero");
+
+    const totalSlides = slides.length;
+    let currentIndex  = 0;
+    let autoTimer     = null;
+    const AUTO_INTERVAL = 4000; // 4 seconds
+
+    function goToSlide(index){
+      currentIndex = (index + totalSlides) % totalSlides;
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot,i) => dot.classList.toggle("active", i === currentIndex));
+    }
+
+    function nextSlide(){ goToSlide(currentIndex + 1); }
+    function prevSlide(){ goToSlide(currentIndex - 1); }
+
+    function startAuto(){
+      stopAuto();
+      autoTimer = setInterval(nextSlide, AUTO_INTERVAL);
+    }
+    function stopAuto(){
+      if(autoTimer){ clearInterval(autoTimer); autoTimer = null; }
+    }
+
+    // Button events
+    nextBtn.addEventListener("click", () => { nextSlide(); startAuto(); });
+    prevBtn.addEventListener("click", () => { prevSlide(); startAuto(); });
+
+    // Dot events
+    dots.forEach(dot => {
+      dot.addEventListener("click", () => {
+        goToSlide(parseInt(dot.dataset.index, 10));
+        startAuto();
+      });
     });
+
+    // Pause on hover, resume on leave
+    hero.addEventListener("mouseenter", stopAuto);
+    hero.addEventListener("mouseleave", startAuto);
+
+    // Touch / swipe support for mobile
+    let touchStartX = 0;
+    hero.addEventListener("touchstart", e => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAuto();
+    }, {passive:true});
+    hero.addEventListener("touchend", e => {
+      const diff = e.changedTouches[0].screenX - touchStartX;
+      if(diff > 40){ prevSlide(); }
+      else if(diff < -40){ nextSlide(); }
+      startAuto();
+    }, {passive:true});
+
+    // Keyboard arrows
+    document.addEventListener("keydown", e => {
+      if(e.key === "ArrowLeft"){ prevSlide(); startAuto(); }
+      if(e.key === "ArrowRight"){ nextSlide(); startAuto(); }
+    });
+
+    // Start autoplay
+    startAuto();
   </script>
 </body>
 </html>
