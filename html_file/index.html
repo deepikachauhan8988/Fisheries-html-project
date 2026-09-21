@@ -1,567 +1,1009 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="hi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Women Empowerment and Child Development Department Uttarakhand"
-    />
-    <title>WECD | Women Empowerment & Child Development</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Women Empowerment and Child Development Department Uttarakhand">
+  <title>महिला सशक्तिकरण एवं बाल विकास विभाग | उत्तराखंड</title>
 
-    <link
-      rel="icon"
-      type="image/jpeg"
-      href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Emblem_of_Uttarakhand.svg/250px-Emblem_of_Uttarakhand.svg.png"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/index.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    />
+  <link rel="icon" href="../images/uk_logo.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
 
-  
-  </head>
+  <style>
+    :root{
+      --gov-blue:#0b477f;
+      --gov-dark:#063a70;
+      --gov-deep:#052f5b;
+      --blue:#1262a0;
+      --sky:#eaf5ff;
+      --gold:#f4b400;
+      --orange:#ef8b13;
+      --green:#159447;
+      --pink:#e83e83;
+      --purple:#7652b6;
+      --cyan:#19a5c8;
+      --text:#073b70;
+      --muted:#60748a;
+      --border:#cfe0ef;
+      --shadow:0 5px 18px rgba(7,59,112,.10);
+    }
 
-  <body>
-    <!-- =========================
-       HEADER / NAVIGATION
-       ========================= -->
-    <header class="header-sticky">
-      <!-- Top Government Bar -->
-      <div class="topbar">
-        <div class="container">
-          <div class="topbar-inner">
-            
-            <!-- Header Row containing Gov Name and Toggle Button -->
-            <div class="topbar-header">
-              <a href="#" class="gov-name">
-                उत्तराखंड सरकार | Govt. of Uttarakhand
-              </a>
-              
-              <button class="topbar-toggle" id="topbarToggle" aria-label="Toggle Navigation">
-                <i class="fa-solid fa-bars"></i>
-              </button>
-            </div>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:#f5f9fd;
+      color:var(--text);
+      font-family:"Hind","Inter",sans-serif;
+      font-size:16px;
+    }
+    a{text-decoration:none}
+    img{max-width:100%;display:block}
 
-            <!-- Collapsible Nav Links -->
-            <div class="top-links-group" id="topbarLinks">
-              <ul class="top-links left">
-                <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
-                <li><a href="#" target="_blank"><i class="fa-solid fa-globe"></i> Official Website</a></li>
-              </ul>
-              <ul class="top-links right">
-                <li><a href="#" target="_blank"><i class="fa-solid fa-hand-holding-heart"></i> Meri Yojana</a></li>
-                <li><a href="#"><i class="fa-solid fa-user-shield"></i> Admin Login</a></li>
-                <li><a href="#"><i class="fa-solid fa-phone"></i> Contact</a></li>
-              </ul>
-            </div>
-            
-          </div>
-        </div>
-      </div>
+    /* ================= TOP GOVERNMENT BAR ================= */
+    .topbar{
+      background:linear-gradient(90deg,#0b477f,#0a4277,#0b477f);
+      color:#fff;
+      min-height:48px;
+    }
+    .topbar .container,
+    .department-header .container,
+    .main-container{
+      width:min(1480px,94%);
+      margin:auto;
+    }
+    .topbar-inner{
+      min-height:48px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .gov-brand{
+      color:#fff;
+      font-weight:700;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      white-space:nowrap;
+      font-size:16px;
+    }
+    .gov-brand i{font-size:19px}
+    .top-links{
+      display:flex;
+      align-items:center;
+      gap:27px;
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .top-links a{
+      color:#fff;
+      font-weight:600;
+      font-size:14px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      transition:.2s;
+    }
+    .top-links a:hover{color:#ffd45b}
+    .mobile-toggle{
+      display:none;
+      background:none;
+      border:0;
+      color:#fff;
+      font-size:22px;
+    }
 
-      <!-- Department Header -->
-      <div class="department-header">
-        <div class="container">
-          <div class="brand-area">
-            <img
-              src="../images/uk_logo.jpeg"
-              alt="Uttarakhand Government Logo"
-              class="brand-logo"
-            />
-            <img
-              src="../images/icds_logo.jpeg"
-              alt="ICDS Logo"
-              class="icds-logo"
-              onerror="this.style.display = 'none'"
-            />
-            <div>
-              <h1 class="department-title">
-                महिला सशक्तिकरण एवं बाल विकास विभाग
-              </h1>
-              <p class="department-subtitle">
-                Women Empowerment &amp; Child Development Department,
-                Uttarakhand
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+    /* ================= DEPARTMENT BRAND HEADER ================= */
+    .department-header{
+      background:#fff;
+      border-bottom:1px solid #dbe8f2;
+    }
+    .brand-row{
+      min-height:134px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:22px;
+    }
+    .department-brand{
+      display:flex;
+      align-items:center;
+      gap:24px;
+      min-width:0;
+    }
+    .uk-logo{
+      width:128px;
+      height:105px;
+      object-fit:contain;
+      border-right:1px solid #b8cad9;
+      padding-right:20px;
+    }
+    .department-copy h1{
+      margin:0 0 5px;
+      color:#083f78;
+      font-size:34px;
+      line-height:1.18;
+      font-weight:700;
+    }
+    .department-copy p{
+      margin:0;
+      color:#0c4179;
+      font-family:Inter,sans-serif;
+      font-size:18px;
+      line-height:1.45;
+      font-weight:600;
+    }
+    .brand-right{
+      min-width:350px;
+      height:126px;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      overflow:hidden;
+      position:relative;
+      border-radius:2px;
+      background:
+        linear-gradient(90deg,rgba(255,255,255,0),rgba(221,242,255,.6)),
+        url("../images/wecd-uk-5.jpg") center/cover;
+    }
+    .brand-right:before{
+      content:"बेटी बचाओ बेटी पढ़ाओ";
+      white-space:pre;
+      position:absolute;
+      left:18px;
+      top:33px;
+      z-index:2;
+      color:#083f78;
+      font-size:19px;
+      line-height:1.35;
+      font-weight:700;
+      text-align:center;
+      text-shadow:0 1px #fff;
+    }
+    .beti-icon{
+      position:absolute;
+      left:25px;
+      top:10px;
+      font-size:62px;
+      color:#f29b0b;
+      opacity:.95;
+      z-index:1;
+    }
 
-    <!-- =========================
-       MAIN DASHBOARD LAYOUT
-       ========================= -->
-    <main class="main-wrap">
-      <div class="container">
-        <div class="dashboard-grid">
-          <!-- LEFT COLUMN: LATEST UPDATES -->
-          <aside class="panel">
-            <div class="panel-header">
-              <i class="fa-solid fa-bullhorn"></i>
-              <h2 class="panel-title">नवीनतम अपडेट्स / New Updates</h2>
-            </div>
-            <div class="panel-body">
-              <div class="timeline">
-                <!-- Update 1 -->
-                <div class="update-item">
-                  <span class="update-date">17-Sep-2026</span>
-                  <p class="update-content">
-                    आंगनवाड़ी कार्यकर्ती पुरस्कार 2025-26 हेतु नवीनतम सूचना
-                  </p>
-                  <a href="#" class="update-link" target="_blank">
-                    पूर्ण विज्ञप्ति <i class="fa-solid fa-arrow-right"></i>
-                  </a>
-                </div>
+    /* ================= MAIN NAV ================= */
+    .main-nav{
+      background:linear-gradient(90deg,#073f73,#06477f,#073f73);
+      box-shadow:0 2px 7px rgba(0,0,0,.12);
+      position:relative;
+      z-index:10;
+    }
+    .nav-inner{
+      width:min(1480px,94%);
+      margin:auto;
+      display:flex;
+      align-items:stretch;
+      justify-content:center;
+    }
+    .nav-item{
+      flex:1;
+      max-width:190px;
+      color:#fff;
+      min-height:48px;
+      padding:0 17px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      font-weight:600;
+      font-size:16px;
+      border-bottom:4px solid transparent;
+      transition:.2s;
+    }
+    .nav-item:hover,
+    .nav-item.active{
+      background:rgba(255,255,255,.08);
+      border-bottom-color:#ffbf00;
+      color:#fff;
+    }
+    .nav-item i{font-size:15px}
 
-                <!-- Update 2 -->
-                <div class="update-item upcoming">
-                  <span class="update-date">15-Sep-2026</span>
-                  <p class="update-content">
-                    क्रेच वर्कर तथा क्रेच सहायिका भर्ती संबंधी सूचना
-                  </p>
-                  <a href="#" class="update-link" target="_blank">
-                    PDF देखें <i class="fa-solid fa-file-pdf"></i>
-                  </a>
-                </div>
+    /* ================= HERO ================= */
+    .hero-wrap{
+      padding:12px 0 15px;
+      background:#f5f9fd;
+    }
+    .hero{
+      width:min(1425px,94%);
+      margin:auto;
+      height:245px;
+      border-radius:8px;
+      overflow:hidden;
+      position:relative;
+      background:linear-gradient(233deg, rgba(238, 249, 255, .98) 0%, rgba(239, 249, 255, .88) 34%, rgba(255, 255, 255, .05) 58%), url(../images/wecd-uk-3.jpg) center / cover;
+      box-shadow:0 2px 10px rgba(4,52,91,.08);
+      border:1px solid #e0ebf4;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;
+      right:0;top:0;bottom:0;
+      width:52%;
+      background:
+        linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.08)),
+        url("../images/wecd-uk-1.jpg") center/cover;
+      opacity:.96;
+    }
+    .hero-content{
+      position:relative;
+      z-index:3;
+      width:48%;
+      height:100%;
+      padding:20px 18px 10px 52px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+    .hero-title{
+      margin:0;
+      color:#063f78;
+      font-size:31px;
+      line-height:1.2;
+      font-weight:700;
+    }
+    .hero-subtitle{
+      margin:13px 0 0;
+      color:#184d7e;
+      font-size:17px;
+      line-height:1.45;
+      font-weight:600;
+    }
+    .hero-controls{
+      position:absolute;
+      left:30px;
+      bottom:12px;
+      z-index:4;
+      display:flex;
+      align-items:center;
+      gap:7px;
+    }
+    .hero-arrow{
+      width:34px;height:34px;
+      border:0;border-radius:5px;
+      background:#084477;
+      color:#fff;
+    }
+    .dots{display:flex;gap:8px;margin-left:7px}
+    .dot{width:8px;height:8px;border-radius:50%;background:#7ca4c5}
+    .dot.active{background:#075095}
 
-                <!-- Update 3 -->
-                <div class="update-item">
-                  <span class="update-date">10-Sep-2026</span>
-                  <p class="update-content">विभागीय महत्वपूर्ण सूचना</p>
-                  <a href="#" class="update-link" target="_blank">
-                    विवरण देखें <i class="fa-solid fa-arrow-right"></i>
-                  </a>
-                </div>
+    .hero-topics{
+      position:absolute;
+      z-index:4;
+      right:22px;
+      top:17px;
+      width:225px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .topic{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      color:#084477;
+      font-weight:700;
+      font-size:15px;
+    }
+    .topic-icon{
+      width:36px;height:36px;
+      border-radius:50%;
+      color:#fff;
+      display:grid;
+      place-items:center;
+      flex:0 0 36px;
+      font-size:16px;
+    }
+    .topic:nth-child(1) .topic-icon{background:#e62c79}
+    .topic:nth-child(2) .topic-icon{background:#f29a0d}
+    .topic:nth-child(3) .topic-icon{background:#24a75d}
+    .topic:nth-child(4) .topic-icon{background:#168bc9}
+    .topic:nth-child(5) .topic-icon{background:#7651ad}
 
-                <!-- Update 4 -->
-                <div class="update-item">
-                  <span class="update-date">01-Sep-2026</span>
-                  <p class="update-content">मासिक प्रगति रिपोर्ट प्रकाशित</p>
-                  <a href="#" class="update-link" target="_blank">
-                    रिपोर्ट डाउनलोड करें <i class="fa-solid fa-download"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </aside>
+    /* ================= CONTENT ================= */
+    .content-grid{
+      display:grid;
+      grid-template-columns:1.03fr 1.62fr .82fr;
+      gap:15px;
+      width:min(1425px,94%);
+      margin:0 auto 14px;
+      align-items:start;
+    }
+    .panel{
+      background:#fff;
+      border:1px solid #cfe0ef;
+      border-radius:8px;
+      overflow:hidden;
+      box-shadow:0 2px 9px rgba(7,59,112,.045);
+    }
+    .panel-heading{
+      min-height:51px;
+      padding:9px 13px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      border-bottom:1px solid #dce8f1;
+      color:#084477;
+      font-size:20px;
+      font-weight:700;
+    }
+    .heading-left{display:flex;align-items:center;gap:9px}
+    .heading-left i{color:#0870bd}
+    .view-all{font-size:13px;color:#0564ad;font-family:Inter,sans-serif}
 
-          <!-- RIGHT COLUMN: APPLICATIONS & NOTICES -->
-          <section class="panel">
-            <div class="panel-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
-              <!-- Left Side: Icon and Title grouped together -->
-              <div style="display: flex; align-items: center; gap: 10px;">
-                <i class="fa-solid fa-newspaper"></i>
-                <h2 class="panel-title" style="margin: 0;">
-                  महत्वपूर्ण लिंक एवं आवेदन / Important Links
-                </h2>
-              </div>
-              
-              <!-- Right Side: Login Button (Updated to open Modal) -->
-              <div>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
-                  <i class="fas fa-sign-in-alt"></i> Login
-                </button>
-              </div>
-            </div>
+    /* updates */
+    .updates-body{padding:2px 12px 8px}
+    .update{
+      min-height:95px;
+      padding:11px 0;
+      border-bottom:1px solid #e5edf3;
+      display:grid;
+      grid-template-columns:70px 1fr;
+      gap:11px;
+    }
+    .update:last-child{border-bottom:0}
+    .date-box{
+      height:54px;
+      border-radius:6px;
+      background:linear-gradient(180deg,#0b4e8b,#075092);
+      color:#fff;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      font-family:Inter,sans-serif;
+      box-shadow:0 2px 4px rgba(0,61,116,.16);
+    }
+    .date-box strong{font-size:13px;line-height:1}
+    .date-box span{font-size:11px;margin-top:3px}
+    .update h4{
+      margin:0 0 4px;
+      font-size:15px;
+      line-height:1.25;
+      font-weight:600;
+      color:#164c7f;
+    }
+    .update a{
+      color:#0868af;
+      font-size:13px;
+      font-weight:600;
+    }
+    .new-badge{
+      display:inline-block;
+      padding:2px 7px;
+      border-radius:5px;
+      background:#ef2943;
+      color:#fff;
+      font-size:9px;
+      font-family:Inter,sans-serif;
+      margin-left:4px;
+      vertical-align:middle;
+    }
+    .updates-footer{
+      text-align:right;
+      padding:4px 5px 5px;
+      font-size:12px;
+      color:#0868af;
+      font-weight:600;
+    }
 
-            <div class="panel-body">
-              <div class="app-grid">
-                <!-- APP CARD 1: OPEN -->
-                <div
-                  class="app-card"
-                  style="border-left: 5px solid var(--green)"
-                >
-                  <div class="status-badge status-open">
-                    <i class="fa-solid fa-circle-check"></i> Application Open
-                  </div>
-                  <h3 class="app-title">
-                    आंगनवाड़ी कार्यकर्ती पुरस्कार 2025-26
-                  </h3>
+    /* services */
+    .services-panel{padding-bottom:0}
+    .service-grid{
+      padding:10px 12px 12px;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:11px;
+    }
+    .service{
+      min-height:113px;
+      border-radius:8px;
+      border:1px solid;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:9px;
+      position:relative;
+      overflow:hidden;
+      transition:.2s;
+    }
+    .service:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(0,0,0,.07)}
+    .service i{
+      font-size:31px;
+      margin-bottom:7px;
+    }
+    .service strong{
+      font-size:15px;
+      line-height:1.25;
+      color:#174d80;
+    }
+    .service small{
+      margin-top:4px;
+      font-size:13px;
+      color:#0d71ad;
+      font-weight:700;
+    }
+    .pink{background:#fff0f7;border-color:#f5cade}.pink i{color:#df3780}
+    .blue{background:#edf8ff;border-color:#c7e2f6}.blue i{color:#1189cb}
+    .green{background:#effcf1;border-color:#cbe8d0}.green i{color:#179445}
+    .yellow{background:#fff8e8;border-color:#f2dfb7}.yellow i{color:#df7808}
+    .purple{background:#f5efff;border-color:#ddcff4}.purple i{color:#7444ae}
+    .cyan{background:#eefcff;border-color:#c4e9ef}.cyan i{color:#1594aa}
 
-                  <div class="date-grid">
-                    <div class="date-box">
-                      <div class="label">आरंभ तिथि (Start Date)</div>
-                      <div class="value">05-Jun-2026, 10:00 AM</div>
-                    </div>
-                    <div class="date-box">
-                      <div class="label">अंतिम तिथि (End Date)</div>
-                      <div class="value">10-Jul-2026, 05:00 PM</div>
-                    </div>
-                  </div>
+    .mini-banner{
+      margin:0 12px 12px;
+      min-height:79px;
+      border-radius:7px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#07457b;
+      font-weight:700;
+      font-size:20px;
+      text-align:center;
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.85),rgba(255,255,255,.48)),
+        url("https://images.unsplash.com/photo-1509099836639-18ba02c7c56a?auto=format&fit=crop&w=1100&q=80") center/cover;
+    }
 
-                  <div class="app-links">
-                    <button
-                      class="link-btn primary"
-                      data-bs-toggle="modal"
-                      data-bs-target="#projectModal"
-                    >
-                      <i class="fa-solid fa-list"></i> अर्ह परियोजनाओं की सूची
-                    </button>
-                    <a href="#" class="link-btn" target="_blank"
-                      ><i class="fa-solid fa-file-pdf"></i> शासनादेश</a
-                    >
-                    <a href="#" class="link-btn" target="_blank"
-                      ><i class="fa-solid fa-book"></i> निर्देशिका</a
-                    >
-                    <a href="#" class="link-btn" target="_blank"
-                      ><i class="fa-solid fa-file-lines"></i> पूर्ण विज्ञप्ति</a
-                    >
-                  </div>
-                </div>
+    /* right sidebar */
+    .cm-card{
+      min-height:113px;
+      background:
+        linear-gradient(90deg,rgba(236,247,255,.94),rgba(226,242,255,.72)),
+        url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80") center/cover;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:11px;
+      overflow:hidden;
+    }
+    .cm-avatar{
+      width:95px;
+      height:94px;
+      object-fit:cover;
+      object-position:center;
+      border-radius:5px;
+      background:#dbe8f1;
+    }
+    .cm-text{padding-left:9px;flex:1}
+    .cm-text h4{
+      margin:0;
+      font-size:15px;
+      color:#07447a;
+      font-weight:700;
+    }
+    .cm-text p{margin:2px 0 5px;font-size:12px;line-height:1.2;color:#194f7c}
+    .message-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+      color:#fff;
+      background:#0868b2;
+      border-radius:4px;
+      padding:5px 10px;
+      font-size:11px;
+      font-weight:700;
+    }
+    .quick-links{margin-top:12px}
+    .quick-link{
+      min-height:34px;
+      border-bottom:1px solid #e5edf3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 10px;
+      color:#164c7f;
+      font-size:13px;
+      font-weight:600;
+    }
+    .quick-link span{display:flex;align-items:center;gap:9px}
+    .quick-link i:first-child{color:#1168a8}
+    .yojana{
+      margin-top:12px;
+      min-height:78px;
+      padding:9px 12px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      border-radius:7px;
+      background:
+        linear-gradient(90deg,rgba(255,255,255,.92),rgba(255,241,203,.85)),
+        url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80") center/cover;
+      border:1px solid #f1dca9;
+    }
+    .yojana-icon{
+      width:48px;height:48px;border-radius:50%;
+      background:#fff;display:grid;place-items:center;
+      color:#0a5794;font-size:25px;box-shadow:0 2px 6px rgba(0,0,0,.1)
+    }
+    .yojana strong{display:block;font-size:21px;color:#0961a0;line-height:1}
+    .yojana span{font-size:12px;color:#16507c;font-weight:600}
 
-                <!-- APP CARD 2: UPCOMING -->
-                <div
-                  class="app-card"
-                  style="border-left: 5px solid var(--orange)"
-                >
-                  <div class="status-badge status-upcoming">
-                    <i class="fa-solid fa-clock"></i> Application will open on
-                  </div>
-                  <h3 class="app-title">क्रेच वर्कर तथा क्रेच सहायिका भर्ती</h3>
+    /* ================= STATS ================= */
+    .stats{
+      width:min(1425px,94%);
+      margin:0 auto 0;
+      background:#eaf5ff;
+      border-radius:8px 8px 0 0;
+      min-height:66px;
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      border:1px solid #d6e7f4;
+    }
+    .stat{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:11px;
+      border-right:1px solid #c9dceb;
+      padding:8px 10px;
+      text-align:left;
+    }
+    .stat:last-child{border-right:0}
+    .stat-icon{
+      width:39px;height:39px;border-radius:50%;
+      background:#d1eafb;color:#1265a3;
+      display:grid;place-items:center;
+      font-size:17px;
+    }
+    .stat strong{display:block;color:#0c5a96;font-family:Inter,sans-serif;font-size:17px;line-height:1.1}
+    .stat span{display:block;color:#174d7c;font-size:12px;line-height:1.2}
 
-                  <div class="date-grid">
-                    <div class="date-box">
-                      <div class="label">आरंभ तिथि (Start Date)</div>
-                      <div class="value">20-Sep-2026, 10:00 AM</div>
-                    </div>
-                    <div class="date-box">
-                      <div class="label">अंतिम तिथि (End Date)</div>
-                      <div class="value">20-Oct-2026, 05:00 PM</div>
-                    </div>
-                  </div>
+    /* ================= FOOTER ================= */
+    footer{
+      background:#063968;
+      color:#fff;
+      margin-top:0;
+    }
+    .footer-main{
+      width:min(1425px,94%);
+      margin:auto;
+      padding:20px 0 14px;
+      display:grid;
+      grid-template-columns:1.6fr 1fr 1fr;
+      gap:35px;
+    }
+    .footer-title{font-size:17px;font-weight:700;margin:0 0 7px}
+    footer p,footer a{color:#dceaf5;font-size:13px;line-height:1.5}
+    footer a{display:block;margin:4px 0}
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.16);
+      width:min(1425px,94%);
+      margin:auto;
+      padding:10px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+      font-family:Inter,sans-serif;
+      font-size:11px;
+      color:#dbeaf6;
+    }
 
-                  <div class="app-links">
-                    <button
-                      class="link-btn primary"
-                      data-bs-toggle="modal"
-                      data-bs-target="#awcModal"
-                    >
-                      <i class="fa-solid fa-list"></i> अर्ह आंगनवाड़ी केन्द्रों
-                      की सूची
-                    </button>
-                    <a href="#" class="link-btn" target="_blank"
-                      ><i class="fa-solid fa-file-pdf"></i> शासनादेश</a
-                    >
-                    <a href="#" class="link-btn" target="_blank"
-                      ><i class="fa-solid fa-book"></i> निर्देशिका</a
-                    >
-                  </div>
-                </div>
+    /* ================= MOBILE ================= */
+    @media (max-width:1200px){
+      .department-copy h1{font-size:29px}
+      .department-copy p{font-size:16px}
+      .brand-right{min-width:285px}
+      .content-grid{grid-template-columns:1fr 1.35fr}
+      .sidebar{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+      .quick-links,.yojana{margin-top:0}
+      .cm-card{height:100%}
+    }
 
-                <!-- APP CARD 3: CLOSED -->
-                <div
-                  class="app-card"
-                  style="border-left: 5px solid var(--red); opacity: 0.85"
-                >
-                  <div class="status-badge status-closed">
-                    <i class="fa-solid fa-circle-xmark"></i> Application Closed
-                  </div>
-                  <h3 class="app-title">पिछली भर्ती / आवेदन</h3>
-                  <div class="date-grid">
-                    <div class="date-box">
-                      <div class="label">आरंभ तिथि (Start Date)</div>
-                      <div class="value">01-May-2026, 10:00 AM</div>
-                    </div>
-                    <div class="date-box">
-                      <div class="label">अंतिम तिथि (End Date)</div>
-                      <div class="value">31-May-2026, 05:00 PM</div>
-                    </div>
-                  </div>
+    @media (max-width:992px){
+      .top-links{gap:13px}
+      .nav-item{font-size:14px;padding:0 9px}
+      .brand-row{min-height:115px}
+      .uk-logo{width:100px;height:90px}
+      .department-copy h1{font-size:24px}
+      .department-copy p{font-size:14px}
+      .brand-right{display:none}
+      .hero{height:230px}
+      .hero-content{width:58%;padding-left:25px}
+      .hero-title{font-size:27px}
+      .hero:after{width:48%}
+      .hero-topics{width:190px;right:10px}
+      .content-grid{grid-template-columns:1fr}
+      .sidebar{grid-column:auto;display:grid;grid-template-columns:1fr 1fr 1fr}
+      .stats{grid-template-columns:repeat(3,1fr)}
+      .stat:nth-child(3){border-right:0}
+      .stat:nth-child(4),.stat:nth-child(5){border-top:1px solid #c9dceb}
+      .footer-main{grid-template-columns:1fr 1fr}
+    }
 
-                  <div class="app-links">
-                    <a href="#" class="link-btn" target="_blank"
-                      ><i class="fa-solid fa-file-pdf"></i> शासनादेश</a
-                    >
-                    <a href="#" class="link-btn" target="_blank"
-                      ><i class="fa-solid fa-book"></i> निर्देशिका</a
-                    >
-                    <a href="#" class="link-btn" target="_blank"
-                      ><i class="fa-solid fa-file-lines"></i> पूर्ण विज्ञप्ति</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-    </main>
-
-    <!-- =========================
-       MODALS
-       ========================= -->
-
-    <!-- LOGIN MODAL -->
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          
-          <!-- Modal Header -->
-          <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">
-              <i class="fas fa-sign-in-alt"></i> User Login
-            </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-
-          <!-- Modal Body (Form) -->
-          <div class="modal-body">
-            <form onsubmit="handleLogin(event)">
-              
-              <!-- Mobile Number Field -->
-              <div class="mb-3">
-                <label for="mobileNumber" class="form-label">Mobile Number</label>
-                <div class="input-group">
-                  <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                  <input type="tel" class="form-control" id="mobileNumber" placeholder="Enter 10-digit mobile number" required pattern="[0-9]{10}">
-                </div>
-              </div>
-
-              <!-- Password Field -->
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <div class="input-group">
-                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                  <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
-                </div>
-              </div>
-
-              <!-- Submit Button -->
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary">
-                  <i class="fas fa-arrow-right-to-bracket"></i> Submit
-                </button>
-              </div>
-
-            </form>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
-    <!-- PROJECT LIST MODAL -->
-    <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-xl modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header custom">
-            <h5 class="modal-title">
-              <i class="fa-solid fa-folder-tree"></i> आंगनवाड़ी कार्यकर्ती
-              पुरस्कार 2025-26 के आवेदन के लिए अर्ह परियोजनाओं की सूची
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover modal-table">
-                <thead>
-                  <tr>
-                    <th>S.No</th>
-                    <th>District</th>
-                    <th>Project</th>
-                    <th class="text-center">Applicable for 2026 Puruskar</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Dehradun</td>
-                    <td>Project Dehradun</td>
-                    <td class="text-center">
-                      <i class="fa-solid fa-check text-success"></i>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Haridwar</td>
-                    <td>Project Haridwar</td>
-                    <td class="text-center">
-                      <i class="fa-solid fa-xmark text-danger"></i><br /><small
-                        class="text-muted"
-                        >Already got puruskar in 2025</small
-                      >
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Nainital</td>
-                    <td>Project Nainital</td>
-                    <td class="text-center">
-                      <i class="fa-solid fa-check text-success"></i>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ANGANWADI CENTRE LIST MODAL -->
-    <div class="modal fade" id="awcModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-xl modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header custom">
-            <h5 class="modal-title">
-              <i class="fa-solid fa-location-dot"></i> क्रेच (पालना) केंद्रों पर
-              भर्ती हेतु अर्ह आंगनबाड़ी केन्द्रों की सूची
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div class="table-responsive">
-              <table class="table table-hover modal-table">
-                <thead>
-                  <tr>
-                    <th>S.No</th>
-                    <th>District</th>
-                    <th>Project</th>
-                    <th>Sector</th>
-                    <th>Center Code</th>
-                    <th>Anganwadi Center</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Dehradun</td>
-                    <td>Project Dehradun</td>
-                    <td>Sector 1</td>
-                    <td>UK-001</td>
-                    <td>Anganwadi Centre 001</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Haridwar</td>
-                    <td>Project Haridwar</td>
-                    <td>Sector 2</td>
-                    <td>UK-002</td>
-                    <td>Anganwadi Centre 002</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Nainital</td>
-                    <td>Project Nainital</td>
-                    <td>Sector 3</td>
-                    <td>UK-003</td>
-                    <td>Anganwadi Centre 003</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- =========================
-       FOOTER
-       ========================= -->
-    <footer>
-      <div class="container">
-        <div class="footer-grid">
-          <div>
-            <h3 class="footer-title">
-              Women Empowerment & Child Development Department
-            </h3>
-            <p style="font-size: 14px; line-height: 1.6">
-              उत्तराखंड सरकार के अंतर्गत महिला सशक्तिकरण एवं बाल विकास विभाग का
-              जालपृष्ठ। यहां हम महिलाओं और बच्चों के कल्याण, शिक्षा और स्वास्थ्य
-              से जुड़ी योजनाओं का संचालन करते हैं।
-            </p>
-          </div>
-          <div class="footer-links">
-            <h3 class="footer-title">Quick Links</h3>
-            <a href="#">About Us</a>
-            <a href="#">Schemes & Programs</a>
-            <a href="#">Notifications</a>
-            <a href="#">RTI</a>
-          </div>
-          <div class="footer-links">
-            <h3 class="footer-title">Contact Us</h3>
-            <a href="#"
-              ><i class="fa-solid fa-location-dot"></i> Secretariat, Dehradun,
-              UK</a
-            >
-            <a href="#"><i class="fa-solid fa-phone"></i> +91-135-000-0000</a>
-            <a href="#"
-              ><i class="fa-solid fa-envelope"></i> contact@wecd.uk.gov.in</a
-            >
-          </div>
-        </div>
-        <div class="footer-bottom">
-          © 2026 Women Empowerment & Child Development Department, Government of
-          Uttarakhand. All Rights Reserved.
-        </div>
-      </div>
-    </footer>
-
-    <!-- =========================
-       SCRIPTS
-       ========================= -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Toggle Script for Mobile Navbar -->
-    <script>
-      document.getElementById("topbarToggle").addEventListener("click", function() {
-          document.getElementById("topbarLinks").classList.toggle("active");
-      });
-    </script>
-
-    <!-- Login Form Submission Script -->
-    <script>
-      function handleLogin(event) {
-        event.preventDefault(); // Prevents page reload
-        const mobile = document.getElementById('mobileNumber').value;
-        const pass = document.getElementById('password').value;
-        
-        // Add your login logic here (e.g., API call to check credentials)
-        alert("Login Submitted!\nMobile: " + mobile);
-        
-        // Close the modal after submit
-        var myModalEl = document.getElementById('loginModal');
-        var modal = bootstrap.Modal.getInstance(myModalEl);
-        modal.hide();
+    @media (max-width:768px){
+      .topbar-inner{min-height:50px}
+      .gov-brand{font-size:13px}
+      .mobile-toggle{display:block}
+      .top-links-wrap{display:none;width:100%;padding-bottom:10px}
+      .top-links-wrap.open{display:block}
+      .topbar-inner{flex-wrap:wrap}
+      .top-links{flex-direction:column;align-items:flex-start;gap:9px}
+      .top-links-group{width:100%;display:none}
+      .top-links-group.open{display:block}
+      .top-links-group .top-links{padding:5px 0}
+      .brand-row{min-height:96px}
+      .department-brand{gap:12px}
+      .uk-logo{width:76px;height:70px;padding-right:10px}
+      .department-copy h1{font-size:19px;line-height:1.2}
+      .department-copy p{font-size:12px;line-height:1.25}
+      .main-nav{overflow-x:auto}
+      .nav-inner{width:max-content;min-width:100%}
+      .nav-item{min-width:125px;font-size:13px;min-height:45px}
+      .hero{height:360px}
+      .hero:after{
+        top:150px;left:0;bottom:0;width:100%;
+        background-position:center;
       }
-    </script>
-  </body>
+      .hero-content{
+        width:100%;
+        height:160px;
+        padding:15px 18px 0;
+        justify-content:flex-start;
+      }
+      .hero-title{font-size:25px}
+      .hero-subtitle{font-size:14px;margin-top:8px}
+      .hero-topics{
+        top:auto;bottom:14px;left:15px;right:15px;
+        width:auto;
+        flex-direction:row;
+        justify-content:center;
+        gap:5px;
+      }
+      .topic{flex-direction:column;gap:3px;text-align:center;font-size:9px;max-width:68px}
+      .topic-icon{width:31px;height:31px;flex-basis:31px;font-size:12px}
+      .hero-controls{left:12px;bottom:60px}
+      .content-grid{width:94%}
+      .service-grid{grid-template-columns:repeat(2,1fr)}
+      .sidebar{display:grid;grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr 1fr}
+      .stat{border-right:1px solid #c9dceb!important}
+      .stat:nth-child(even){border-right:0!important}
+      .stat:nth-child(n+3){border-top:1px solid #c9dceb}
+      .footer-main{grid-template-columns:1fr;gap:15px}
+      .footer-bottom{flex-direction:column;align-items:flex-start}
+    }
+
+    @media (max-width:480px){
+      body{font-size:14px}
+      .topbar .container,.department-header .container,.main-container,.nav-inner,.hero,.content-grid,.stats,.footer-main,.footer-bottom{width:96%}
+      .gov-brand{font-size:11px}
+      .department-copy h1{font-size:16px}
+      .department-copy p{font-size:10px}
+      .uk-logo{width:62px;height:60px}
+      .nav-item{min-width:112px}
+      .hero{height:350px}
+      .hero-title{font-size:21px}
+      .hero-subtitle{font-size:12px}
+      .panel-heading{font-size:17px}
+      .service-grid{gap:7px;padding:8px}
+      .service{min-height:105px}
+      .service i{font-size:27px}
+      .service strong{font-size:13px}
+      .update{grid-template-columns:62px 1fr}
+      .date-box{height:50px}
+      .stats{grid-template-columns:1fr}
+      .stat{border-right:0!important;border-top:1px solid #c9dceb}
+      .stat:first-child{border-top:0}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP GOVERNMENT BAR -->
+  <header>
+    <div class="topbar">
+      <div class="container">
+        <div class="topbar-inner">
+          <a href="#" class="gov-brand">
+            <i class="fa-solid fa-landmark"></i>
+            <span>उत्तराखंड सरकार &nbsp;|&nbsp; Govt. of Uttarakhand</span>
+          </a>
+
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <div class="top-links-group" id="topLinks">
+            <ul class="top-links">
+              <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+              <li><a href="#"><i class="fa-solid fa-globe"></i> Official Website</a></li>
+              <li><a href="#"><i class="fa-solid fa-hand-holding-heart"></i> Meri Yojana</a></li>
+              <li><a href="#"><i class="fa-solid fa-user-shield"></i> Admin Login</a></li>
+              <li><a href="#"><i class="fa-solid fa-phone"></i> Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEPARTMENT HEADER -->
+    <div class="department-header">
+      <div class="container">
+        <div class="brand-row">
+          <div class="department-brand">
+            <img src="../images/uk_logo.jpeg" class="uk-logo" alt="Uttarakhand Government Logo">
+            <div class="department-copy">
+              <h1>महिला सशक्तिकरण एवं बाल विकास विभाग</h1>
+              <p>Women Empowerment &amp; Child Development Department,<br>Uttarakhand</p>
+            </div>
+          </div>
+  <div class="department-brand">
+            <img src="../images/icds_logo.jpeg" class="uk-logo" alt="Uttarakhand Government Logo">
+           
+          <div class="brand-right">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="main-nav">
+      <div class="nav-inner">
+        <a class="nav-item active" href="#"><i class="fa-solid fa-house"></i> मुख्य पृष्ठ</a>
+        <a class="nav-item" href="#">विभाग के बारे में</a>
+        <a class="nav-item" href="#">योजनाएँ</a>
+        <a class="nav-item" href="#">सेवाएँ</a>
+        <a class="nav-item" href="#">आंगनवाड़ी</a>
+        <a class="nav-item" href="#">बाल संरक्षण</a>
+        <a class="nav-item" href="#">सूचना का अधिकार</a>
+        <a class="nav-item" href="#">संपर्क करें</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-wrap">
+    <div class="hero">
+      <div class="hero-content">
+        <h2 class="hero-title">सशक्त महिला<br>सुरक्षित बालक<br>समृद्ध उत्तराखंड</h2>
+        <p class="hero-subtitle">“महिला एवं बाल विकास के माध्यम से<br>सशक्त समाज की ओर”</p>
+      </div>
+
+      <div class="hero-topics">
+        <div class="topic"><span class="topic-icon"><i class="fa-solid fa-venus"></i></span><span>महिला सशक्तिकरण</span></div>
+        <div class="topic"><span class="topic-icon"><i class="fa-solid fa-child"></i></span><span>बाल विकास</span></div>
+        <div class="topic"><span class="topic-icon"><i class="fa-solid fa-heart-pulse"></i></span><span>पोषण एवं स्वास्थ्य</span></div>
+        <div class="topic"><span class="topic-icon"><i class="fa-solid fa-shield-halved"></i></span><span>सुरक्षित बचपन</span></div>
+        <div class="topic"><span class="topic-icon"><i class="fa-solid fa-people-group"></i></span><span>संवेदनशील समाज</span></div>
+      </div>
+
+      <div class="hero-controls">
+        <button class="hero-arrow"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="hero-arrow"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="dots">
+          <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="content-grid">
+
+      <!-- LEFT: UPDATES -->
+      <section class="panel">
+        <div class="panel-heading">
+          <div class="heading-left">
+            <i class="fa-solid fa-bullhorn"></i>
+            <span>नवीनतम अपडेट्स / New Updates</span>
+          </div>
+          <a class="view-all" href="#">View All →</a>
+        </div>
+
+        <div class="updates-body">
+          <article class="update">
+            <div class="date-box"><strong>17</strong><span>Sep<br>2026</span></div>
+            <div>
+              <h4>आंगनवाड़ी कार्यकर्ती पुरस्कार 2025-26 हेतु नवीनतम सूचना <span class="new-badge">NEW</span></h4>
+              <a href="#">पूर्ण विज्ञप्ति →</a>
+            </div>
+          </article>
+
+          <article class="update">
+            <div class="date-box"><strong>15</strong><span>Sep<br>2026</span></div>
+            <div>
+              <h4>प्रधानमंत्री मातृ वंदना योजना के तहत आवेदन की अंतिम तिथि बढ़ाई गई</h4>
+              <a href="#">पूर्ण विज्ञप्ति →</a>
+            </div>
+          </article>
+
+          <article class="update">
+            <div class="date-box"><strong>12</strong><span>Sep<br>2026</span></div>
+            <div>
+              <h4>बाल विकास परियोजना अधिकारियों के लिए प्रशिक्षण कार्यक्रम का आयोजन</h4>
+              <a href="#">अधिक जानकारी →</a>
+            </div>
+          </article>
+
+          <article class="update">
+            <div class="date-box"><strong>08</strong><span>Sep<br>2026</span></div>
+            <div>
+              <h4>पोषण अभियान के अंतर्गत जनजागरूकता रैली का आयोजन</h4>
+              <a href="#">पूर्ण विज्ञप्ति →</a>
+            </div>
+          </article>
+
+          <div class="updates-footer">सभी अपडेट्स देखें →</div>
+        </div>
+      </section>
+
+      <!-- CENTER: SERVICES -->
+      <section class="panel services-panel">
+        <div class="panel-heading">
+          <div class="heading-left"><span>हमारी प्रमुख सेवाएँ</span></div>
+        </div>
+
+        <div class="service-grid">
+          <a href="#" class="service pink">
+            <i class="fa-solid fa-person-breastfeeding"></i>
+            <strong>आंगनवाड़ी सेवाएँ</strong>
+            <small>→</small>
+          </a>
+          <a href="#" class="service blue">
+            <i class="fa-solid fa-person-pregnant"></i>
+            <strong>मातृत्व एवं शिशु<br>कल्याण</strong>
+            <small>→</small>
+          </a>
+          <a href="#" class="service green">
+            <i class="fa-solid fa-children"></i>
+            <strong>बाल संरक्षण</strong>
+            <small>→</small>
+          </a>
+          <a href="#" class="service yellow">
+            <i class="fa-solid fa-bowl-food"></i>
+            <strong>पोषण अभियान</strong>
+            <small>→</small>
+          </a>
+          <a href="#" class="service purple">
+            <i class="fa-solid fa-people-group"></i>
+            <strong>महिला सशक्तिकरण<br>योजनाएँ</strong>
+            <small>→</small>
+          </a>
+          <a href="#" class="service cyan">
+            <i class="fa-solid fa-file-lines"></i>
+            <strong>योजनाओं की सूची</strong>
+            <small>→</small>
+          </a>
+          <a href="#" class="service pink">
+            <i class="fa-solid fa-file-circle-check"></i>
+            <strong>आवेदन / पंजीकरण</strong>
+            <small>→</small>
+          </a>
+          <a href="#" class="service blue">
+            <i class="fa-solid fa-circle-info"></i>
+            <strong>सूचना का अधिकार</strong>
+            <small>→</small>
+          </a>
+        </div>
+
+        <div class="mini-banner">
+          हर बच्चा पढ़ेगा<br>तभी तो बढ़ेगा उत्तराखंड
+        </div>
+      </section>
+
+      <!-- RIGHT: SIDEBAR -->
+      <aside class="sidebar">
+        <div class="panel cm-card">
+          <img
+            class="cm-avatar"
+            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=260&q=80"
+            alt="Chief Minister"
+          >
+          <div class="cm-text">
+            <h4>श्री पुष्कर सिंह धामी</h4>
+            <p>मुख्यमंत्री<br>उत्तराखंड</p>
+            <a href="#" class="message-btn">संदेश पढ़ें →</a>
+          </div>
+        </div>
+
+        <div class="panel quick-links">
+          <div class="panel-heading">
+            <div class="heading-left"><span>त्वरित लिंक / Quick Links</span></div>
+          </div>
+          <a class="quick-link" href="#"><span><i class="fa-regular fa-file-lines"></i> विभागीय आदेश</span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="quick-link" href="#"><span><i class="fa-solid fa-chart-column"></i> बजट एवं वित्तीय विवरण</span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="quick-link" href="#"><span><i class="fa-solid fa-people-roof"></i> आंगनवाड़ी केंद्र सूची</span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="quick-link" href="#"><span><i class="fa-solid fa-list-check"></i> योजनाओं की जानकारी</span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="quick-link" href="#"><span><i class="fa-solid fa-circle-question"></i> प्रश्न / शिकायत दर्ज करें</span><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+        <a class="yojana" href="#">
+          <div class="yojana-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <div>
+            <strong>मेरी योजना</strong>
+            <span>सरकारी योजनाओं की जानकारी<br>एक ही स्थान पर →</span>
+          </div>
+        </a>
+      </aside>
+    </div>
+
+    <!-- STATISTICS -->
+    <section class="stats">
+      <div class="stat">
+        <div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div><strong>13</strong><span>जिले</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><i class="fa-solid fa-people-group"></i></div>
+        <div><strong>1000+</strong><span>आंगनवाड़ी केंद्र</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><i class="fa-solid fa-child-reaching"></i></div>
+        <div><strong>500+</strong><span>बच्चों के लिए योजनाएँ</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+        <div><strong>100+</strong><span>महिला समूह</span></div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon"><i class="fa-solid fa-seedling"></i></div>
+        <div><strong>सशक्त उत्तराखंड</strong><span>हमारा संकल्प</span></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-main">
+      <div>
+        <h3 class="footer-title">Women Empowerment &amp; Child Development Department</h3>
+        <p>उत्तराखंड सरकार के अंतर्गत महिला सशक्तिकरण एवं बाल विकास विभाग का जालपृष्ठ। यहां महिलाओं और बच्चों के कल्याण, शिक्षा और स्वास्थ्य से जुड़ी योजनाओं की जानकारी उपलब्ध है।</p>
+      </div>
+      <div>
+        <h3 class="footer-title">Quick Links</h3>
+        <a href="#">About Us</a>
+        <a href="#">Schemes &amp; Programs</a>
+        <a href="#">Notifications</a>
+        <a href="#">RTI</a>
+      </div>
+      <div>
+        <h3 class="footer-title">Contact Us</h3>
+        <a href="#"><i class="fa-solid fa-location-dot"></i> Secretariat, Dehradun, UK</a>
+        <a href="#"><i class="fa-solid fa-phone"></i> +91-135-000-0000</a>
+        <a href="#"><i class="fa-solid fa-envelope"></i> contact@wecd.uk.gov.in</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Women Empowerment &amp; Child Development Department, Uttarakhand. All Rights Reserved.</span>
+      <span>Disclaimer &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Sitemap &nbsp;|&nbsp; Contact Us</span>
+    </div>
+  </footer>
+
+  <script>
+    const mobileToggle = document.getElementById("mobileToggle");
+    const topLinks = document.getElementById("topLinks");
+
+    mobileToggle.addEventListener("click", () => {
+      topLinks.classList.toggle("open");
+    });
+  </script>
+</body>
 </html>
