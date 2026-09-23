@@ -56,6 +56,27 @@
       width:min(1480px,94%);
       margin:auto;
     }
+    .hero-person-info{
+      text-align:center;
+      margin-top:10px;
+      color:#fff;
+      position:relative;
+      z-index:5;
+    }
+    .hero-person-info h3{
+      margin:0;
+      font-size:18px;
+      font-weight:700;
+      line-height:1.4;
+      text-shadow:0 2px 4px rgba(0,0,0,.5);
+    }
+    .hero-person-info p{
+      margin:3px 0 0;
+      font-size:12px;
+      font-weight:500;
+      line-height:1.5;
+      text-shadow:0 2px 4px rgba(0,0,0,.5);
+    }
     .topbar-inner{
       min-height:48px;
       display:flex;
@@ -63,6 +84,7 @@
       justify-content:space-between;
       gap:20px;
     }
+    
     .gov-brand{
       color:#fff;
       font-weight:700;
@@ -98,6 +120,181 @@
       color:#fff;
       font-size:22px;
     }
+  
+/* ================= LOGIN MODAL ================= */
+
+.login-modal {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* Header */
+.login-modal-header {
+  background: linear-gradient(135deg, #174a8b, #176b9e);
+  color: #fff;
+  border-bottom: none;
+  padding: 22px 25px;
+}
+
+.login-modal-header .modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+
+.login-modal-header .modal-title i {
+  margin-right: 8px;
+}
+
+.login-subtitle {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* Body */
+.login-modal-body {
+  padding: 28px 30px 25px;
+  background: #fff;
+}
+
+.login-modal-body .form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+
+.login-modal-body .input-group {
+  height: 48px;
+}
+
+.login-modal-body .input-group-text {
+  background: #f1f5f9;
+  border: 1px solid #d9e0e7;
+  color: #174a8b;
+  min-width: 48px;
+  justify-content: center;
+}
+
+.login-modal-body .form-control {
+  height: 48px;
+  border: 1px solid #d9e0e7;
+  font-size: 14px;
+}
+
+.login-modal-body .form-control:focus {
+  border-color: #176b9e;
+  box-shadow: 0 0 0 0.2rem rgba(23, 107, 158, 0.12);
+}
+
+/* Password Toggle */
+.password-toggle {
+  border: 1px solid #d9e0e7;
+  background: #f8fafc;
+  color: #555;
+}
+
+.password-toggle:hover {
+  background: #eef2f7;
+}
+
+/* Login Options */
+.login-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0 22px;
+  font-size: 13px;
+}
+
+.form-check-label {
+  color: #555;
+}
+
+.forgot-password {
+  color: #176b9e;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Login Submit */
+.login-submit-btn {
+  height: 48px;
+  border: none;
+  border-radius: 7px;
+  background: linear-gradient(135deg, #174a8b, #176b9e);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.login-submit-btn:hover {
+  background: linear-gradient(135deg, #123b70, #145c87);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* Footer */
+.login-modal-footer {
+  justify-content: center;
+  gap: 5px;
+  background: #f8fafc;
+  border-top: 1px solid #e5e7eb;
+  padding: 15px;
+  font-size: 13px;
+  color: #666;
+}
+
+.login-modal-footer a {
+  color: #174a8b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-modal-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+
+  .login-modal {
+    margin: 15px;
+  }
+
+  .login-modal-header {
+    padding: 18px 20px;
+  }
+
+  .login-modal-body {
+    padding: 22px 20px;
+  }
+
+  .login-modal-header .modal-title {
+    font-size: 19px;
+  }
+
+  .login-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .login-modal-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 
     /* ================= DEPARTMENT BRAND HEADER ================= */
     .department-header{
@@ -164,6 +361,7 @@
       transition: all 0.3s ease;
       white-space: nowrap;
       border: 1px solid #063a70;
+      cursor: pointer;
     }
     .login-btn:hover {
       background: #063a70;
@@ -174,7 +372,25 @@
     .login-btn i {
       font-size: 14px;
     }
+.hero-person-block {
+  text-align: center;
+}
 
+.hero-person-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 8px 0 4px;
+  line-height: 1.3;
+}
+
+.hero-person-designation {
+  font-size: 16px;
+  font-weight: 500;
+  color: #f1f1f1;
+  line-height: 1.5;
+  margin: 0;
+}
     /* Responsive adjustments for Login/Header */
     @media (max-width: 992px) {
       .icds-logo {
@@ -195,7 +411,7 @@
         height: 55px;
       }
       .login-btn span {
-        display: none; /* Hides text on very small screens, just shows icon */
+        display: none;
       }
       .login-btn {
         padding: 10px 12px;
@@ -207,7 +423,6 @@
       box-shadow:0 2px 7px rgba(0,0,0,.12);
       position:relative;
       z-index:10;
-   
     }
     .nav-inner{
       width:min(1480px,94%);
@@ -254,7 +469,6 @@
       box-shadow:0 2px 10px rgba(4,52,91,.08);
       border:1px solid #e0ebf4;
     }
-    /* Slider track */
     .hero-slider{
       position:absolute;
       inset:0;
@@ -263,7 +477,6 @@
       height:100%;
       transition:transform .7s cubic-bezier(.4,.0,.2,1);
       z-index:1;
-      /* Fixes transition blur */
       transform: translateZ(0);
       will-change: transform;
     }
@@ -272,7 +485,6 @@
       min-width:100%;
       height:100%;
       flex:0 0 100%;
-      /* Fixes transition blur */
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       transform: translateZ(0);
@@ -282,21 +494,17 @@
       height:100%;
       object-fit:cover;
       display:block;
-      /* Keeps image sharp during transforms */
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       transform: translateZ(0);
     }
-    /* gradient overlay on top of image so text is readable */
     .hero-slide::after{
       content:"";
       position:absolute;
       inset:0;
-      /* Fixed syntax and matched site theme (blue) */
       background: linear-gradient(90deg, rgba(7, 59, 112, 0.85) 0%, rgba(7, 59, 112, 0.4) 50%, transparent 100%);
     }
 
-    /* Overlay content (above slides) */
     .hero-overlay{
       position:absolute;
       inset:0;
@@ -308,18 +516,33 @@
     .hero-content{
       position:absolute;
       left:0; top:0; bottom:0;
-      width:48%;
-      padding:20px 18px 10px 52px;
+      width:72%;
+      padding:20px 24px 10px 38px;
       display:flex;
-      flex-direction:column;
       align-items:center;
-      justify-content:center;
+      gap:32px;
+    }
+    .hero-person-card{
+      flex:0 0 180px;
       text-align:center;
+    }
+    .hero-person{
+      width:120px;height:120px;
+      object-fit:cover;
+      object-position:center top;
+      border:4px solid rgba(255,255,255,.92);
+      border-radius:50%;
+      box-shadow:0 5px 16px rgba(0,0,0,.22);
+    }
+    .hero-message{
+      flex:1;
+      min-width:0;
+      text-align:left;
     }
     .hero-title{
       margin:0;
       color:#fff;
-      font-size:31px;
+      font-size:20px;
       line-height:1.2;
       font-weight:700;
     }
@@ -365,8 +588,8 @@
       position:absolute;
       z-index:4;
       right:22px;
-      top:17px;
-      width:225px;
+      top:74px;
+      width:111px;
       display:flex;
       flex-direction:column;
       gap:10px;
@@ -493,7 +716,6 @@
       grid-template-columns:repeat(2,1fr);
       gap:11px;
     }
-    /* Added cursor:pointer so user knows it's clickable */
     .service{
       min-height:90px;
       border-radius:8px;
@@ -568,8 +790,8 @@
     .cm-avatar{
       width:95px;height:94px;
       object-fit:cover;object-position:center;
-      border-radius:5px;background:#dbe8f1;
       border-radius: 44px;
+      background:#dbe8f1;
     }
     .cm-text{padding-left:9px;flex:1}
     .cm-text h4{margin:0;font-size:15px;color:#07447a;font-weight:700}
@@ -652,7 +874,6 @@
     .pdf-link:hover {
       text-decoration: underline;
     }
-    /* Responsive table adjustments */
     @media (max-width: 768px) {
       .app-table thead { display: none; }
       .app-table, .app-table tbody, .app-table tr, .app-table td {
@@ -742,7 +963,8 @@
       .department-copy h1{font-size:24px}
       .department-copy p{font-size:14px}
       .hero{height:340px}
-      .hero-content{width:58%;padding-left:25px}
+      .hero-content{width:64%;padding:20px 22px 10px 25px;gap:14px}
+      .hero-person{width:84px;height:84px;flex-basis:84px}
       .hero-title{font-size:27px}
       .hero-topics{width:190px;right:10px}
       .content-grid{grid-template-columns:1fr}
@@ -806,8 +1028,10 @@
       .uk-logo{width:62px;height:60px}
       .nav-item{min-width:112px}
       .hero{height:440px}
-      .hero-title{font-size:21px}
-      .hero-subtitle{font-size:12px}
+      .hero-content{gap:10px;padding-right:14px;padding-left:14px}
+      .hero-person{width:64px;height:64px;flex-basis:64px}
+      .hero-title{font-size:20px}
+      .hero-subtitle{font-size:11px}
       .panel-heading{font-size:17px}
       .service-grid{gap:7px;padding:8px; grid-template-columns:1fr}
       .service{min-height:80px; padding:8px;}
@@ -863,83 +1087,203 @@
               <p>Women Empowerment &amp; Child Development Department,<br>Uttarakhand</p>
             </div>
           </div>
-            <nav class="main-nav">
-      <div class="nav-inner">
-      
-      
-      </div>
-    </nav>
+          
           <div class="header-right">
             <img src="../images/icds_logo.jpeg" class="icds-logo" alt="ICDS Logo">
-            <a href="#" class="login-btn">
+            <a href="#" class="login-btn" data-bs-toggle="modal" data-bs-target="#loginModal">
               <i class="fa-solid fa-right-to-bracket"></i>
               <span>लॉगिन / Login</span>
             </a>
-             <a href="#" class="login-btn">
+            <a href="#" class="login-btn">
               <i class="fa-solid fa-address-book"></i>
               <span>संपर्क करें</span>
             </a>
-             
           </div>
- 
         </div>
       </div>
     </div>
 
     <!-- MAIN NAVIGATION -->
-  
+    <nav class="main-nav">
+      <div class="nav-inner">
+        <!-- Nav items can go here -->
+      </div>
+    </nav>
   </header>
+
+  <!-- ================= LOGIN MODAL (Moved out of nav - direct child of body) ================= -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content login-modal">
+
+        <!-- Modal Header -->
+        <div class="modal-header login-modal-header">
+          <div>
+            <h5 class="modal-title" id="loginModalLabel">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              लॉगिन / Login
+            </h5>
+            <p class="login-subtitle">कृपया अपना विवरण दर्ज करें</p>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body login-modal-body">
+          <form id="loginForm">
+            <!-- Mobile Number -->
+            <div class="mb-3">
+              <label for="mobileNumber" class="form-label">मोबाइल नंबर / Mobile Number</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-mobile-screen-button"></i></span>
+                <input type="tel" class="form-control" id="mobileNumber" name="mobile" placeholder="मोबाइल नंबर दर्ज करें" maxlength="10" pattern="[0-9]{10}" required>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">पासवर्ड / Password</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+                <input type="password" class="form-control" id="loginPassword" name="password" placeholder="पासवर्ड दर्ज करें" required>
+                <button class="btn password-toggle" type="button" id="togglePassword">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Remember / Forgot -->
+            <div class="login-options">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe">
+                <label class="form-check-label" for="rememberMe">मुझे याद रखें</label>
+              </div>
+              <a href="#" class="forgot-password">पासवर्ड भूल गए?</a>
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="btn login-submit-btn w-100">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              लॉगिन करें / Login
+            </button>
+          </form>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer login-modal-footer">
+          <span>अभी तक पंजीकरण नहीं किया?</span>
+          <a href="#">पंजीकरण करें / Register</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <!-- HERO CAROUSEL -->
   <section class="hero-wrap">
     <div class="hero" id="hero">
-
-      <!-- Slides with real <img> tags -->
       <div class="hero-slider" id="heroSlider">
-        <div class="hero-slide">
-          <img src="../images/images-11.jpeg" alt="Women and Child Development 1">
-        </div>
-        <div class="hero-slide">
-          <img src="../images/images-9.jpeg" alt="Women and Child Development 2">
-        </div>
-        <div class="hero-slide">
-          <img src="../images/images-10.jpeg" alt="Women and Child Development 3">
-        </div>
-        <div class="hero-slide">
-          <img src="../images/images-6.jpeg" alt="Women and Child Development 4">
-        </div>
-        <div class="hero-slide">
-          <img src="../images/images-3.jpeg" alt="Women and Child Development 5">
-        </div>
+        <div class="hero-slide"><img src="../images/images-11.jpeg" alt="Women and Child Development 1"></div>
+        <div class="hero-slide"><img src="../images/images-9.jpeg" alt="Women and Child Development 2"></div>
+        <div class="hero-slide"><img src="../images/images-10.jpeg" alt="Women and Child Development 3"></div>
+        <div class="hero-slide"><img src="../images/images-6.jpeg" alt="Women and Child Development 4"></div>
+        <div class="hero-slide"><img src="../images/images-3.jpeg" alt="Women and Child Development 5"></div>
       </div>
 
-      <!-- Overlay content -->
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <h2 class="hero-title">सशक्त महिला<br>सुरक्षित बालक<br>समृद्ध उत्तराखंड</h2>
-          <p class="hero-subtitle">"महिला एवं बाल विकास के माध्यम से<br>सशक्त समाज की ओर"</p>
-        </div>
+   <div class="hero-overlay">
 
-        <div class="hero-topics">
-          <div class="topic"><span class="topic-icon"><i class="fa-solid fa-venus"></i></span><span>महिला सशक्तिकरण</span></div>
-          <div class="topic"><span class="topic-icon"><i class="fa-solid fa-child"></i></span><span>बाल विकास</span></div>
-          <div class="topic"><span class="topic-icon"><i class="fa-solid fa-heart-pulse"></i></span><span>पोषण एवं स्वास्थ्य</span></div>
-          <div class="topic"><span class="topic-icon"><i class="fa-solid fa-shield-halved"></i></span><span>सुरक्षित बचपन</span></div>
-          <div class="topic"><span class="topic-icon"><i class="fa-solid fa-people-group"></i></span><span>संवेदनशील समाज</span></div>
-        </div>
+  <!-- LEFT: CM -->
+  <div class="hero-content">
+<div class="hero-person-block">
 
-        <div class="hero-controls">
-          <button class="hero-arrow" id="prevBtn" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
-          <button class="hero-arrow" id="nextBtn" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
-          <div class="dots" id="dots">
-            <span class="dot active" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
-            <span class="dot" data-index="3"></span>
-            <span class="dot" data-index="4"></span>
-          </div>
-        </div>
-      </div>
+  <img
+    class="hero-person"
+    src="../images/cm.png"
+    alt="Uttarakhand Chief Minister Pushkar Singh Dhami"
+  >
+
+  <h3 class="hero-person-name">Sh.Pushkar Singh Dhami</h3>
+
+  <p class="hero-person-designation">
+  Hon'ble Chief Minister
+Uttarakhand
+  </p>
+
+</div>
+    <div class="hero-person-info">
+
+       <h2 class="hero-title">
+      सशक्त महिला<br>
+      सुरक्षित बालक<br>
+      समृद्ध उत्तराखंड
+    </h2>
+
+    <p class="hero-subtitle">
+      "महिला एवं बाल विकास के माध्यम से<br>
+      सशक्त समाज की ओर"
+    </p>
+
+     
+    </div>
+
+  </div>
+
+
+ 
+
+  </div>
+
+
+  <!-- RIGHT: MINISTER -->
+  
+  <div class="hero-topics">
+
+    <img
+      class="hero-person"
+      src="../images/rekha.png"
+      alt="Uttarakhand Women and Child Development Minister Rekha Arya"
+    >
+
+    <!-- Minister Name & Designation -->
+    <div class="hero-person-info">
+      <h3>Smt.Rekha Arya</h3>
+      <p>Cabinet Minister of Women and Child Welfare Uttarakhand
+</p>
+    </div>
+
+  </div>
+
+
+  <!-- CONTROLS -->
+  <div class="hero-controls">
+
+    <button
+      class="hero-arrow"
+      id="prevBtn"
+      aria-label="Previous"
+    >
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <button
+      class="hero-arrow"
+      id="nextBtn"
+      aria-label="Next"
+    >
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <div class="dots" id="dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+      <span class="dot" data-index="4"></span>
+    </div>
+
+  </div>
+
+</div>
     </div>
   </section>
 
@@ -994,14 +1338,13 @@
         </div>
       </section>
 
-      <!-- CENTER: SERVICES (Clickable to open image in modal) -->
+      <!-- CENTER: SERVICES -->
       <section class="panel services-panel">
         <div class="panel-heading">
           <div class="heading-left"><span>हमारी प्रमुख सेवाएँ</span></div>
         </div>
 
         <div class="service-grid">
-          <!-- Added onclick attributes to pass the image source and title -->
           <div class="service pink" onclick="openServiceModal('../images/images-3.jpeg', 'आंगनवाड़ी सेवाएँ')">
             <img src="../images/images-3.jpeg" alt="आंगनवाड़ी" class="service-img">
             <div class="service-text">
@@ -1066,28 +1409,10 @@
             </div>
           </div>
         </div>
-
-        <!-- Bootstrap Modal for Image -->
-        <div class="modal fade" id="serviceImageModal" tabindex="-1" aria-labelledby="serviceImageModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="serviceImageModalLabel">सेवा विवरण</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body text-center">
-                <img src="" alt="Service Image" id="modalServiceImage" class="img-fluid rounded" style="max-height: 70vh; width: auto;">
-              </div>
-            </div>
-          </div>
-        </div>
-
       </section>
 
       <!-- RIGHT: SIDEBAR -->
       <aside class="sidebar">
-
-        <!-- CM -->
         <div class="panel cm-card">
           <img class="cm-avatar" src="../images/cm.png" alt="Chief Minister">
           <div class="cm-text">
@@ -1097,7 +1422,6 @@
           </div>
         </div>
 
-        <!-- Rekha Arya -->
         <div class="panel cm-card">
           <img class="cm-avatar" src="../images/rekha.png" alt="Rekha Arya">
           <div class="cm-text">
@@ -1107,40 +1431,18 @@
           </div>
         </div>
 
-        <!-- Quick Links -->
         <div class="panel quick-links">
           <div class="panel-heading">
             <div class="heading-left">
               <span>त्वरित लिंक / Quick Links</span>
             </div>
           </div>
-
-          <a class="quick-link" href="#">
-            <span><i class="fa-regular fa-file-lines"></i> विभागीय आदेश</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-
-          <a class="quick-link" href="#">
-            <span><i class="fa-solid fa-chart-column"></i> बजट एवं वित्तीय विवरण</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-
-          <a class="quick-link" href="#">
-            <span><i class="fa-solid fa-people-roof"></i> आंगनवाड़ी केंद्र सूची</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-
-          <a class="quick-link" href="#">
-            <span><i class="fa-solid fa-list-check"></i> योजनाओं की जानकारी</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
-
-          <a class="quick-link" href="#">
-            <span><i class="fa-solid fa-circle-question"></i> प्रश्न / शिकायत दर्ज करें</span>
-            <i class="fa-solid fa-chevron-right"></i>
-          </a>
+          <a class="quick-link" href="#"><span><i class="fa-regular fa-file-lines"></i> विभागीय आदेश</span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="quick-link" href="#"><span><i class="fa-solid fa-chart-column"></i> बजट एवं वित्तीय विवरण</span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="quick-link" href="#"><span><i class="fa-solid fa-people-roof"></i> आंगनवाड़ी केंद्र सूची</span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="quick-link" href="#"><span><i class="fa-solid fa-list-check"></i> योजनाओं की जानकारी</span><i class="fa-solid fa-chevron-right"></i></a>
+          <a class="quick-link" href="#"><span><i class="fa-solid fa-circle-question"></i> प्रश्न / शिकायत दर्ज करें</span><i class="fa-solid fa-chevron-right"></i></a>
         </div>
-
       </aside>
     </div>
 
@@ -1224,6 +1526,21 @@
     </section>
   </main>
 
+  <!-- ================= SERVICE IMAGE MODAL (Moved out of panel - direct child of body) ================= -->
+  <div class="modal fade" id="serviceImageModal" tabindex="-1" aria-labelledby="serviceImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="serviceImageModalLabel">सेवा विवरण</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="" alt="Service Image" id="modalServiceImage" class="img-fluid rounded" style="max-height: 70vh; width: auto;">
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-main">
@@ -1271,7 +1588,7 @@
     const totalSlides = slides.length;
     let currentIndex  = 0;
     let autoTimer     = null;
-    const AUTO_INTERVAL = 4000; // 4 seconds
+    const AUTO_INTERVAL = 4000;
 
     function goToSlide(index){
       currentIndex = (index + totalSlides) % totalSlides;
@@ -1290,11 +1607,9 @@
       if(autoTimer){ clearInterval(autoTimer); autoTimer = null; }
     }
 
-    // Button events
     nextBtn.addEventListener("click", () => { nextSlide(); startAuto(); });
     prevBtn.addEventListener("click", () => { prevSlide(); startAuto(); });
 
-    // Dot events
     dots.forEach(dot => {
       dot.addEventListener("click", () => {
         goToSlide(parseInt(dot.dataset.index, 10));
@@ -1302,11 +1617,9 @@
       });
     });
 
-    // Pause on hover, resume on leave
     hero.addEventListener("mouseenter", stopAuto);
     hero.addEventListener("mouseleave", startAuto);
 
-    // Touch / swipe support for mobile
     let touchStartX = 0;
     hero.addEventListener("touchstart", e => {
       touchStartX = e.changedTouches[0].screenX;
@@ -1319,13 +1632,11 @@
       startAuto();
     }, {passive:true});
 
-    // Keyboard arrows
     document.addEventListener("keydown", e => {
       if(e.key === "ArrowLeft"){ prevSlide(); startAuto(); }
       if(e.key === "ArrowRight"){ nextSlide(); startAuto(); }
     });
 
-    // Start autoplay
     startAuto();
 
     // ===== SERVICE IMAGE MODAL LOGIC =====
@@ -1339,6 +1650,32 @@
       var myModal = new bootstrap.Modal(document.getElementById('serviceImageModal'));
       myModal.show();
     }
+
+    // ===== PASSWORD TOGGLE =====
+    document.getElementById("togglePassword").addEventListener("click", function () {
+      var pwd = document.getElementById("loginPassword");
+      var icon = this.querySelector("i");
+      if (pwd.type === "password") {
+        pwd.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      } else {
+        pwd.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      }
+    });
+
+    // ===== LOGIN FORM SUBMIT (prevent default so modal can close manually) =====
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      // Add your login logic here
+      alert("लॉगिन सफल हुआ! (Demo)");
+      // Close the modal after login
+      var loginModalEl = document.getElementById("loginModal");
+      var loginModal = bootstrap.Modal.getInstance(loginModalEl);
+      if (loginModal) loginModal.hide();
+    });
   </script>
 </body>
 </html>
