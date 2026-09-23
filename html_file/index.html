@@ -1339,77 +1339,84 @@ Uttarakhand
       </section>
 
       <!-- CENTER: SERVICES -->
-      <section class="panel services-panel">
-        <div class="panel-heading">
-          <div class="heading-left"><span>हमारी प्रमुख सेवाएँ</span></div>
-        </div>
+   <!-- CENTER: SERVICES -->
+<section class="panel services-panel" id="servicesPanel">
+  <div class="panel-heading">
+    <div class="heading-left"><span>हमारी प्रमुख सेवाएँ</span></div>
+  </div>
 
-        <div class="service-grid">
-          <div class="service pink" onclick="openServiceModal('../images/images-3.jpeg', 'आंगनवाड़ी सेवाएँ')">
-            <img src="../images/images-3.jpeg" alt="आंगनवाड़ी" class="service-img">
-            <div class="service-text">
-              <h4>आंगनवाड़ी सेवाएँ</h4>
-              <p>पूरक पोषण एवं प्रारंभिक शिक्षा</p>
-            </div>
-          </div>
-          
-          <div class="service blue" onclick="openServiceModal('../images/image-1.jpeg', 'मातृत्व एवं शिशु कल्याण')">
-            <img src="../images/image-1.jpeg" alt="मातृत्व" class="service-img">
-            <div class="service-text">
-              <h4>मातृत्व एवं शिशु कल्याण</h4>
-              <p>गर्भवती एवं धात्री महिला सहायता</p>
-            </div>
-          </div>
-          
-          <div class="service green" onclick="openServiceModal('../images/images-4.jpeg', 'बाल संरक्षण')">
-            <img src="../images/images-4.jpeg" alt="बाल संरक्षण" class="service-img">
-            <div class="service-text">
-              <h4>बाल संरक्षण</h4>
-              <p>बाल अधिकार एवं सुरक्षा व्यवस्था</p>
-            </div>
-          </div>
-          
-          <div class="service yellow" onclick="openServiceModal('../images/images-6.jpeg', 'पोषण अभियान')">
-            <img src="../images/images-6.jpeg" alt="पोषण" class="service-img">
-            <div class="service-text">
-              <h4>पोषण अभियान</h4>
-              <p>कुपोषण मुक्त उत्तराखंड अभियान</p>
-            </div>
-          </div>
-          
-          <div class="service purple" onclick="openServiceModal('../images/images-11.jpeg', 'महिला सशक्तिकरण')">
-            <img src="../images/images-11.jpeg" alt="महिला सशक्तिकरण" class="service-img">
-            <div class="service-text">
-              <h4>महिला सशक्तिकरण</h4>
-              <p>आत्मनिर्भर महिला योजनाएँ</p>
-            </div>
-          </div>
-          
-          <div class="service cyan" onclick="openServiceModal('../images/images-12.jpeg', 'योजनाओं की सूची')">
-            <img src="../images/images-12.jpeg" alt="योजना सूची" class="service-img">
-            <div class="service-text">
-              <h4>योजनाओं की सूची</h4>
-              <p>सभी सरकारी योजनाओं की जानकारी</p>
-            </div>
-          </div>
-          
-          <div class="service pink" onclick="openServiceModal('../images/images-8.jpeg', 'आवेदन / पंजीकरण')">
-            <img src="../images/images-8.jpeg" alt="आवेदन" class="service-img">
-            <div class="service-text">
-              <h4>आवेदन / पंजीकरण</h4>
-              <p>ऑनलाइन आवेदन सुविधा</p>
-            </div>
-          </div>
+  <!-- टैब बटन (Tab Buttons) -->
+  <div class="view-tabs">
+    <button class="tab-btn active" onclick="switchView('detailed')">विस्तृत दृश्य</button>
+    <button class="tab-btn" onclick="switchView('images-only')">केवल चित्र</button>
+  </div>
 
-          <div class="service blue" onclick="openServiceModal('../images/images-9.jpeg', 'सूचना का अधिकार')">
-            <img src="../images/images-9.jpeg" alt="सूचना अधिकार" class="service-img">
-            <div class="service-text">
-              <h4>सूचना का अधिकार</h4>
-              <p>पारदर्शिता एवं जवाबदेही</p>
-            </div>
-          </div>
-        </div>
-      </section>
+  <div class="service-grid">
+    <div class="service pink" onclick="openServiceModal('../images/images-3.jpeg', 'आंगनवाड़ी सेवाएँ')">
+      <img src="../images/images-3.jpeg" alt="आंगनवाड़ी" class="service-img">
+      <div class="service-text">
+        <h4>आंगनवाड़ी सेवाएँ</h4>
+        <p>पूरक पोषण एवं प्रारंभिक शिक्षा</p>
+      </div>
+    </div>
+    
+    <div class="service blue" onclick="openServiceModal('../images/image-1.jpeg', 'मातृत्व एवं शिशु कल्याण')">
+      <img src="../images/image-1.jpeg" alt="मातृत्व" class="service-img">
+      <div class="service-text">
+        <h4>मातृत्व एवं शिशु कल्याण</h4>
+        <p>गर्भवती एवं धात्री महिला सहायता</p>
+      </div>
+    </div>
+    
+    <div class="service green" onclick="openServiceModal('../images/images-4.jpeg', 'बाल संरक्षण')">
+      <img src="../images/images-4.jpeg" alt="बाल संरक्षण" class="service-img">
+      <div class="service-text">
+        <h4>बाल संरक्षण</h4>
+        <p>बाल अधिकार एवं सुरक्षा व्यवस्था</p>
+      </div>
+    </div>
+    
+    <div class="service yellow" onclick="openServiceModal('../images/images-6.jpeg', 'पोषण अभियान')">
+      <img src="../images/images-6.jpeg" alt="पोषण" class="service-img">
+      <div class="service-text">
+        <h4>पोषण अभियान</h4>
+        <p>कुपोषण मुक्त उत्तराखंड अभियान</p>
+      </div>
+    </div>
+    
+    <div class="service purple" onclick="openServiceModal('../images/images-11.jpeg', 'महिला सशक्तिकरण')">
+      <img src="../images/images-11.jpeg" alt="महिला सशक्तिकरण" class="service-img">
+      <div class="service-text">
+        <h4>महिला सशक्तिकरण</h4>
+        <p>आत्मनिर्भर महिला योजनाएँ</p>
+      </div>
+    </div>
+    
+    <div class="service cyan" onclick="openServiceModal('../images/images-12.jpeg', 'योजनाओं की सूची')">
+      <img src="../images/images-12.jpeg" alt="योजना सूची" class="service-img">
+      <div class="service-text">
+        <h4>योजनाओं की सूची</h4>
+        <p>सभी सरकारी योजनाओं की जानकारी</p>
+      </div>
+    </div>
+    
+    <div class="service pink" onclick="openServiceModal('../images/images-8.jpeg', 'आवेदन / पंजीकरण')">
+      <img src="../images/images-8.jpeg" alt="आवेदन" class="service-img">
+      <div class="service-text">
+        <h4>आवेदन / पंजीकरण</h4>
+        <p>ऑनलाइन आवेदन सुविधा</p>
+      </div>
+    </div>
+
+    <div class="service blue" onclick="openServiceModal('../images/images-9.jpeg', 'सूचना का अधिकार')">
+      <img src="../images/images-9.jpeg" alt="सूचना अधिकार" class="service-img">
+      <div class="service-text">
+        <h4>सूचना का अधिकार</h4>
+        <p>पारदर्शिता एवं जवाबदेही</p>
+      </div>
+    </div>
+  </div>
+</section>
 
       <!-- RIGHT: SIDEBAR -->
       <aside class="sidebar">
