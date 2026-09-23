@@ -41,6 +41,82 @@
       font-family:"Hind","Inter",sans-serif;
       font-size:16px;
     }
+    /* टैब नेविगेशन का स्टाइल */
+.service-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 25px;
+  padding: 0 15px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.service-tab-btn {
+  padding: 4px 12px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.service-tab-btn:hover {
+  background-color: #e9ecef;
+}
+
+.service-tab-btn.active {
+  background-color: #007bff; /* आप अपने थीम का रंग लगा सकते हैं */
+  color: white;
+  border-color: #007bff;
+}
+
+/* गैलरी ग्रिड - एक रो में सिर्फ 2 चित्र */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* यह 2 कॉलम बनाएगा */
+  gap: 20px;
+  padding: 15px;
+}
+
+/* गैलरी कार्ड (चित्र का) */
+.gallery-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background: #fff;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 158px; /* चित्रों की हाइट एकसमान रखने के लिए */
+  object-fit: cover;
+  display: block;
+}
+
+/* चित्र के नीचे या ऊपर ओवरले टेक्स्ट */
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+}
     a{text-decoration:none}
     img{max-width:100%;display:block}
 
@@ -1340,81 +1416,20 @@ Uttarakhand
 
       <!-- CENTER: SERVICES -->
    <!-- CENTER: SERVICES -->
+<!-- CENTER: SERVICES -->
 <section class="panel services-panel" id="servicesPanel">
   <div class="panel-heading">
     <div class="heading-left"><span>हमारी प्रमुख सेवाएँ</span></div>
   </div>
 
-  <!-- टैब बटन (Tab Buttons) -->
-  <div class="view-tabs">
-    <button class="tab-btn active" onclick="switchView('detailed')">विस्तृत दृश्य</button>
-    <button class="tab-btn" onclick="switchView('images-only')">केवल चित्र</button>
+  <!-- टैब नेविगेशन (यहाँ सेवाओं के नाम दिखेंगे) -->
+  <div class="service-tabs" id="serviceTabs">
+    <!-- यहाँ बटन JavaScript से अपने आप बनेंगे -->
   </div>
 
-  <div class="service-grid">
-    <div class="service pink" onclick="openServiceModal('../images/images-3.jpeg', 'आंगनवाड़ी सेवाएँ')">
-      <img src="../images/images-3.jpeg" alt="आंगनवाड़ी" class="service-img">
-      <div class="service-text">
-        <h4>आंगनवाड़ी सेवाएँ</h4>
-        <p>पूरक पोषण एवं प्रारंभिक शिक्षा</p>
-      </div>
-    </div>
-    
-    <div class="service blue" onclick="openServiceModal('../images/image-1.jpeg', 'मातृत्व एवं शिशु कल्याण')">
-      <img src="../images/image-1.jpeg" alt="मातृत्व" class="service-img">
-      <div class="service-text">
-        <h4>मातृत्व एवं शिशु कल्याण</h4>
-        <p>गर्भवती एवं धात्री महिला सहायता</p>
-      </div>
-    </div>
-    
-    <div class="service green" onclick="openServiceModal('../images/images-4.jpeg', 'बाल संरक्षण')">
-      <img src="../images/images-4.jpeg" alt="बाल संरक्षण" class="service-img">
-      <div class="service-text">
-        <h4>बाल संरक्षण</h4>
-        <p>बाल अधिकार एवं सुरक्षा व्यवस्था</p>
-      </div>
-    </div>
-    
-    <div class="service yellow" onclick="openServiceModal('../images/images-6.jpeg', 'पोषण अभियान')">
-      <img src="../images/images-6.jpeg" alt="पोषण" class="service-img">
-      <div class="service-text">
-        <h4>पोषण अभियान</h4>
-        <p>कुपोषण मुक्त उत्तराखंड अभियान</p>
-      </div>
-    </div>
-    
-    <div class="service purple" onclick="openServiceModal('../images/images-11.jpeg', 'महिला सशक्तिकरण')">
-      <img src="../images/images-11.jpeg" alt="महिला सशक्तिकरण" class="service-img">
-      <div class="service-text">
-        <h4>महिला सशक्तिकरण</h4>
-        <p>आत्मनिर्भर महिला योजनाएँ</p>
-      </div>
-    </div>
-    
-    <div class="service cyan" onclick="openServiceModal('../images/images-12.jpeg', 'योजनाओं की सूची')">
-      <img src="../images/images-12.jpeg" alt="योजना सूची" class="service-img">
-      <div class="service-text">
-        <h4>योजनाओं की सूची</h4>
-        <p>सभी सरकारी योजनाओं की जानकारी</p>
-      </div>
-    </div>
-    
-    <div class="service pink" onclick="openServiceModal('../images/images-8.jpeg', 'आवेदन / पंजीकरण')">
-      <img src="../images/images-8.jpeg" alt="आवेदन" class="service-img">
-      <div class="service-text">
-        <h4>आवेदन / पंजीकरण</h4>
-        <p>ऑनलाइन आवेदन सुविधा</p>
-      </div>
-    </div>
-
-    <div class="service blue" onclick="openServiceModal('../images/images-9.jpeg', 'सूचना का अधिकार')">
-      <img src="../images/images-9.jpeg" alt="सूचना अधिकार" class="service-img">
-      <div class="service-text">
-        <h4>सूचना का अधिकार</h4>
-        <p>पारदर्शिता एवं जवाबदेही</p>
-      </div>
-    </div>
+  <!-- गैलरी ग्रिड (यहाँ चित्र 2 कॉलम में दिखेंगे) -->
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- यहाँ चित्र JavaScript से अपने आप आएंगे -->
   </div>
 </section>
 
@@ -1683,6 +1698,135 @@ Uttarakhand
       var loginModal = bootstrap.Modal.getInstance(loginModalEl);
       if (loginModal) loginModal.hide();
     });
+
+    // सेवाओं का डेटा (आप यहाँ और भी चित्र जोड़ सकते हैं)
+const servicesData = [
+  { 
+    name: "आंगनवाड़ी सेवाएँ", 
+    desc: "पूरक पोषण एवं प्रारंभिक शिक्षा", 
+    // इसमें 3 चित्र हैं
+    images: [
+      '../images/images-3.jpeg', 
+      '../images/images-8.jpeg', 
+      '../images/image-1.jpeg',
+      '../images/image-2.jpeg',
+    ] 
+  },
+  { 
+    name: "मातृत्व एवं शिशु कल्याण", 
+    desc: "गर्भवती एवं धात्री महिला सहायता", 
+    // इसमें 2 चित्र हैं
+    images: [
+      '../images/image-1.jpeg', 
+      '../images/images-9.jpeg',
+      '../images/images-7.jpeg',
+      '../images/images-8.jpeg',
+    ] 
+  },
+  { 
+    name: "बाल संरक्षण", 
+    desc: "बाल अधिकार एवं सुरक्षा व्यवस्था", 
+    // इसमें 1 चित्र है
+    images: [
+      '../images/images-4.jpeg',
+      '../images/images-11.jpeg',
+      '../images/images-10.jpeg',
+      '../images/images-3.jpeg',
+
+    ] 
+  },
+  { 
+    name: "पोषण अभियान", 
+    desc: "कुपोषण मुक्त उत्तराखंड अभियान", 
+    // इसमें 2 चित्र हैं
+    images: [
+      '../images/images-6.jpeg', 
+      '../images/images-11.jpeg',
+      '../images/images-8.jpeg',
+      '../images/images-9.jpeg',
+
+    ] 
+  },
+  { 
+    name: "महिला सशक्तिकरण", 
+    desc: "आत्मनिर्भर महिला योजनाएँ", 
+    // इसमें 1 चित्र है
+    images: [
+      '../images/images-11.jpeg',
+        '../images/images-8.jpeg',
+      '../images/images-9.jpeg',
+      '../images/images-4.jpeg',
+
+    ] 
+  },
+  { 
+    name: "योजनाओं की सूची", 
+    desc: "सभी सरकारी योजनाओं की जानकारी", 
+    // इसमें 1 चित्र है
+    images: [
+      '../images/images-3.jpeg',
+      '../images/images-8.jpeg',
+      '../images/images-10.jpeg',
+      '../images/images-11.jpeg',
+
+
+    ] 
+  }
+];
+
+// टैब बनाने और गैलरी दिखाने का फंक्शन
+function initServices() {
+  const tabsContainer = document.getElementById('serviceTabs');
+  
+  // सभी सेवाओं के लिए टैब बटन बनाएँ
+  servicesData.forEach((service, index) => {
+    const btn = document.createElement('button');
+    btn.className = 'service-tab-btn' + (index === 0 ? ' active' : '');
+    btn.innerText = service.name;
+    btn.onclick = () => showGallery(index);
+    tabsContainer.appendChild(btn);
+  });
+
+  // पेज लोड होने पर पहली सेवा की गैलरी दिखाएँ
+  showGallery(0);
+}
+
+// टैब पर क्लिक करने पर गैलरी दिखाने का फंक्शन
+function showGallery(index) {
+  // सभी टैब से 'active' क्लास हटाएँ
+  const allTabs = document.querySelectorAll('.service-tab-btn');
+  allTabs.forEach(tab => tab.classList.remove('active'));
+  
+  // जिस टैब पर क्लिक किया गया है उसे 'active' करें
+  allTabs[index].classList.add('active');
+
+  // गैलरी क्लियर करें
+  const galleryGrid = document.getElementById('galleryGrid');
+  galleryGrid.innerHTML = ''; 
+  
+  const service = servicesData[index];
+  
+  // चूँकि आपने एक रो में 2 चित्र माँगे हैं, इसलिए यदि किसी सेवा में 1 चित्र है, तो आप चाहें तो दो बार दिखा सकते हैं 
+  // या यह अपने आप एक कॉलम घेर लेगा। यदि आपके पास एक सेवा में 2 चित्र होंगे, तो वे 2 कॉलम में दिखेंगे।
+  // मैं यहाँ उसी 1 चित्र को कॉल में दिखा रहा हूँ।
+  
+  service.images.forEach(imgSrc => {
+    const card = document.createElement('div');
+    card.className = 'gallery-card';
+    
+    // आपका पुराना मॉडल फंक्शन यहाँ भी काम करेगा
+    card.setAttribute('onclick', `openServiceModal('${imgSrc}', '${service.name}')`);
+    
+    card.innerHTML = `
+      <img src="${imgSrc}" alt="${service.name}">
+     
+    `;
+    galleryGrid.appendChild(card);
+  });
+}
+
+// पेज लोड होने पर इनिशियलाइज़ करें
+window.onload = initServices;
   </script>
 </body>
 </html>
