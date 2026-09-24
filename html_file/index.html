@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
   <style>
     :root{
@@ -41,86 +43,232 @@
       font-family:"Hind","Inter",sans-serif;
       font-size:16px;
     }
-    /* टैब नेविगेशन का स्टाइल */
-.service-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 25px;
-  padding: 0 15px;
-  border-bottom: 2px solid #e9ecef;
-}
-
-.service-tab-btn {
-  padding: 4px 12px;
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  border-radius: 8px 8px 0 0;
-  cursor: pointer;
-  font-size: 10px;
-  font-weight: 600;
-  color: #555;
-  transition: all 0.3s ease;
-}
-
-.service-tab-btn:hover {
-  background-color: #e9ecef;
-}
-
-.service-tab-btn.active {
-  background-color: #007bff; /* आप अपने थीम का रंग लगा सकते हैं */
-  color: white;
-  border-color: #007bff;
-}
-
-/* गैलरी ग्रिड - एक रो में सिर्फ 2 चित्र */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* यह 2 कॉलम बनाएगा */
-  gap: 20px;
-  padding: 15px;
-}
-
-/* गैलरी कार्ड (चित्र का) */
-.gallery-card {
+    a{text-decoration:none}
+    img{max-width:100%;display:block}
+/* ============ NAV DROPDOWN (Desktop - Hover) ============ */
+.nav-dropdown {
   position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.nav-dropdown > .nav-dropdown-toggle {
   cursor: pointer;
-  transition: transform 0.3s ease;
-  background: #fff;
 }
 
-.gallery-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 143px;
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(7, 59, 112, 0.18);
+  border: 1px solid #cfe0ef;
+  z-index: 10000;
+  animation: dropdownFadeIn 0.25s ease;
 }
 
-.gallery-card img {
-  width: 100%;
-  height: 158px; /* चित्रों की हाइट एकसमान रखने के लिए */
-  object-fit: cover;
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Show main dropdown on hover (desktop) */
+.nav-dropdown:hover > .nav-dropdown-menu,
+.nav-dropdown.open > .nav-dropdown-menu {
   display: block;
 }
 
-/* चित्र के नीचे या ऊपर ओवरले टेक्स्ट */
-.gallery-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  padding: 10px;
-  text-align: center;
-  font-size: 10px;
-  font-weight: bold;
-}
-    a{text-decoration:none}
-    img{max-width:100%;display:block}
+/* Main dropdown links */
+.nav-dropdown-menu > li > a {
+  display: flex;
+  align-items: center;
 
-    /* ================= TOP GOVERNMENT BAR ================= */
+  padding: 11px 18px;
+  color: #164c7f;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.nav-dropdown-menu > li > a:hover,
+.nav-dropdown-menu > li > a.active {
+  background: #eaf5ff;
+  color: #073f73;
+  border-left-color: #073f73;
+  padding-left: 22px;
+}
+
+.nav-dropdown-menu > li > a i {
+  font-size: 12px;
+  color: #073f73;
+}
+
+.nav-dropdown-menu > li > a i.fa-circle-dot {
+  font-size: 8px;
+  color: #ef8b13;
+  margin-right: 8px;
+}
+
+/* ============ SUB-DROPDOWN (submenu) ============ */
+.nav-submenu {
+  position: relative;
+}
+
+.nav-dropdown-menu.submenu {
+  top: 0;
+  left: 100%;
+  margin-left: 4px;
+  min-width: 280px;
+}
+
+/* Show submenu on hover (desktop) */
+.nav-submenu:hover > .submenu,
+.nav-submenu.open > .submenu {
+  display: block;
+}
+
+/* Arrow rotation on hover */
+.nav-dropdown:hover .nav-arrow,
+.nav-dropdown.open .nav-arrow {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+.nav-arrow { transition: transform 0.3s ease; }
+
+.nav-submenu:hover .submenu-arrow,
+.nav-submenu.open .submenu-arrow {
+  transform: rotate(90deg);
+  transition: transform 0.3s ease;
+}
+.submenu-arrow { transition: transform 0.3s ease; }
+
+/* ============ MOBILE / TABLET (Click-based) ============ */
+@media (max-width: 992px) {
+  .nav-dropdown-menu {
+    position: static;
+    display: none;
+    min-width: 100%;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    background: #f5f9fd;
+    padding: 4px 0;
+  }
+
+  .nav-dropdown.open > .nav-dropdown-menu {
+    display: block;
+    animation: dropdownFadeIn 0.25s ease;
+  }
+
+  .nav-dropdown-menu.submenu {
+    position: static;
+    left: auto;
+    margin-left: 0;
+    min-width: 100%;
+    background: #eaf5ff;
+  }
+
+  .nav-submenu.open > .submenu {
+    display: block;
+  }
+
+  .nav-dropdown-menu > li > a {
+    padding: 10px 20px 10px 28px;
+    font-size: 13px;
+  }
+
+  .nav-dropdown-menu.submenu > li > a {
+    padding-left: 40px;
+    font-size: 12px;
+  }
+
+  /* On mobile, submenu arrow rotates down instead of right */
+  .nav-submenu.open .submenu-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+/* Prevent submenu from going off-screen on the right edge */
+.nav-dropdown:last-child .nav-dropdown-menu.submenu,
+.nav-dropdown-menu.submenu.align-left {
+  left: auto;
+  right: 100%;
+  margin-left: 0;
+  margin-right: 4px;
+}
+    /* ================= SERVICE TABS ================= */
+    .service-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 15px;
+      padding: 12px 12px 0;
+      border-bottom: 2px solid #e9ecef;
+    }
+    .service-tab-btn {
+      padding: 6px 12px;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 8px 8px 0 0;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+      color: #555;
+      transition: all 0.3s ease;
+    }
+    .service-tab-btn:hover { background-color: #e9ecef; }
+    .service-tab-btn.active {
+      background-color: #073f73;
+      color: white;
+      border-color: #073f73;
+    }
+
+    /* ================= GALLERY ================= */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      padding: 15px;
+    }
+    .gallery-card {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      background: #fff;
+    }
+    .gallery-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 158px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    /* ================= TOP BAR ================= */
     .topbar{
       background:linear-gradient(90deg,#0b477f,#0a4277,#0b477f);
       color:#fff;
@@ -160,7 +308,6 @@
       justify-content:space-between;
       gap:20px;
     }
-    
     .gov-brand{
       color:#fff;
       font-weight:700;
@@ -196,187 +343,41 @@
       color:#fff;
       font-size:22px;
     }
-  
-/* ================= LOGIN MODAL ================= */
 
-.login-modal {
-  border: none;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-}
-
-/* Header */
-.login-modal-header {
-  background: linear-gradient(135deg, #174a8b, #176b9e);
-  color: #fff;
-  border-bottom: none;
-  padding: 22px 25px;
-}
-
-.login-modal-header .modal-title {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 3px;
-}
-
-
-.login-modal-header .modal-title i {
-  margin-right: 8px;
-}
-
-.login-subtitle {
-  margin: 0;
-  font-size: 13px;
-  opacity: 0.9;
-}
-
-/* Body */
-.login-modal-body {
-  padding: 28px 30px 25px;
-  background: #fff;
-}
-
-.login-modal-body .form-label {
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 7px;
-  font-size: 14px;
-}
-
-.login-modal-body .input-group {
-  height: 48px;
-}
-
-.login-modal-body .input-group-text {
-  background: #f1f5f9;
-  border: 1px solid #d9e0e7;
-  color: #174a8b;
-  min-width: 48px;
-  justify-content: center;
-}
-
-.login-modal-body .form-control {
-  height: 48px;
-  border: 1px solid #d9e0e7;
-  font-size: 14px;
-}
-
-.login-modal-body .form-control:focus {
-  border-color: #176b9e;
-  box-shadow: 0 0 0 0.2rem rgba(23, 107, 158, 0.12);
-}
-
-/* Password Toggle */
-.password-toggle {
-  border: 1px solid #d9e0e7;
-  background: #f8fafc;
-  color: #555;
-}
-
-.password-toggle:hover {
-  background: #eef2f7;
-}
-
-/* Login Options */
-.login-options {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 8px 0 22px;
-  font-size: 13px;
-}
-
-.form-check-label {
-  color: #555;
-}
-
-.forgot-password {
-  color: #176b9e;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-}
-
-/* Login Submit */
-.login-submit-btn {
-  height: 48px;
-  border: none;
-  border-radius: 7px;
-  background: linear-gradient(135deg, #174a8b, #176b9e);
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-}
-
-.login-submit-btn:hover {
-  background: linear-gradient(135deg, #123b70, #145c87);
-  color: #fff;
-  transform: translateY(-1px);
-}
-
-/* Footer */
-.login-modal-footer {
-  justify-content: center;
-  gap: 5px;
-  background: #f8fafc;
-  border-top: 1px solid #e5e7eb;
-  padding: 15px;
-  font-size: 13px;
-  color: #666;
-}
-
-.login-modal-footer a {
-  color: #174a8b;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.login-modal-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Mobile */
-@media (max-width: 576px) {
-
-  .login-modal {
-    margin: 15px;
-  }
-
-  .login-modal-header {
-    padding: 18px 20px;
-  }
-
-  .login-modal-body {
-    padding: 22px 20px;
-  }
-
-  .login-modal-header .modal-title {
-    font-size: 19px;
-  }
-
-  .login-options {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .login-modal-footer {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-
-    /* ================= DEPARTMENT BRAND HEADER ================= */
-    .department-header{
-      background:#fff;
-      border-bottom:1px solid #dbe8f2;
+    /* ================= LOGIN MODAL ================= */
+    .login-modal { border: none; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); }
+    .login-modal-header { background: linear-gradient(135deg, #174a8b, #176b9e); color: #fff; border-bottom: none; padding: 22px 25px; }
+    .login-modal-header .modal-title { font-size: 22px; font-weight: 700; margin-bottom: 3px; }
+    .login-modal-header .modal-title i { margin-right: 8px; }
+    .login-subtitle { margin: 0; font-size: 13px; opacity: 0.9; }
+    .login-modal-body { padding: 28px 30px 25px; background: #fff; }
+    .login-modal-body .form-label { font-weight: 600; color: #333; margin-bottom: 7px; font-size: 14px; }
+    .login-modal-body .input-group { height: 48px; }
+    .login-modal-body .input-group-text { background: #f1f5f9; border: 1px solid #d9e0e7; color: #174a8b; min-width: 48px; justify-content: center; }
+    .login-modal-body .form-control { height: 48px; border: 1px solid #d9e0e7; font-size: 14px; }
+    .login-modal-body .form-control:focus { border-color: #176b9e; box-shadow: 0 0 0 0.2rem rgba(23, 107, 158, 0.12); }
+    .password-toggle { border: 1px solid #d9e0e7; background: #f8fafc; color: #555; }
+    .password-toggle:hover { background: #eef2f7; }
+    .login-options { display: flex; align-items: center; justify-content: space-between; margin: 8px 0 22px; font-size: 13px; }
+    .form-check-label { color: #555; }
+    .forgot-password { color: #176b9e; text-decoration: none; font-weight: 600; }
+    .forgot-password:hover { text-decoration: underline; }
+    .login-submit-btn { height: 48px; border: none; border-radius: 7px; background: linear-gradient(135deg, #174a8b, #176b9e); color: #fff; font-size: 15px; font-weight: 600; transition: all 0.2s ease; }
+    .login-submit-btn:hover { background: linear-gradient(135deg, #123b70, #145c87); color: #fff; transform: translateY(-1px); }
+    .login-modal-footer { justify-content: center; gap: 5px; background: #f8fafc; border-top: 1px solid #e5e7eb; padding: 15px; font-size: 13px; color: #666; }
+    .login-modal-footer a { color: #174a8b; font-weight: 600; text-decoration: none; }
+    .login-modal-footer a:hover { text-decoration: underline; }
+    @media (max-width: 576px) {
+      .login-modal { margin: 15px; }
+      .login-modal-header { padding: 18px 20px; }
+      .login-modal-body { padding: 22px 20px; }
+      .login-modal-header .modal-title { font-size: 19px; }
+      .login-options { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .login-modal-footer { flex-direction: column; text-align: center; }
     }
+
+    /* ================= DEPARTMENT HEADER ================= */
+    .department-header{ background:#fff; border-bottom:1px solid #dbe8f2; }
     .brand-row{
       min-height:72px;
       display:flex;
@@ -412,17 +413,8 @@
       line-height:1.45;
       font-weight:600;
     }
-    /* ================= HEADER RIGHT & LOGIN ================= */
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
-    .icds-logo {
-      width: 100px;
-      height: 54px;
-      object-fit: contain;
-    }
+    .header-right { display: flex; align-items: center; gap: 25px; }
+    .icds-logo { width: 100px; height: 54px; object-fit: contain; }
     .login-btn {
       background: linear-gradient(90deg, #073f73, #0b4e8b);
       color: #fff;
@@ -439,60 +431,22 @@
       border: 1px solid #063a70;
       cursor: pointer;
     }
-    .login-btn:hover {
-      background: #063a70;
-      color: #ffd45b;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 8px rgba(7, 59, 112, .25);
-    }
-    .login-btn i {
-      font-size: 14px;
-    }
-.hero-person-block {
-  text-align: center;
-}
-
-.hero-person-name {
-  font-size: 18px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 8px 0 4px;
-  line-height: 1.3;
-}
-
-.hero-person-designation {
-  font-size: 16px;
-  font-weight: 500;
-  color: #f1f1f1;
-  line-height: 1.5;
-  margin: 0;
-}
-    /* Responsive adjustments for Login/Header */
+    .login-btn:hover { background: #063a70; color: #ffd45b; transform: translateY(-1px); box-shadow: 0 4px 8px rgba(7, 59, 112, .25); }
+    .login-btn i { font-size: 14px; }
+    .hero-person-block { text-align: center; }
+    .hero-person-name { font-size: 18px; font-weight: 700; color: #ffffff; margin: 8px 0 4px; line-height: 1.3; }
+    .hero-person-designation { font-size: 16px; font-weight: 500; color: #f1f1f1; line-height: 1.5; margin: 0; }
     @media (max-width: 992px) {
-      .icds-logo {
-        width: 80px;
-        height: 70px;
-      }
-      .login-btn {
-        padding: 8px 16px;
-        font-size: 13px;
-      }
+      .icds-logo { width: 80px; height: 70px; }
+      .login-btn { padding: 8px 16px; font-size: 13px; }
     }
     @media (max-width: 768px) {
-      .header-right {
-        gap: 12px;
-      }
-      .icds-logo {
-        width: 60px;
-        height: 55px;
-      }
-      .login-btn span {
-        display: none;
-      }
-      .login-btn {
-        padding: 10px 12px;
-      }
+      .header-right { gap: 12px; }
+      .icds-logo { width: 60px; height: 55px; }
+      .login-btn span { display: none; }
+      .login-btn { padding: 10px 12px; }
     }
+
     /* ================= MAIN NAV ================= */
     .main-nav{
       background:linear-gradient(90deg,#073f73,#06477f,#073f73);
@@ -522,19 +476,15 @@
       border-bottom:4px solid transparent;
       transition:.2s;
     }
-    .nav-item:hover,
-    .nav-item.active{
+    .nav-item:hover, .nav-item.active{
       background:rgba(255,255,255,.08);
       border-bottom-color:#ffbf00;
       color:#fff;
     }
     .nav-item i{font-size:15px}
 
-    /* ================= HERO CAROUSEL ================= */
-    .hero-wrap{
-      padding:8px 0 15px;
-      background:#f5f9fd;
-    }
+    /* ================= HERO ================= */
+    .hero-wrap{ padding:8px 0 15px; background:#f5f9fd; }
     .hero{
       width:min(1425px,94%);
       margin:auto;
@@ -553,99 +503,35 @@
       height:100%;
       transition:transform .7s cubic-bezier(.4,.0,.2,1);
       z-index:1;
-      transform: translateZ(0);
-      will-change: transform;
     }
-    .hero-slide{
-      position:relative;
-      min-width:100%;
-      height:100%;
-      flex:0 0 100%;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      transform: translateZ(0);
-    }
-    .hero-slide img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      transform: translateZ(0);
-    }
+    .hero-slide{ position:relative; min-width:100%; height:100%; flex:0 0 100%; }
+    .hero-slide img{ width:100%; height:100%; object-fit:cover; display:block; }
     .hero-slide::after{
-      content:"";
-      position:absolute;
-      inset:0;
+      content:""; position:absolute; inset:0;
       background: linear-gradient(90deg, rgba(7, 59, 112, 0.85) 0%, rgba(7, 59, 112, 0.4) 50%, transparent 100%);
     }
-
-    .hero-overlay{
-      position:absolute;
-      inset:0;
-      z-index:3;
-      pointer-events:none;
-    }
+    .hero-overlay{ position:absolute; inset:0; z-index:3; pointer-events:none; }
     .hero-overlay > *{pointer-events:auto}
-
     .hero-content{
-      position:absolute;
-      left:0; top:0; bottom:0;
-      width:72%;
-      padding:20px 24px 10px 38px;
-      display:flex;
-      align-items:center;
-      gap:32px;
+      position:absolute; left:0; top:0; bottom:0;
+      width:72%; padding:20px 24px 10px 38px;
+      display:flex; align-items:center; gap:32px;
     }
-    .hero-person-card{
-      flex:0 0 180px;
-      text-align:center;
-    }
+    .hero-person-card{ flex:0 0 180px; text-align:center; }
     .hero-person{
       width:120px;height:120px;
-      object-fit:cover;
-      object-position:center top;
+      object-fit:cover; object-position:center top;
       border:4px solid rgba(255,255,255,.92);
       border-radius:50%;
       box-shadow:0 5px 16px rgba(0,0,0,.22);
     }
-    .hero-message{
-      flex:1;
-      min-width:0;
-      text-align:left;
-    }
-    .hero-title{
-      margin:0;
-      color:#fff;
-      font-size:20px;
-      line-height:1.2;
-      font-weight:700;
-    }
-    .hero-subtitle{
-      margin:13px 0 0;
-      color:#fff;
-      font-size:17px;
-      line-height:1.45;
-      font-weight:600;
-    }
-
-    .hero-controls{
-      position:absolute;
-      left:30px;
-      bottom:12px;
-      z-index:4;
-      display:flex;
-      align-items:center;
-      gap:7px;
-    }
+    .hero-message{ flex:1; min-width:0; text-align:left; }
+    .hero-title{ margin:0; color:#fff; font-size:20px; line-height:1.2; font-weight:700; }
+    .hero-subtitle{ margin:13px 0 0; color:#fff; font-size:17px; line-height:1.45; font-weight:600; }
+    .hero-controls{ position:absolute; left:30px; bottom:12px; z-index:4; display:flex; align-items:center; gap:7px; }
     .hero-arrow{
-      width:38px;height:38px;
-      border:0;border-radius:50%;
-      background:#084477;
-      color:#fff;
-      cursor:pointer;
-      transition:.2s;
+      width:38px;height:38px; border:0;border-radius:50%;
+      background:#084477; color:#fff; cursor:pointer; transition:.2s;
       display:grid;place-items:center;
     }
     .hero-arrow:hover{background:#063f73;transform:scale(1.08)}
@@ -655,49 +541,27 @@
       width:11px;height:11px;border-radius:50%;
       background:rgba(255,255,255,.7);
       border:2px solid #075095;
-      cursor:pointer;
-      transition:.2s;
+      cursor:pointer; transition:.2s;
     }
     .dot.active{background:#075095;transform:scale(1.15)}
-
     .hero-topics{
-      position:absolute;
-      z-index:4;
-      right:22px;
-      top:74px;
-      width:111px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+      position:absolute; z-index:4; right:22px; top:74px;
+      width:140px; display:flex; flex-direction:column; gap:10px;
+      align-items:center; text-align:center;
     }
     .topic{
-      display:flex;
-      align-items:center;
-      gap:11px;
-      color:#084477;
-      font-weight:700;
-      font-size:15px;
-      background:rgba(255,255,255,.6);
-      padding:6px 10px;
-      border-radius:8px;
-      backdrop-filter:blur(2px);
+      display:flex; align-items:center; gap:11px;
+      color:#084477; font-weight:700; font-size:15px;
+      background:rgba(255,255,255,.6); padding:6px 10px;
+      border-radius:8px; backdrop-filter:blur(2px);
     }
     .topic-icon{
-      width:36px;height:36px;
-      border-radius:50%;
-      color:#fff;
-      display:grid;
-      place-items:center;
-      flex:0 0 36px;
-      font-size:16px;
+      width:36px;height:36px; border-radius:50%;
+      color:#fff; display:grid; place-items:center;
+      flex:0 0 36px; font-size:16px;
     }
-    .topic:nth-child(1) .topic-icon{background:#e62c79}
-    .topic:nth-child(2) .topic-icon{background:#f29a0d}
-    .topic:nth-child(3) .topic-icon{background:#24a75d}
-    .topic:nth-child(4) .topic-icon{background:#168bc9}
-    .topic:nth-child(5) .topic-icon{background:#7651ad}
 
-    /* ================= CONTENT ================= */
+    /* ================= CONTENT GRID ================= */
     .content-grid{
       display:grid;
       grid-template-columns:1.03fr 1.62fr .82fr;
@@ -722,14 +586,33 @@
       gap:8px;
       border-bottom:1px solid #dce8f1;
       color:#084477;
-      font-size:20px;
+      font-size:18px;
       font-weight:700;
+      background: linear-gradient(180deg, #f5f9fd, #ffffff);
     }
     .heading-left{display:flex;align-items:center;gap:9px}
     .heading-left i{color:#0870bd}
     .view-all{font-size:13px;color:#0564ad;font-family:Inter,sans-serif}
 
-    .updates-body{padding:2px 12px 8px}
+    /* ================= UPDATES + MARQUEE ================= */
+    .updates-body{
+      padding:0 12px 8px;
+      position:relative;
+      overflow:hidden;
+    }
+    .updates-viewport{
+      position:relative;
+      overflow:hidden;
+      max-height:none; /* default: show all */
+      transition: max-height 0.4s ease;
+    }
+    .updates-viewport.marquee-on{
+      max-height:340px; /* fixed height when marquee starts */
+    }
+    .updates-track{
+      position:relative;
+      will-change: transform;
+    }
     .update{
       min-height:95px;
       padding:11px 0;
@@ -745,10 +628,8 @@
       background:linear-gradient(180deg,#0b4e8b,#075092);
       color:#fff;
       text-align:center;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
       font-family:Inter,sans-serif;
       box-shadow:0 2px 4px rgba(0,61,116,.16);
     }
@@ -761,11 +642,7 @@
       font-weight:600;
       color:#164c7f;
     }
-    .update a{
-      color:#0868af;
-      font-size:13px;
-      font-weight:600;
-    }
+    .update a{ color:#0868af; font-size:13px; font-weight:600; }
     .new-badge{
       display:inline-block;
       padding:2px 7px;
@@ -784,60 +661,26 @@
       color:#0868af;
       font-weight:600;
     }
-
-    .services-panel{padding-bottom:0}
-    .service-grid{
-      padding:10px 12px 12px;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:11px;
-    }
-    .service{
-      min-height:90px;
-      border-radius:8px;
-      border:1px solid;
+    .marquee-controls{
       display:flex;
+      gap:6px;
       align-items:center;
-      gap:12px;
-      padding:10px;
-      position:relative;
-      overflow:hidden;
+    }
+    .marquee-btn{
+      border:1px solid #cfe0ef;
+      background:#fff;
+      color:#073f73;
+      width:26px; height:26px;
+      border-radius:5px;
+      cursor:pointer;
+      font-size:11px;
+      display:grid; place-items:center;
       transition:.2s;
-      cursor:pointer; 
     }
-    .service:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(0,0,0,.07)}
-    .service-img{
-      width:60px;height:60px;
-      object-fit:cover;
-      border-radius:6px;
-      border:2px solid #fff;
-      box-shadow:0 2px 5px rgba(0,0,0,.1);
-      flex-shrink:0;
-    }
-    .service-text{
-      flex:1;
-    }
-    .service-text h4{
-      margin:0 0 4px;
-      font-size:15px;
-      line-height:1.25;
-      color:#174d80;
-      font-weight:700;
-    }
-    .service-text p{
-      margin:0;
-      font-size:12px;
-      color:#0d71ad;
-      font-weight:600;
-      line-height:1.3;
-    }
-    .pink{background:#fff0f7;border-color:#f5cade}
-    .blue{background:#edf8ff;border-color:#c7e2f6}
-    .green{background:#effcf1;border-color:#cbe8d0}
-    .yellow{background:#fff8e8;border-color:#f2dfb7}
-    .purple{background:#f5efff;border-color:#ddcff4}
-    .cyan{background:#eefcff;border-color:#c4e9ef}
+    .marquee-btn:hover{ background:#eaf5ff; }
 
+    /* ================= SERVICES ================= */
+    .services-panel{padding-bottom:0}
     .mini-banner{
       margin:0 12px 12px;
       min-height:79px;
@@ -854,24 +697,22 @@
         url("https://images.unsplash.com/photo-1509099836639-18ba02c7c56a?auto=format&fit=crop&w=1100&q=80") center/cover;
     }
 
+    /* ================= SIDEBAR ================= */
     .cm-card{
       min-height:113px;
       background:linear-gradient(90deg,rgba(236,247,255,.94),rgba(226,242,255,.72));
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:11px;
-      overflow:hidden;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:11px; overflow:hidden;
     }
     .cm-avatar{
       width:95px;height:94px;
       object-fit:cover;object-position:center;
-      border-radius: 44px;
+      border-radius:44px;
       background:#dbe8f1;
     }
     .cm-text{padding-left:9px;flex:1}
-    .cm-text h4{margin:0;font-size:15px;color:#07447a;font-weight:700}
-    .cm-text p{margin:2px 0 5px;font-size:12px;line-height:1.2;color:#194f7c}
+    .cm-text h4{margin:0;font-size:14px;color:#07447a;font-weight:700}
+    .cm-text p{margin:2px 0 5px;font-size:11px;line-height:1.2;color:#194f7c}
     .message-btn{
       display:inline-flex;align-items:center;gap:5px;
       color:#fff;background:#0868b2;border-radius:4px;
@@ -892,117 +733,129 @@
       background:linear-gradient(90deg,rgba(255,255,255,.92),rgba(255,241,203,.85));
       border:1px solid #f1dca9;
     }
-    .yojana-icon{
-      width:48px;height:48px;border-radius:50%;
-      background:#fff;display:grid;place-items:center;
-      color:#0a5794;font-size:25px;box-shadow:0 2px 6px rgba(0,0,0,.1)
-    }
-    .yojana strong{display:block;font-size:21px;color:#0961a0;line-height:1}
-    .yojana span{font-size:12px;color:#16507c;font-weight:600}
 
-    /* ================= IMPORTANT LINKS TABLE ================= */
-    .important-links-section{
+    /* ================= UTTARAKHAND PROGRESS CHART ================= */
+    .progress-section{
       width:min(1425px,94%);
-      margin:0 auto 14px;
+      margin:20px auto 14px;
+      background:#fff;
+      border:1px solid #cfe0ef;
+      border-radius:10px;
+      box-shadow:0 4px 14px rgba(7,59,112,.06);
+      overflow:hidden;
     }
-    .app-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-family: "Inter", sans-serif;
-      font-size: 14px;
+    .progress-header{
+      background:linear-gradient(90deg,#073f73,#0b4e8b);
+      color:#fff;
+      padding:14px 22px;
+      display:flex;
+      align-items:center;
+      gap:10px;
     }
-    .app-table th {
-      background: #eaf5ff;
-      color: #063f78;
-      font-weight: 700;
-      padding: 12px 10px;
-      text-align: left;
-      border-bottom: 2px solid #d6e7f4;
+    .progress-header h2{
+      margin:0;
+      font-size:22px;
+      font-weight:700;
+      letter-spacing:.3px;
     }
-    .app-table td {
-      padding: 12px 10px;
-      border-bottom: 1px solid #e5edf3;
-      color: #164c7f;
+    .progress-header i{ font-size:22px; color:#ffd45b; }
+    .progress-body{
+    
+      grid-template-columns: 1fr 1.4fr;
+      gap:20px;
+      padding:22px;
+      align-items:stretch;
     }
-    .app-table tr:last-child td {
-      border-bottom: none;
-    }
-    .app-table tr:hover td {
-      background: #f8fbff;
-    }
-    .status-badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-weight: 700;
-      background: #ffeef0;
-      color: #ef2943;
-      border: 1px solid #ffd1d7;
-    }
-    .pdf-link {
-      color: #0868af;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .pdf-link:hover {
-      text-decoration: underline;
-    }
-    @media (max-width: 768px) {
-      .app-table thead { display: none; }
-      .app-table, .app-table tbody, .app-table tr, .app-table td {
-        display: block;
-        width: 100%;
-      }
-      .app-table tr {
-        margin-bottom: 15px;
-        border: 1px solid #cfe0ef;
-        border-radius: 8px;
-        padding: 10px;
-      }
-      .app-table td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: right;
-        border-bottom: 1px solid #e5edf3;
-        padding: 8px 0;
-      }
-      .app-table td::before {
-        content: attr(data-label);
-        font-weight: 700;
-        color: #063f78;
-        text-align: left;
-        padding-right: 10px;
-      }
-      .app-table td:last-child { border-bottom: none; }
-    }
-
-    /* ================= STATS ================= */
-    .stats{
-      width:min(1425px,94%);
-      margin:0 auto 0;
-      background:#eaf5ff;
-      border-radius:8px 8px 0 0;
-      min-height:66px;
+    .stats-section{
       display:grid;
-      grid-template-columns:repeat(5,1fr);
-      border:1px solid #d6e7f4;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      align-content:center;
     }
-    .stat{
-      display:flex;align-items:center;justify-content:center;gap:11px;
-      border-right:1px solid #c9dceb;padding:8px 10px;text-align:left;
+    .stat-card{
+      background:linear-gradient(135deg,#f5f9fd,#eaf5ff);
+      border:1px solid #cfe0ef;
+      border-radius:10px;
+      padding:14px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      transition:.25s;
     }
-    .stat:last-child{border-right:0}
-    .stat-icon{
-      width:39px;height:39px;border-radius:50%;
-      background:#d1eafb;color:#1265a3;
-      display:grid;place-items:center;font-size:17px;
+    .stat-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 8px 18px rgba(7,59,112,.10);
     }
-    .stat strong{display:block;color:#0c5a96;font-family:Inter,sans-serif;font-size:17px;line-height:1.1}
-    .stat span{display:block;color:#174d7c;font-size:12px;line-height:1.2}
+    .stat-card .stat-icon{
+      width:48px; height:48px;
+      border-radius:12px;
+      background:#fff;
+      display:grid; place-items:center;
+      font-size:20px;
+      box-shadow:0 2px 6px rgba(0,0,0,.08);
+      flex-shrink:0;
+    }
+    .stat-card .stat-text strong{
+      display:block;
+      font-size:22px;
+      font-weight:800;
+      color:#073f73;
+      font-family:Inter,sans-serif;
+      line-height:1;
+    }
+    .stat-card .stat-text span{
+      display:block;
+      font-size:13px;
+      color:#174d7c;
+      margin-top:3px;
+      font-weight:600;
+    }
+    .chart-container{
+      background:linear-gradient(135deg,#073f73,#0b4e8b);
+      border-radius:10px;
+      padding:18px;
+      min-height:340px;
+      position:relative;
+    }
+    .chart-container h3{
+      margin:0 0 12px;
+      color:#fff;
+      font-size:16px;
+      font-weight:700;
+      text-align:center;
+    }
+    .chart-wrapper{
+      position:relative;
+      width:100%;
+      height:300px;
+    }
+    .commitment-banner{
+      background:linear-gradient(90deg,#159447,#0e7a37);
+      color:#fff;
+      padding:14px 22px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-top:0;
+    }
+    .commitment-banner strong{
+      font-size:20px;
+      font-weight:700;
+      display:block;
+      line-height:1.1;
+    }
+    .commitment-banner span{
+      font-size:13px;
+      opacity:.9;
+    }
+    @media (max-width: 992px){
+      .progress-body{ grid-template-columns:1fr; }
+      .chart-wrapper{ height:280px; }
+    }
+    @media (max-width: 576px){
+      .stats-section{ grid-template-columns:1fr; }
+      .progress-header h2{ font-size:18px; }
+    }
 
     /* ================= FOOTER ================= */
     footer{background:#063968;color:#fff;margin-top:0}
@@ -1030,7 +883,6 @@
       .quick-links,.yojana{margin-top:0}
       .cm-card{height:100%}
     }
-
     @media (max-width:992px){
       .top-links{gap:13px}
       .nav-item{font-size:14px;padding:0 9px}
@@ -1045,12 +897,7 @@
       .hero-topics{width:190px;right:10px}
       .content-grid{grid-template-columns:1fr}
       .sidebar{grid-column:auto;display:grid;grid-template-columns:1fr 1fr 1fr}
-      .stats{grid-template-columns:repeat(3,1fr)}
-      .stat:nth-child(3){border-right:0}
-      .stat:nth-child(4),.stat:nth-child(5){border-top:1px solid #c9dceb}
-      .footer-main{grid-template-columns:1fr 1fr}
     }
-
     @media (max-width:768px){
       .topbar-inner{min-height:50px}
       .gov-brand{font-size:13px}
@@ -1061,7 +908,6 @@
       .top-links{flex-direction:column;align-items:flex-start;gap:9px}
       .top-links-group{width:100%;display:none}
       .top-links-group.open{display:block}
-      .top-links-group .top-links{padding:5px 0}
       .brand-row{min-height:96px}
       .department-brand{gap:12px}
       .uk-logo{width:76px;height:70px;padding-right:10px}
@@ -1071,54 +917,29 @@
       .nav-inner{width:max-content;min-width:100%}
       .nav-item{min-width:125px;font-size:13px;min-height:45px}
       .hero{height:480px}
-      .hero-content{
-        width:100%;height:180px;padding:15px 18px 0;
-        justify-content:flex-start;
-      }
+      .hero-content{ width:100%;height:180px;padding:15px 18px 0; justify-content:flex-start; }
       .hero-title{font-size:25px}
       .hero-subtitle{font-size:14px;margin-top:8px}
       .hero-topics{
         top:auto;bottom:60px;left:15px;right:15px;
         width:auto;flex-direction:row;justify-content:center;gap:5px;
       }
-      .topic{flex-direction:column;gap:3px;text-align:center;font-size:9px;max-width:68px}
-      .topic-icon{width:31px;height:31px;flex-basis:31px;font-size:12px}
-      .hero-controls{left:12px;bottom:14px}
       .content-grid{width:94%}
-      .service-grid{grid-template-columns:repeat(2,1fr)}
       .sidebar{display:grid;grid-template-columns:1fr}
-      .stats{grid-template-columns:1fr 1fr}
-      .stat{border-right:1px solid #c9dceb!important}
-      .stat:nth-child(even){border-right:0!important}
-      .stat:nth-child(n+3){border-top:1px solid #c9dceb}
       .footer-main{grid-template-columns:1fr;gap:15px}
       .footer-bottom{flex-direction:column;align-items:flex-start}
     }
-
     @media (max-width:480px){
       body{font-size:14px}
-      .topbar .container,.department-header .container,.main-container,.nav-inner,.hero,.content-grid,.stats,.footer-main,.footer-bottom{width:96%}
       .gov-brand{font-size:11px}
       .department-copy h1{font-size:16px}
       .department-copy p{font-size:10px}
       .uk-logo{width:62px;height:60px}
       .nav-item{min-width:112px}
       .hero{height:440px}
-      .hero-content{gap:10px;padding-right:14px;padding-left:14px}
-      .hero-person{width:64px;height:64px;flex-basis:64px}
-      .hero-title{font-size:20px}
-      .hero-subtitle{font-size:11px}
       .panel-heading{font-size:17px}
-      .service-grid{gap:7px;padding:8px; grid-template-columns:1fr}
+      .gallery-grid{gap:7px;padding:8px; grid-template-columns:1fr}
       .service{min-height:80px; padding:8px;}
-      .service-img{width:45px;height:45px}
-      .service-text h4{font-size:13px}
-      .service-text p{font-size:11px}
-      .update{grid-template-columns:62px 1fr}
-      .date-box{height:50px}
-      .stats{grid-template-columns:1fr}
-      .stat{border-right:0!important;border-top:1px solid #c9dceb}
-      .stat:first-child{border-top:0}
     }
   </style>
 </head>
@@ -1134,16 +955,53 @@
             <i class="fa-solid fa-landmark"></i>
             <span>उत्तराखंड सरकार &nbsp;|&nbsp; Govt. of Uttarakhand</span>
           </a>
-
           <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
             <i class="fa-solid fa-bars"></i>
           </button>
-
           <div class="top-links-group" id="topLinks">
             <ul class="top-links">
               <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
               <li><a href="#"><i class="fa-solid fa-globe"></i> Official Website</a></li>
-              <li><a href="#"><i class="fa-solid fa-hand-holding-heart"></i> Meri Yojana</a></li>
+             <li class="nav-dropdown">
+  <a href="#" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+    <i class="fa-solid fa-hand-holding-heart"></i>
+    Meri Yojana
+    <i class="fa-solid fa-chevron-down nav-arrow"></i>
+  </a>
+
+  <ul class="nav-dropdown-menu">
+    <!-- केंद्र सरकार (with submenu) -->
+    <li class="nav-submenu">
+      <a href="#" class="nav-submenu-toggle" aria-haspopup="true" aria-expanded="false">
+        केंद्र सरकार
+        <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+      </a>
+      <ul class="nav-dropdown-menu submenu">
+        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> प्रधानमंत्री मातृ वंदना योजना</a></li>
+        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> बेटी बचाओ बेटी पढ़ाओ</a></li>
+        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> पोषण अभियान</a></li>
+        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> सुकन्या समृद्धि योजना</a></li>
+      </ul>
+    </li>
+
+    <!-- राज्य सरकार (with submenu) -->
+    <li class="nav-submenu">
+      <a href="#" class="nav-submenu-toggle" aria-haspopup="true" aria-expanded="false">
+        राज्य सरकार
+        <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+      </a>
+      <ul class="nav-dropdown-menu submenu">
+        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> नंदा गौरा योजना</a></li>
+        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> मुख्यमंत्री महिला पोषण</a></li>
+        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> मुख्यमंत्री बाल पोषण</a></li>
+        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> मुख्यमंत्री बाल कल्याण योजना</a></li>
+      </ul>
+    </li>
+
+    <!-- Direct link (no submenu) -->
+    <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> सभी योजनाएँ देखें</a></li>
+  </ul>
+</li>
               <li><a href="#"><i class="fa-solid fa-user-shield"></i> Admin Login</a></li>
               <li><a href="#"><i class="fa-solid fa-phone"></i> Contact</a></li>
             </ul>
@@ -1163,12 +1021,11 @@
               <p>Women Empowerment &amp; Child Development Department,<br>Uttarakhand</p>
             </div>
           </div>
-          
           <div class="header-right">
             <img src="../images/icds_logo.jpeg" class="icds-logo" alt="ICDS Logo">
             <a href="#" class="login-btn" data-bs-toggle="modal" data-bs-target="#loginModal">
               <i class="fa-solid fa-right-to-bracket"></i>
-              <span>लॉगिन / Login</span>
+              <span>FeedBack</span>
             </a>
             <a href="#" class="login-btn">
               <i class="fa-solid fa-address-book"></i>
@@ -1182,17 +1039,15 @@
     <!-- MAIN NAVIGATION -->
     <nav class="main-nav">
       <div class="nav-inner">
-        <!-- Nav items can go here -->
+        <!-- Nav items here -->
       </div>
     </nav>
   </header>
 
-  <!-- ================= LOGIN MODAL (Moved out of nav - direct child of body) ================= -->
+  <!-- ================= LOGIN MODAL ================= -->
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content login-modal">
-
-        <!-- Modal Header -->
         <div class="modal-header login-modal-header">
           <div>
             <h5 class="modal-title" id="loginModalLabel">
@@ -1203,11 +1058,8 @@
           </div>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-        <!-- Modal Body -->
         <div class="modal-body login-modal-body">
           <form id="loginForm">
-            <!-- Mobile Number -->
             <div class="mb-3">
               <label for="mobileNumber" class="form-label">मोबाइल नंबर / Mobile Number</label>
               <div class="input-group">
@@ -1215,8 +1067,6 @@
                 <input type="tel" class="form-control" id="mobileNumber" name="mobile" placeholder="मोबाइल नंबर दर्ज करें" maxlength="10" pattern="[0-9]{10}" required>
               </div>
             </div>
-
-            <!-- Password -->
             <div class="mb-3">
               <label for="loginPassword" class="form-label">पासवर्ड / Password</label>
               <div class="input-group">
@@ -1227,8 +1077,6 @@
                 </button>
               </div>
             </div>
-
-            <!-- Remember / Forgot -->
             <div class="login-options">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="rememberMe">
@@ -1236,21 +1084,16 @@
               </div>
               <a href="#" class="forgot-password">पासवर्ड भूल गए?</a>
             </div>
-
-            <!-- Login Button -->
             <button type="submit" class="btn login-submit-btn w-100">
               <i class="fa-solid fa-right-to-bracket"></i>
               लॉगिन करें / Login
             </button>
           </form>
         </div>
-
-        <!-- Modal Footer -->
         <div class="modal-footer login-modal-footer">
           <span>अभी तक पंजीकरण नहीं किया?</span>
           <a href="#">पंजीकरण करें / Register</a>
         </div>
-
       </div>
     </div>
   </div>
@@ -1259,107 +1102,53 @@
   <section class="hero-wrap">
     <div class="hero" id="hero">
       <div class="hero-slider" id="heroSlider">
-        <div class="hero-slide"><img src="../images/images-11.jpeg" alt="Women and Child Development 1"></div>
-        <div class="hero-slide"><img src="../images/images-9.jpeg" alt="Women and Child Development 2"></div>
-        <div class="hero-slide"><img src="../images/images-10.jpeg" alt="Women and Child Development 3"></div>
-        <div class="hero-slide"><img src="../images/images-6.jpeg" alt="Women and Child Development 4"></div>
-        <div class="hero-slide"><img src="../images/images-3.jpeg" alt="Women and Child Development 5"></div>
+        <div class="hero-slide"><img src="../images/images-11.jpeg" alt="Slide 1"></div>
+        <div class="hero-slide"><img src="../images/images-9.jpeg" alt="Slide 2"></div>
+        <div class="hero-slide"><img src="../images/images-10.jpeg" alt="Slide 3"></div>
+        <div class="hero-slide"><img src="../images/images-6.jpeg" alt="Slide 4"></div>
+        <div class="hero-slide"><img src="../images/images-3.jpeg" alt="Slide 5"></div>
       </div>
 
-   <div class="hero-overlay">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <div class="hero-person-block">
+            <img class="hero-person" src="../images/cm.png" alt="CM Pushkar Singh Dhami">
+            <h3 class="hero-person-name">Sh. Pushkar Singh Dhami</h3>
+            <p class="hero-person-designation">Hon'ble Chief Minister<br>Uttarakhand</p>
+          </div>
+          <div class="hero-person-info">
+            <h2 class="hero-title">
+              सशक्त महिला<br>
+              पोषित बच्चे<br>
+              उन्नत उत्तराखंड
+            </h2>
+            <p class="hero-subtitle">
+              "महिला सशक्तिकरण एवं बाल विकास विभाग के माध्यम से<br>
+              सशक्त समाज की ओर"
+            </p>
+          </div>
+        </div>
 
-  <!-- LEFT: CM -->
-  <div class="hero-content">
-<div class="hero-person-block">
+        <div class="hero-topics">
+          <img class="hero-person" src="../images/rekha.png" alt="Minister Rekha Arya">
+          <div class="hero-person-info">
+            <h3>Smt. Rekha Arya</h3>
+            <p>Cabinet Minister of Women and Child Welfare Uttarakhand</p>
+          </div>
+        </div>
 
-  <img
-    class="hero-person"
-    src="../images/cm.png"
-    alt="Uttarakhand Chief Minister Pushkar Singh Dhami"
-  >
-
-  <h3 class="hero-person-name">Sh.Pushkar Singh Dhami</h3>
-
-  <p class="hero-person-designation">
-  Hon'ble Chief Minister
-Uttarakhand
-  </p>
-
-</div>
-    <div class="hero-person-info">
-
-       <h2 class="hero-title">
-      सशक्त महिला<br>
-      सुरक्षित बालक<br>
-      समृद्ध उत्तराखंड
-    </h2>
-
-    <p class="hero-subtitle">
-      "महिला एवं बाल विकास के माध्यम से<br>
-      सशक्त समाज की ओर"
-    </p>
-
-     
-    </div>
-
-  </div>
-
-
- 
-
-  </div>
-
-
-  <!-- RIGHT: MINISTER -->
-  
-  <div class="hero-topics">
-
-    <img
-      class="hero-person"
-      src="../images/rekha.png"
-      alt="Uttarakhand Women and Child Development Minister Rekha Arya"
-    >
-
-    <!-- Minister Name & Designation -->
-    <div class="hero-person-info">
-      <h3>Smt.Rekha Arya</h3>
-      <p>Cabinet Minister of Women and Child Welfare Uttarakhand
-</p>
-    </div>
-
-  </div>
-
-
-  <!-- CONTROLS -->
-  <div class="hero-controls">
-
-    <button
-      class="hero-arrow"
-      id="prevBtn"
-      aria-label="Previous"
-    >
-      <i class="fa-solid fa-chevron-left"></i>
-    </button>
-
-    <button
-      class="hero-arrow"
-      id="nextBtn"
-      aria-label="Next"
-    >
-      <i class="fa-solid fa-chevron-right"></i>
-    </button>
-
-    <div class="dots" id="dots">
-      <span class="dot active" data-index="0"></span>
-      <span class="dot" data-index="1"></span>
-      <span class="dot" data-index="2"></span>
-      <span class="dot" data-index="3"></span>
-      <span class="dot" data-index="4"></span>
-    </div>
-
-  </div>
-
-</div>
+        <div class="hero-controls">
+          <button class="hero-arrow" id="prevBtn" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="hero-arrow" id="nextBtn" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="dots" id="dots">
+            <span class="dot active" data-index="0"></span>
+            <span class="dot" data-index="1"></span>
+            <span class="dot" data-index="2"></span>
+            <span class="dot" data-index="3"></span>
+            <span class="dot" data-index="4"></span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1367,97 +1156,99 @@ Uttarakhand
   <main>
     <div class="content-grid">
 
-      <!-- LEFT: UPDATES -->
+      <!-- LEFT: UPDATES (with marquee that starts after 2 seconds) -->
       <section class="panel">
         <div class="panel-heading">
           <div class="heading-left">
             <i class="fa-solid fa-bullhorn"></i>
             <span>नवीनतम अपडेट्स / New Updates</span>
           </div>
-          <a class="view-all" href="#">View All →</a>
+          <div class="marquee-controls">
+            <button class="marquee-btn" id="marqueePauseBtn" title="Pause"><i class="fa-solid fa-pause"></i></button>
+            <button class="marquee-btn" id="marqueePlayBtn" title="Play" style="display:none;"><i class="fa-solid fa-play"></i></button>
+            <a class="view-all" href="#">View All →</a>
+          </div>
         </div>
 
         <div class="updates-body">
-          <article class="update">
-            <div class="date-box"><strong>17</strong><span>Sep<br>2026</span></div>
-            <div>
-              <h4>आंगनवाड़ी कार्यकर्ती पुरस्कार 2025-26 हेतु नवीनतम सूचना <span class="new-badge">NEW</span></h4>
-              <a href="#">पूर्ण विज्ञप्ति →</a>
+          <div class="updates-viewport" id="updatesViewport">
+            <div class="updates-track" id="updatesTrack">
+              <article class="update">
+                <div class="date-box"><strong>17</strong><span>Sep<br>2026</span></div>
+                <div>
+                  <h4>आंगनवाड़ी कार्यकर्ती पुरस्कार 2025-26 हेतु नवीनतम सूचना <span class="new-badge">NEW</span></h4>
+                  <a href="../html_file/login.html">पूर्ण विज्ञप्ति →</a>
+                </div>
+              </article>
+              <article class="update">
+                <div class="date-box"><strong>15</strong><span>Sep<br>2026</span></div>
+                <div>
+                  <h4>प्रधानमंत्री मातृ वंदना योजना के तहत आवेदन की अंतिम तिथि बढ़ाई गई</h4>
+                  <a href="#">पूर्ण विज्ञप्ति →</a>
+                </div>
+              </article>
+              <article class="update">
+                <div class="date-box"><strong>12</strong><span>Sep<br>2026</span></div>
+                <div>
+                  <h4>बाल विकास परियोजना अधिकारियों के लिए प्रशिक्षण कार्यक्रम का आयोजन</h4>
+                  <a href="#">अधिक जानकारी →</a>
+                </div>
+              </article>
+              <article class="update">
+                <div class="date-box"><strong>08</strong><span>Sep<br>2026</span></div>
+                <div>
+                  <h4>पोषण अभियान के अंतर्गत जनजागरूकता रैली का आयोजन</h4>
+                  <a href="#">पूर्ण विज्ञप्ति →</a>
+                </div>
+              </article>
+              <article class="update">
+                <div class="date-box"><strong>05</strong><span>Sep<br>2026</span></div>
+                <div>
+                  <h4>महिला हेल्पलाइन 181 पर नया संचालन समय लागू <span class="new-badge">NEW</span></h4>
+                  <a href="#">पूर्ण विज्ञप्ति →</a>
+                </div>
+              </article>
+              <article class="update">
+                <div class="date-box"><strong>02</strong><span>Sep<br>2026</span></div>
+                <div>
+                  <h4>आंगनवाड़ी केंद्र निरीक्षण रिपोर्ट अपलोड हेतु निर्देश</h4>
+                  <a href="#">अधिक जानकारी →</a>
+                </div>
+              </article>
             </div>
-          </article>
-
-          <article class="update">
-            <div class="date-box"><strong>15</strong><span>Sep<br>2026</span></div>
-            <div>
-              <h4>प्रधानमंत्री मातृ वंदना योजना के तहत आवेदन की अंतिम तिथि बढ़ाई गई</h4>
-              <a href="#">पूर्ण विज्ञप्ति →</a>
-            </div>
-          </article>
-
-          <article class="update">
-            <div class="date-box"><strong>12</strong><span>Sep<br>2026</span></div>
-            <div>
-              <h4>बाल विकास परियोजना अधिकारियों के लिए प्रशिक्षण कार्यक्रम का आयोजन</h4>
-              <a href="#">अधिक जानकारी →</a>
-            </div>
-          </article>
-
-          <article class="update">
-            <div class="date-box"><strong>08</strong><span>Sep<br>2026</span></div>
-            <div>
-              <h4>पोषण अभियान के अंतर्गत जनजागरूकता रैली का आयोजन</h4>
-              <a href="#">पूर्ण विज्ञप्ति →</a>
-            </div>
-          </article>
-
+          </div>
           <div class="updates-footer">सभी अपडेट्स देखें →</div>
         </div>
       </section>
 
       <!-- CENTER: SERVICES -->
-   <!-- CENTER: SERVICES -->
-<!-- CENTER: SERVICES -->
-<section class="panel services-panel" id="servicesPanel">
-  <div class="panel-heading">
-    <div class="heading-left"><span>हमारी प्रमुख सेवाएँ</span></div>
-  </div>
-
-  <!-- टैब नेविगेशन (यहाँ सेवाओं के नाम दिखेंगे) -->
-  <div class="service-tabs" id="serviceTabs">
-    <!-- यहाँ बटन JavaScript से अपने आप बनेंगे -->
-  </div>
-
-  <!-- गैलरी ग्रिड (यहाँ चित्र 2 कॉलम में दिखेंगे) -->
-  <div class="gallery-grid" id="galleryGrid">
-    <!-- यहाँ चित्र JavaScript से अपने आप आएंगे -->
-  </div>
-</section>
+      <section class="panel services-panel" id="servicesPanel">
+        <div class="panel-heading">
+          <div class="heading-left"><span>हमारी प्रमुख सेवाएँ</span></div>
+        </div>
+        <div class="service-tabs" id="serviceTabs"></div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </section>
 
       <!-- RIGHT: SIDEBAR -->
       <aside class="sidebar">
         <div class="panel cm-card">
-          <img class="cm-avatar" src="../images/sec.png" alt="Chief Minister">
+          <img class="cm-avatar" src="../images/sec.png" alt="Secretary">
           <div class="cm-text">
-            <span class="designation"></span>
-            <h4>Sh. Chandresh Kumar Yadav(IAS)</h4>
-            <p>Secretary,WECD Government of <br>Uttarakhand</p>
+            <h4>Sh. Chandresh Kumar Yadav (IAS)</h4>
+            <p>Secretary, WECD<br>Government of Uttarakhand</p>
           </div>
         </div>
-
         <div class="panel cm-card">
-          <img class="cm-avatar" src="../images/director-wecd.png" alt="Rekha Arya">
+          <img class="cm-avatar" src="../images/director-wecd.png" alt="Director">
           <div class="cm-text">
-            <span class="designation"></span>
-            <h4>Sh.Banshi Lal Rana (IAS)</h4>
-            <p>Director,WECD Government of  <br>Uttarakhand</p>
+            <h4>Sh. Banshi Lal Rana (IAS)</h4>
+            <p>Director, WECD<br>Government of Uttarakhand</p>
           </div>
         </div>
-
         <div class="panel quick-links">
           <div class="panel-heading">
-            <div class="heading-left">
-              <span>त्वरित लिंक / Quick Links</span>
-            </div>
+            <div class="heading-left"><span>त्वरित लिंक / Quick Links</span></div>
           </div>
           <a class="quick-link" href="#"><span><i class="fa-regular fa-file-lines"></i> विभागीय आदेश</span><i class="fa-solid fa-chevron-right"></i></a>
           <a class="quick-link" href="#"><span><i class="fa-solid fa-chart-column"></i> बजट एवं वित्तीय विवरण</span><i class="fa-solid fa-chevron-right"></i></a>
@@ -1468,87 +1259,25 @@ Uttarakhand
       </aside>
     </div>
 
-    <!-- IMPORTANT LINKS & INCOMPLETE APPLICATIONS -->
-    <section class="panel important-links-section">
-      <div class="panel-heading">
-        <div class="heading-left">
-          <i class="fa-solid fa-link"></i>
-          <span>महत्वपूर्ण लिंक एवं अपूर्ण आवेदन / Important Links</span>
+    <!-- ================= UTTARAKHAND PROGRESS CHART ================= -->
+    <section class="progress-section">
+   
+      <div class="progress-body">
+      
+        <!-- Right: Graph -->
+        <div class="chart-container">
+          <h3>जिले अनुसार प्रगति विवरण</h3>
+          <div class="chart-wrapper">
+            <canvas id="horizontalBarChart"></canvas>
+          </div>
         </div>
-        <a class="view-all" href="#">View All →</a>
       </div>
-      <div style="padding: 5px 12px 12px; overflow-x: auto;">
-        <table class="app-table">
-          <thead>
-            <tr>
-              <th>क्र. (S.No)</th>
-              <th>आवेदन नाम (Application Name)</th>
-              <th>समय (Time)</th>
-              <th>शुरू तिथि (Start Date)</th>
-              <th>समाप्ति तिथि (End Date)</th>
-              <th>स्थिति (Status)</th>
-              <th>लिंक (PDF Link)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="क्र.">1</td>
-              <td data-label="आवेदन नाम">आंगनवाड़ी कार्यकर्ती/सहायिका भर्ती 2026</td>
-              <td data-label="समय">10:00 AM - 5:00 PM</td>
-              <td data-label="शुरू तिथि">01-09-2026</td>
-              <td data-label="समाप्ति तिथि">15-09-2026</td>
-              <td data-label="स्थिति"><span class="status-badge">Application Closed</span></td>
-              <td data-label="लिंक"><a href="#" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> Download</a></td>
-            </tr>
-            <tr>
-              <td data-label="क्र.">2</td>
-              <td data-label="आवेदन नाम">प्रधानमंत्री मातृ वंदना योजना आवेदन</td>
-              <td data-label="समय">11:00 AM - 4:00 PM</td>
-              <td data-label="शुरू तिथि">05-09-2026</td>
-              <td data-label="समाप्ति तिथि">20-09-2026</td>
-              <td data-label="स्थिति"><span class="status-badge">Application Closed</span></td>
-              <td data-label="लिंक"><a href="#" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> Download</a></td>
-            </tr>
-            <tr>
-              <td data-label="क्र.">3</td>
-              <td data-label="आवेदन नाम">बाल विकास परियोजना कार्यालय अधिकारी आवेदन</td>
-              <td data-label="समय">10:00 AM - 5:00 PM</td>
-              <td data-label="शुरू तिथि">10-09-2026</td>
-              <td data-label="समाप्ति तिथि">25-09-2026</td>
-              <td data-label="स्थिति"><span class="status-badge">Application Closed</span></td>
-              <td data-label="लिंक"><a href="#" class="pdf-link"><i class="fa-solid fa-file-pdf"></i> Download</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+     
     </section>
 
-    <!-- STATISTICS -->
-    <section class="stats">
-      <div class="stat">
-        <div class="stat-icon"><i class="fa-solid fa-location-dot"></i></div>
-        <div><strong>13</strong><span>जिले</span></div>
-      </div>
-      <div class="stat">
-        <div class="stat-icon"><i class="fa-solid fa-people-group"></i></div>
-        <div><strong>1000+</strong><span>आंगनवाड़ी केंद्र</span></div>
-      </div>
-      <div class="stat">
-        <div class="stat-icon"><i class="fa-solid fa-child-reaching"></i></div>
-        <div><strong>500+</strong><span>बच्चों के लिए योजनाएँ</span></div>
-      </div>
-      <div class="stat">
-        <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
-        <div><strong>100+</strong><span>महिला समूह</span></div>
-      </div>
-      <div class="stat">
-        <div class="stat-icon"><i class="fa-solid fa-seedling"></i></div>
-        <div><strong>सशक्त उत्तराखंड</strong><span>हमारा संकल्प</span></div>
-      </div>
-    </section>
   </main>
 
-  <!-- ================= SERVICE IMAGE MODAL (Moved out of panel - direct child of body) ================= -->
+  <!-- ================= SERVICE IMAGE MODAL ================= -->
   <div class="modal fade" id="serviceImageModal" tabindex="-1" aria-labelledby="serviceImageModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
@@ -1557,7 +1286,7 @@ Uttarakhand
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body text-center">
-          <img src="" alt="Service Image" id="modalServiceImage" class="img-fluid rounded" style="max-height: 70vh; width: auto;">
+          <img src="" alt="Service Image" id="modalServiceImage" class="img-fluid rounded" style="max-height:70vh; width:auto;">
         </div>
       </div>
     </div>
@@ -1590,16 +1319,16 @@ Uttarakhand
     </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle (Required for Modal to function) -->
+  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
+
   <script>
-    // Mobile menu toggle
+    /* ================= MOBILE MENU ================= */
     const mobileToggle = document.getElementById("mobileToggle");
     const topLinks = document.getElementById("topLinks");
     mobileToggle.addEventListener("click", () => topLinks.classList.toggle("open"));
 
-    // ===== HERO CAROUSEL =====
+    /* ================= HERO CAROUSEL ================= */
     const slider     = document.getElementById("heroSlider");
     const slides     = slider.querySelectorAll(".hero-slide");
     const dots       = document.querySelectorAll(".dot");
@@ -1617,63 +1346,42 @@ Uttarakhand
       slider.style.transform = `translateX(-${currentIndex * 100}%)`;
       dots.forEach((dot,i) => dot.classList.toggle("active", i === currentIndex));
     }
-
     function nextSlide(){ goToSlide(currentIndex + 1); }
     function prevSlide(){ goToSlide(currentIndex - 1); }
-
-    function startAuto(){
-      stopAuto();
-      autoTimer = setInterval(nextSlide, AUTO_INTERVAL);
-    }
-    function stopAuto(){
-      if(autoTimer){ clearInterval(autoTimer); autoTimer = null; }
-    }
+    function startAuto(){ stopAuto(); autoTimer = setInterval(nextSlide, AUTO_INTERVAL); }
+    function stopAuto(){ if(autoTimer){ clearInterval(autoTimer); autoTimer = null; } }
 
     nextBtn.addEventListener("click", () => { nextSlide(); startAuto(); });
     prevBtn.addEventListener("click", () => { prevSlide(); startAuto(); });
-
     dots.forEach(dot => {
-      dot.addEventListener("click", () => {
-        goToSlide(parseInt(dot.dataset.index, 10));
-        startAuto();
-      });
+      dot.addEventListener("click", () => { goToSlide(parseInt(dot.dataset.index,10)); startAuto(); });
     });
-
     hero.addEventListener("mouseenter", stopAuto);
     hero.addEventListener("mouseleave", startAuto);
-
     let touchStartX = 0;
-    hero.addEventListener("touchstart", e => {
-      touchStartX = e.changedTouches[0].screenX;
-      stopAuto();
-    }, {passive:true});
+    hero.addEventListener("touchstart", e => { touchStartX = e.changedTouches[0].screenX; stopAuto(); }, {passive:true});
     hero.addEventListener("touchend", e => {
       const diff = e.changedTouches[0].screenX - touchStartX;
-      if(diff > 40){ prevSlide(); }
-      else if(diff < -40){ nextSlide(); }
+      if(diff > 40){ prevSlide(); } else if(diff < -40){ nextSlide(); }
       startAuto();
     }, {passive:true});
-
     document.addEventListener("keydown", e => {
       if(e.key === "ArrowLeft"){ prevSlide(); startAuto(); }
       if(e.key === "ArrowRight"){ nextSlide(); startAuto(); }
     });
-
     startAuto();
 
-    // ===== SERVICE IMAGE MODAL LOGIC =====
+    /* ================= SERVICE IMAGE MODAL ================= */
     function openServiceModal(imageSrc, title) {
       var modalImage = document.getElementById('modalServiceImage');
       var modalTitle = document.getElementById('serviceImageModalLabel');
-      
       modalImage.src = imageSrc;
       modalTitle.innerText = title;
-      
       var myModal = new bootstrap.Modal(document.getElementById('serviceImageModal'));
       myModal.show();
     }
 
-    // ===== PASSWORD TOGGLE =====
+    /* ================= PASSWORD TOGGLE ================= */
     document.getElementById("togglePassword").addEventListener("click", function () {
       var pwd = document.getElementById("loginPassword");
       var icon = this.querySelector("i");
@@ -1688,145 +1396,295 @@ Uttarakhand
       }
     });
 
-    // ===== LOGIN FORM SUBMIT (prevent default so modal can close manually) =====
+    /* ================= LOGIN FORM ================= */
     document.getElementById("loginForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      // Add your login logic here
       alert("लॉगिन सफल हुआ! (Demo)");
-      // Close the modal after login
       var loginModalEl = document.getElementById("loginModal");
       var loginModal = bootstrap.Modal.getInstance(loginModalEl);
       if (loginModal) loginModal.hide();
     });
 
-    // सेवाओं का डेटा (आप यहाँ और भी चित्र जोड़ सकते हैं)
-const servicesData = [
-  { 
-    name: "आंगनवाड़ी सेवाएँ", 
-    desc: "पूरक पोषण एवं प्रारंभिक शिक्षा", 
-    // इसमें 3 चित्र हैं
-    images: [
-      '../images/images-3.jpeg', 
-      '../images/images-8.jpeg', 
-      '../images/image-1.jpeg',
-      '../images/image-2.jpeg',
-    ] 
-  },
-  { 
-    name: "मातृत्व एवं शिशु कल्याण", 
-    desc: "गर्भवती एवं धात्री महिला सहायता", 
-    // इसमें 2 चित्र हैं
-    images: [
-      '../images/image-1.jpeg', 
-      '../images/images-9.jpeg',
-      '../images/images-7.jpeg',
-      '../images/images-8.jpeg',
-    ] 
-  },
-  { 
-    name: "बाल संरक्षण", 
-    desc: "बाल अधिकार एवं सुरक्षा व्यवस्था", 
-    // इसमें 1 चित्र है
-    images: [
-      '../images/images-4.jpeg',
-      '../images/images-11.jpeg',
-      '../images/images-10.jpeg',
-      '../images/images-3.jpeg',
+    /* ================= SERVICES DATA & GALLERY ================= */
+    const servicesData = [
+      { name:"आंगनवाड़ी सेवाएँ", desc:"पूरक पोषण एवं प्रारंभिक शिक्षा",
+        images:['../images/images-3.jpeg','../images/images-8.jpeg','../images/image-1.jpeg','../images/image-2.jpeg'] },
+      { name:"मातृत्व एवं शिशु कल्याण", desc:"गर्भवती एवं धात्री महिला सहायता",
+        images:['../images/image-1.jpeg','../images/images-9.jpeg','../images/images-7.jpeg','../images/images-8.jpeg'] },
+      { name:"बाल संरक्षण", desc:"बाल अधिकार एवं सुरक्षा व्यवस्था",
+        images:['../images/images-4.jpeg','../images/images-11.jpeg','../images/images-10.jpeg','../images/images-3.jpeg'] },
+      { name:"पोषण अभियान", desc:"कुपोषण मुक्त उत्तराखंड अभियान",
+        images:['../images/images-6.jpeg','../images/images-11.jpeg','../images/images-8.jpeg','../images/images-9.jpeg'] },
+      { name:"महिला सशक्तिकरण", desc:"आत्मनिर्भर महिला योजनाएँ",
+        images:['../images/images-11.jpeg','../images/images-8.jpeg','../images/images-9.jpeg','../images/images-4.jpeg'] },
+      { name:"योजनाओं की सूची", desc:"सभी सरकारी योजनाओं की जानकारी",
+        images:['../images/images-3.jpeg','../images/images-8.jpeg','../images/images-10.jpeg','../images/images-11.jpeg'] }
+    ];
 
-    ] 
-  },
-  { 
-    name: "पोषण अभियान", 
-    desc: "कुपोषण मुक्त उत्तराखंड अभियान", 
-    // इसमें 2 चित्र हैं
-    images: [
-      '../images/images-6.jpeg', 
-      '../images/images-11.jpeg',
-      '../images/images-8.jpeg',
-      '../images/images-9.jpeg',
+    function initServices() {
+      const tabsContainer = document.getElementById('serviceTabs');
+      servicesData.forEach((service, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'service-tab-btn' + (index === 0 ? ' active' : '');
+        btn.innerText = service.name;
+        btn.onclick = () => showGallery(index);
+        tabsContainer.appendChild(btn);
+      });
+      showGallery(0);
+    }
 
-    ] 
-  },
-  { 
-    name: "महिला सशक्तिकरण", 
-    desc: "आत्मनिर्भर महिला योजनाएँ", 
-    // इसमें 1 चित्र है
-    images: [
-      '../images/images-11.jpeg',
-        '../images/images-8.jpeg',
-      '../images/images-9.jpeg',
-      '../images/images-4.jpeg',
+    function showGallery(index) {
+      const allTabs = document.querySelectorAll('.service-tab-btn');
+      allTabs.forEach(tab => tab.classList.remove('active'));
+      allTabs[index].classList.add('active');
 
-    ] 
-  },
-  { 
-    name: "योजनाओं की सूची", 
-    desc: "सभी सरकारी योजनाओं की जानकारी", 
-    // इसमें 1 चित्र है
-    images: [
-      '../images/images-3.jpeg',
-      '../images/images-8.jpeg',
-      '../images/images-10.jpeg',
-      '../images/images-11.jpeg',
+      const galleryGrid = document.getElementById('galleryGrid');
+      galleryGrid.innerHTML = '';
+      const service = servicesData[index];
+
+      service.images.forEach(imgSrc => {
+        const card = document.createElement('div');
+        card.className = 'gallery-card';
+        card.setAttribute('onclick', `openServiceModal('${imgSrc}', '${service.name}')`);
+        card.innerHTML = `<img src="${imgSrc}" alt="${service.name}">`;
+        galleryGrid.appendChild(card);
+      });
+    }
+    window.addEventListener('load', initServices);
+
+    /* ================= UPDATES MARQUEE =================
+       By default all updates are shown.
+       After 2 seconds the marquee starts scrolling vertically.
+    */
+    (function(){
+      const viewport = document.getElementById('updatesViewport');
+      const track    = document.getElementById('updatesTrack');
+      const pauseBtn = document.getElementById('marqueePauseBtn');
+      const playBtn  = document.getElementById('marqueePlayBtn');
+
+      let offset = 0;
+      let marqueeTimer = null;
+      let isMarqueeActive = false;
+      let isPaused = false;
+      const SPEED = 0.5; // px per frame
+      const START_DELAY = 2000; // 2 seconds
+
+      function duplicateContentForLoop(){
+        // duplicate track content once so the scroll appears seamless
+        track.innerHTML += track.innerHTML;
+      }
+
+      function tick(){
+        if(!isPaused){
+          offset += SPEED;
+          // when we've scrolled past the original content, reset to 0 seamlessly
+          const halfHeight = track.scrollHeight / 2;
+          if(offset >= halfHeight){ offset = 0; }
+          track.style.transform = `translateY(-${offset}px)`;
+        }
+        marqueeTimer = requestAnimationFrame(tick);
+      }
+
+      function startMarquee(){
+        if(isMarqueeActive) return;
+        isMarqueeActive = true;
+        // 1) duplicate content for seamless infinite loop
+        duplicateContentForLoop();
+        // 2) lock viewport height
+        viewport.classList.add('marquee-on');
+        // 3) start animation
+        marqueeTimer = requestAnimationFrame(tick);
+      }
+
+      function stopMarquee(){
+        if(marqueeTimer){ cancelAnimationFrame(marqueeTimer); marqueeTimer = null; }
+        isMarqueeActive = false;
+        isPaused = false;
+      }
+
+      function pauseMarquee(){
+        isPaused = true;
+        pauseBtn.style.display = 'none';
+        playBtn.style.display  = 'inline-grid';
+      }
+      function playMarquee(){
+        isPaused = false;
+        pauseBtn.style.display = 'inline-grid';
+        playBtn.style.display  = 'none';
+      }
+
+      pauseBtn.addEventListener('click', pauseMarquee);
+      playBtn.addEventListener('click', playMarquee);
+
+      // Pause on hover
+      viewport.addEventListener('mouseenter', pauseMarquee);
+      viewport.addEventListener('mouseleave', () => { if(isMarqueeActive) playMarquee(); });
+
+      // Start marquee after 2 seconds (only if viewport is visible)
+      setTimeout(() => {
+        startMarquee();
+      }, START_DELAY);
+    })();
+
+    /* ================= UTTARAKHAND PROGRESS CHART (Chart.js) ================= */
+    window.addEventListener('load', function(){
+      const ctx = document.getElementById('horizontalBarChart').getContext('2d');
+      const chartData = {
+        labels: ['जिले', 'आंगनवाड़ी केंद्र', 'बच्चों के लिए योजनाएँ', 'महिला समूह'],
+        datasets: [{
+          label: 'संख्या',
+          data: [13, 1000, 500, 100],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.85)',
+            'rgba(75, 192, 192, 0.85)',
+            'rgba(255, 206, 86, 0.85)',
+            'rgba(54, 162, 235, 0.85)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(54, 162, 235, 1)'
+          ],
+          borderWidth: 1,
+          borderRadius: 8,
+          barThickness: 30
+        }]
+      };
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: chartData,
+        options: {
+          indexAxis: 'y', // horizontal bar chart
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              beginAtZero: true,
+              grid: { color: 'rgba(255, 255, 255, 0.12)' },
+              ticks: { color: '#ffffff', font: { size: 12 } }
+            },
+            y: {
+              grid: { display: false },
+              ticks: { color: '#ffffff', font: { size: 13, weight: 'bold' } }
+            }
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: 'rgba(0,0,0,0.8)',
+              titleFont: { size: 14 },
+              bodyFont:  { size: 12 },
+              callbacks: {
+                label: function(context){
+                  let label = context.dataset.label || '';
+                  if(label){ label += ': '; }
+                  if(context.parsed.x !== null){
+                    label += context.parsed.x;
+                    if([1000,500,100].includes(context.parsed.x)){ label += '+'; }
+                  }
+                  return label;
+                }
+              }
+            }
+          },
+          animation: { duration: 2000, easing: 'easeInOutQuart' }
+        }
+      });
+    });
 
 
-    ] 
+    /* ============ DROPDOWN & SUBMENU - CLICK HANDLING (Mobile + Accessibility) ============ */
+(function () {
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  const submenus  = document.querySelectorAll('.nav-submenu');
+
+  // Helper: close all dropdowns except the one passed
+  function closeAllDropdowns(except) {
+    dropdowns.forEach(d => { if (d !== except) d.classList.remove('open'); });
+    submenus.forEach(s => { if (s !== except) s.classList.remove('open'); });
   }
-];
 
-// टैब बनाने और गैलरी दिखाने का फंक्शन
-function initServices() {
-  const tabsContainer = document.getElementById('serviceTabs');
-  
-  // सभी सेवाओं के लिए टैब बटन बनाएँ
-  servicesData.forEach((service, index) => {
-    const btn = document.createElement('button');
-    btn.className = 'service-tab-btn' + (index === 0 ? ' active' : '');
-    btn.innerText = service.name;
-    btn.onclick = () => showGallery(index);
-    tabsContainer.appendChild(btn);
+  // Main dropdown toggle (click)
+  dropdowns.forEach(dropdown => {
+    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+    if (!toggle) return;
+
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = dropdown.classList.contains('open');
+
+      // On mobile, close everything else first
+      if (window.innerWidth <= 992) {
+        closeAllDropdowns(dropdown);
+      }
+
+      dropdown.classList.toggle('open', !isOpen);
+      toggle.setAttribute('aria-expanded', !isOpen);
+    });
   });
 
-  // पेज लोड होने पर पहली सेवा की गैलरी दिखाएँ
-  showGallery(0);
-}
+  // Submenu toggle (click)
+  submenus.forEach(submenu => {
+    const toggle = submenu.querySelector('.nav-submenu-toggle');
+    if (!toggle) return;
 
-// टैब पर क्लिक करने पर गैलरी दिखाने का फंक्शन
-function showGallery(index) {
-  // सभी टैब से 'active' क्लास हटाएँ
-  const allTabs = document.querySelectorAll('.service-tab-btn');
-  allTabs.forEach(tab => tab.classList.remove('active'));
-  
-  // जिस टैब पर क्लिक किया गया है उसे 'active' करें
-  allTabs[index].classList.add('active');
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = submenu.classList.contains('open');
 
-  // गैलरी क्लियर करें
-  const galleryGrid = document.getElementById('galleryGrid');
-  galleryGrid.innerHTML = ''; 
-  
-  const service = servicesData[index];
-  
-  // चूँकि आपने एक रो में 2 चित्र माँगे हैं, इसलिए यदि किसी सेवा में 1 चित्र है, तो आप चाहें तो दो बार दिखा सकते हैं 
-  // या यह अपने आप एक कॉलम घेर लेगा। यदि आपके पास एक सेवा में 2 चित्र होंगे, तो वे 2 कॉलम में दिखेंगे।
-  // मैं यहाँ उसी 1 चित्र को कॉल में दिखा रहा हूँ।
-  
-  service.images.forEach(imgSrc => {
-    const card = document.createElement('div');
-    card.className = 'gallery-card';
-    
-    // आपका पुराना मॉडल फंक्शन यहाँ भी काम करेगा
-    card.setAttribute('onclick', `openServiceModal('${imgSrc}', '${service.name}')`);
-    
-    card.innerHTML = `
-      <img src="${imgSrc}" alt="${service.name}">
-     
-    `;
-    galleryGrid.appendChild(card);
+      // Close other submenus at the same level
+      submenus.forEach(s => {
+        if (s !== submenu) {
+          s.classList.remove('open');
+          const t = s.querySelector('.nav-submenu-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      submenu.classList.toggle('open', !isOpen);
+      toggle.setAttribute('aria-expanded', !isOpen);
+    });
   });
-}
 
-// पेज लोड होने पर इनिशियलाइज़ करें
-window.onload = initServices;
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function () {
+    closeAllDropdowns(null);
+    dropdowns.forEach(d => {
+      const t = d.querySelector('.nav-dropdown-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+    submenus.forEach(s => {
+      const t = s.querySelector('.nav-submenu-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Prevent click inside dropdown from closing it
+  document.querySelectorAll('.nav-dropdown-menu').forEach(menu => {
+    menu.addEventListener('click', function (e) { e.stopPropagation(); });
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeAllDropdowns(null);
+      dropdowns.forEach(d => {
+        d.classList.remove('open');
+        const t = d.querySelector('.nav-dropdown-toggle');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+      submenus.forEach(s => {
+        s.classList.remove('open');
+        const t = s.querySelector('.nav-submenu-toggle');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    }
+  });
+})();
   </script>
 </body>
 </html>
