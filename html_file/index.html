@@ -49,7 +49,9 @@
 .nav-dropdown {
   position: relative;
 }
-
+.new-container{
+  max-width: 1242px !important;
+}
 .nav-dropdown > .nav-dropdown-toggle {
   cursor: pointer;
 }
@@ -59,7 +61,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  min-width: 143px;
+  min-width: 92px;
   padding: 8px 0;
   margin: 0;
   list-style: none;
@@ -86,11 +88,10 @@
 .nav-dropdown-menu > li > a {
   display: flex;
   align-items: center;
-
-  padding: 11px 18px;
+  padding: 6px 18px;
   color: #164c7f;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 8px;
   white-space: nowrap;
   transition: all 0.2s ease;
   border-left: 3px solid transparent;
@@ -124,7 +125,7 @@
   top: 0;
   left: 100%;
   margin-left: 4px;
-  min-width: 280px;
+  min-width: 164px;
 }
 
 /* Show submenu on hover (desktop) */
@@ -760,7 +761,6 @@
     }
     .progress-header i{ font-size:22px; color:#ffd45b; }
     .progress-body{
-    
       grid-template-columns: 1fr 1.4fr;
       gap:20px;
       padding:22px;
@@ -771,6 +771,11 @@
       grid-template-columns:1fr 1fr;
       gap:14px;
       align-content:center;
+    }
+    .nav-dropdown-menu.submenu h6{
+      font-size: 8px;
+      color: red;
+      padding: 2px 8px;
     }
     .stat-card{
       background:linear-gradient(135deg,#f5f9fd,#eaf5ff);
@@ -949,7 +954,7 @@
   <!-- TOP GOVERNMENT BAR -->
   <header>
     <div class="topbar">
-      <div class="container">
+      <div class="container new-container">
         <div class="topbar-inner">
           <a href="#" class="gov-brand">
             <i class="fa-solid fa-landmark"></i>
@@ -961,47 +966,160 @@
           <div class="top-links-group" id="topLinks">
             <ul class="top-links">
               <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
-              <li><a href="#"><i class="fa-solid fa-globe"></i> Official Website</a></li>
-             <li class="nav-dropdown">
-  <a href="#" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+             
+<!-- YOUR HTML -->
+<li class="nav-dropdown">
+  <a href="#" class="nav-dropdown-toggle">
     <i class="fa-solid fa-hand-holding-heart"></i>
-    Meri Yojana
+    मेरी योजनाएँ 
     <i class="fa-solid fa-chevron-down nav-arrow"></i>
   </a>
 
   <ul class="nav-dropdown-menu">
-    <!-- केंद्र सरकार (with submenu) -->
+
+    <!-- ================= CENTER GOVERNMENT ================= -->
     <li class="nav-submenu">
-      <a href="#" class="nav-submenu-toggle" aria-haspopup="true" aria-expanded="false">
+      <a href="#">
         केंद्र सरकार
         <i class="fa-solid fa-chevron-right submenu-arrow"></i>
       </a>
-      <ul class="nav-dropdown-menu submenu">
-        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> प्रधानमंत्री मातृ वंदना योजना</a></li>
-        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> बेटी बचाओ बेटी पढ़ाओ</a></li>
-        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> पोषण अभियान</a></li>
-        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> सुकन्या समृद्धि योजना</a></li>
+
+       <ul class="nav-dropdown-menu submenu">
+
+        <!-- ICDS SYSTEM SCHEMES -->
+        <li class="nav-submenu">
+          <a href="#">
+            मिशन सक्षम आंगनवाड़ी एवं पोषण 2.0
+            <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+          </a>
+
+          <ul class="nav-dropdown-menu submenu">
+          
+            <li><a href="login.html">आंगनवाड़ी सेवायें</a></li>
+            <li><a href="login.html">राष्ट्रीय पोषण अभियान</a></li>
+            <li><a href="login.html">किशोरी बालिका योजना (SAG)</a></li>
+            <li><a href="login.html">आंगनवाड़ी भवन निर्माण</a></li>
+            <li><a href="login.html">सक्षम आंगनवाड़ी केन्द्र</a></li>
+           
+          
+          </ul>
+        </li>
+
+        <!-- WOMEN & CHILD DEVELOPMENT COMMITTEE -->
+        <li class="nav-submenu">
+          <a href="#">
+            मिशन शक्ति
+            <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+          </a>
+
+          <ul class="nav-dropdown-menu submenu">
+            <h6>मिशन शक्ति – सामर्थ्य	</h6>
+            <li><a href="login.html">हब (SHEW & DHEW)</a></li>
+            <li><a href="login.html">प्रधानमंत्री मातृ वन्दना योजना</a></li>
+            <li><a href="login.html">आंगनवाड़ी सह क्रेच केन्द्र</a></li>
+            <li><a href="login.html">सखी निवास</a></li>
+            <li><a href="login.html">जेंडर बजटिंग</a></li>
+            <li><a href="login.html">शक्ति सदन</a></li>
+            <h6>मिशन शक्ति – संबल	</h6>
+            <li><a href="login.html">बेटी बचाओ बेटी पढ़ाओ</a></li>
+            <li><a href="login.html">वन स्टॉप सेंटर</a></li>
+            <li><a href="login.html">वन स्टॉप सेंटर निर्माण</a></li>
+            <li><a href="login.html">महिला हेल्पलाइन 181</a></li>
+          </ul>
+        </li>
+
+        <!-- OTHER STATE SCHEMES -->
+        <li class="nav-submenu">
+          <a href="#">
+            अन्य योजनायें
+            <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+          </a>
+
+          <ul class="nav-dropdown-menu submenu">
+            <li><a href="login.html">निर्भया फण्ड के अंतर्गत निर्माण</a></li>
+            <li><a href="login.html">SASCI के अंतर्गत निर्माण</a></li>
+            <li><a href="login.html">प्रधानमंत्री जनजातीय न्याय महाअभियान (PM - JANMAN)</a></li>
+          </ul>
+        </li>
+
       </ul>
     </li>
 
-    <!-- राज्य सरकार (with submenu) -->
+    <!-- ================= STATE GOVERNMENT ================= -->
     <li class="nav-submenu">
-      <a href="#" class="nav-submenu-toggle" aria-haspopup="true" aria-expanded="false">
+      <a href="#">
         राज्य सरकार
         <i class="fa-solid fa-chevron-right submenu-arrow"></i>
       </a>
+
       <ul class="nav-dropdown-menu submenu">
-        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> नंदा गौरा योजना</a></li>
-        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> मुख्यमंत्री महिला पोषण</a></li>
-        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> मुख्यमंत्री बाल पोषण</a></li>
-        <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> मुख्यमंत्री बाल कल्याण योजना</a></li>
+        <!-- ICDS SYSTEM SCHEMES -->
+        <li class="nav-submenu">
+          <a href="#">
+            राज्य सहायतित योजनाएं
+
+            
+            <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+          </a>
+
+          <ul class="nav-dropdown-menu submenu">
+            <h6>आई. सीडी. एस. तंत्र के माध्यम से संचालित योजनाएँ</h6>
+            <li><a href="login.html">नंदा गौरा योजना</a></li>
+            <li><a href="login.html">मुख्यमंत्री महिला पोषण</a></li>
+            <li><a href="login.html">मुख्यमंत्री बाल पोषण</a></li>
+            <li><a href="login.html">मुख्यमंत्री आंचल अमृत योजना</a></li>
+            <li><a href="login.html">मुख्यमंत्री महालक्ष्मी योजना</a></li>
+            <li><a href="login.html">तीलू रौतेली एवं आंगनवाड़ी कार्यकर्ती पुरस्कार</a></li>
+           <h6>उत्तराखंड महिला एवं बाल विकास समिति के माध्यम से संचालित योजनाएँ</h6>
+
+             <li><a href="login.html">उत्तराखंड महिला समेकित विकास योजना</a></li>
+            <li><a href="login.html">मुख्यमंत्री सतत् आजीविका योजना</a></li>
+            <li><a href="login.html">मुख्यमंत्री एकल महिला स्वरोजगार योजना</a></li>
+            <li><a href="login.html">मेरी सहेली सैनिटरी नैपकिन योजना</a></li>
+            <li><a href="login.html">बाल कल्याण निधि</a></li>
+            <li><a href="login.html">आंगनवाड़ी कर्मियों हेतु कल्याण कोष की योजना</a></li>
+            <li><a href="login.html">मुख्यमंत्री महिला एवं बाल बहुमुखी सहायता निधि योजना</a></li>
+          </ul>
+        </li>
+
+        <!-- WOMEN & CHILD DEVELOPMENT COMMITTEE -->
+        <!-- <li class="nav-submenu">
+          <a href="#">
+            उत्तराखंड महिला एवं बाल विकास समिति के माध्यम से संचालित योजनाएँ
+            <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+          </a>
+
+          <ul class="nav-dropdown-menu submenu">
+            <li><a href="login.html">उत्तराखंड महिला समेकित विकास योजना</a></li>
+            <li><a href="login.html">मुख्यमंत्री सतत् आजीविका योजना</a></li>
+            <li><a href="login.html">मुख्यमंत्री एकल महिला स्वरोजगार योजना</a></li>
+            <li><a href="login.html">मेरी सहेली सैनिटरी नैपकिन योजना</a></li>
+            <li><a href="login.html">बाल कल्याण निधि</a></li>
+            <li><a href="login.html">आंगनवाड़ी कर्मियों हेतु कल्याण कोष की योजना</a></li>
+            <li><a href="login.html">मुख्यमंत्री महिला एवं बाल बहुमुखी सहायता निधि योजना</a></li>
+          </ul>
+        </li> -->
+
+        <!-- OTHER STATE SCHEMES -->
+         <li class="nav-submenu">
+          <a href="#">
+            विभिन्न अधिनियमों के अधीन नोडल की भूमिका
+            <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+          </a>
+
+          <ul class="nav-dropdown-menu submenu">
+                       <li><a href="login.html">घरेलू हिंसा से महिला संरक्षण अधिनियम 2005</a></li>
+            <li><a href="login.html">बाल विवाह प्रतिषेध अधिनियम 2006</a></li>
+            <li><a href="login.html">महिलाओं का कार्यस्थल पर लैंगिक उत्पीड़न (निवारण, प्रतिषेध और प्रतितोष अधिनियम 2013)</a></li>
+          </ul>
+        </li> 
+
       </ul>
     </li>
 
-    <!-- Direct link (no submenu) -->
-    <li><a href="login.html"><i class="fa-solid fa-circle-dot"></i> सभी योजनाएँ देखें</a></li>
   </ul>
 </li>
+ <li><a href="#"><i class="fa-solid fa-globe"></i> Official Website</a></li>
               <li><a href="#"><i class="fa-solid fa-user-shield"></i> Admin Login</a></li>
               <li><a href="#"><i class="fa-solid fa-phone"></i> Contact</a></li>
             </ul>
@@ -1183,38 +1301,19 @@
               <article class="update">
                 <div class="date-box"><strong>15</strong><span>Sep<br>2026</span></div>
                 <div>
-                  <h4>प्रधानमंत्री मातृ वंदना योजना के तहत आवेदन की अंतिम तिथि बढ़ाई गई</h4>
+                  <h4> क्रेच वर्कर तथा क्रेच सहायिका भर्ती संबंधी सूचना </h4>
                   <a href="#">पूर्ण विज्ञप्ति →</a>
                 </div>
               </article>
               <article class="update">
                 <div class="date-box"><strong>12</strong><span>Sep<br>2026</span></div>
                 <div>
-                  <h4>बाल विकास परियोजना अधिकारियों के लिए प्रशिक्षण कार्यक्रम का आयोजन</h4>
-                  <a href="#">अधिक जानकारी →</a>
+                  <h4>विभागीय महत्वपूर्ण सूचना</h4>
+                  <a href="#">पूर्ण विज्ञप्ति </a>
                 </div>
               </article>
-              <article class="update">
-                <div class="date-box"><strong>08</strong><span>Sep<br>2026</span></div>
-                <div>
-                  <h4>पोषण अभियान के अंतर्गत जनजागरूकता रैली का आयोजन</h4>
-                  <a href="#">पूर्ण विज्ञप्ति →</a>
-                </div>
-              </article>
-              <article class="update">
-                <div class="date-box"><strong>05</strong><span>Sep<br>2026</span></div>
-                <div>
-                  <h4>महिला हेल्पलाइन 181 पर नया संचालन समय लागू <span class="new-badge">NEW</span></h4>
-                  <a href="#">पूर्ण विज्ञप्ति →</a>
-                </div>
-              </article>
-              <article class="update">
-                <div class="date-box"><strong>02</strong><span>Sep<br>2026</span></div>
-                <div>
-                  <h4>आंगनवाड़ी केंद्र निरीक्षण रिपोर्ट अपलोड हेतु निर्देश</h4>
-                  <a href="#">अधिक जानकारी →</a>
-                </div>
-              </article>
+             
+            
             </div>
           </div>
           <div class="updates-footer">सभी अपडेट्स देखें →</div>
@@ -1261,9 +1360,7 @@
 
     <!-- ================= UTTARAKHAND PROGRESS CHART ================= -->
     <section class="progress-section">
-   
       <div class="progress-body">
-      
         <!-- Right: Graph -->
         <div class="chart-container">
           <h3>जिले अनुसार प्रगति विवरण</h3>
@@ -1272,7 +1369,6 @@
           </div>
         </div>
       </div>
-     
     </section>
 
   </main>
@@ -1597,94 +1693,73 @@
 
     /* ============ DROPDOWN & SUBMENU - CLICK HANDLING (Mobile + Accessibility) ============ */
 (function () {
-  const dropdowns = document.querySelectorAll('.nav-dropdown');
-  const submenus  = document.querySelectorAll('.nav-submenu');
+    // Updated selectors to match your HTML classes
+    const dropdowns = document.querySelectorAll('.nav-dropdown');
+    const submenus  = document.querySelectorAll('.nav-submenu');
 
-  // Helper: close all dropdowns except the one passed
-  function closeAllDropdowns(except) {
-    dropdowns.forEach(d => { if (d !== except) d.classList.remove('open'); });
-    submenus.forEach(s => { if (s !== except) s.classList.remove('open'); });
-  }
-
-  // Main dropdown toggle (click)
-  dropdowns.forEach(dropdown => {
-    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
-    if (!toggle) return;
-
-    toggle.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      const isOpen = dropdown.classList.contains('open');
-
-      // On mobile, close everything else first
-      if (window.innerWidth <= 992) {
-        closeAllDropdowns(dropdown);
-      }
-
-      dropdown.classList.toggle('open', !isOpen);
-      toggle.setAttribute('aria-expanded', !isOpen);
-    });
-  });
-
-  // Submenu toggle (click)
-  submenus.forEach(submenu => {
-    const toggle = submenu.querySelector('.nav-submenu-toggle');
-    if (!toggle) return;
-
-    toggle.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      const isOpen = submenu.classList.contains('open');
-
-      // Close other submenus at the same level
-      submenus.forEach(s => {
-        if (s !== submenu) {
-          s.classList.remove('open');
-          const t = s.querySelector('.nav-submenu-toggle');
-          if (t) t.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      submenu.classList.toggle('open', !isOpen);
-      toggle.setAttribute('aria-expanded', !isOpen);
-    });
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener('click', function () {
-    closeAllDropdowns(null);
-    dropdowns.forEach(d => {
-      const t = d.querySelector('.nav-dropdown-toggle');
-      if (t) t.setAttribute('aria-expanded', 'false');
-    });
-    submenus.forEach(s => {
-      const t = s.querySelector('.nav-submenu-toggle');
-      if (t) t.setAttribute('aria-expanded', 'false');
-    });
-  });
-
-  // Prevent click inside dropdown from closing it
-  document.querySelectorAll('.nav-dropdown-menu').forEach(menu => {
-    menu.addEventListener('click', function (e) { e.stopPropagation(); });
-  });
-
-  // Close on Escape key
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') {
-      closeAllDropdowns(null);
-      dropdowns.forEach(d => {
-        d.classList.remove('open');
-        const t = d.querySelector('.nav-dropdown-toggle');
-        if (t) t.setAttribute('aria-expanded', 'false');
-      });
-      submenus.forEach(s => {
-        s.classList.remove('open');
-        const t = s.querySelector('.nav-submenu-toggle');
-        if (t) t.setAttribute('aria-expanded', 'false');
-      });
+    // Helper: close all dropdowns except the one passed
+    function closeAllDropdowns(except) {
+      dropdowns.forEach(d => { if (d !== except) d.classList.remove('open'); });
+      submenus.forEach(s => { if (s !== except) s.classList.remove('open'); });
     }
-  });
-})();
-  </script>
+
+    // Main dropdown toggle (click)
+    dropdowns.forEach(dropdown => {
+      // Use :scope > a to target only the direct child anchor tag
+      const toggle = dropdown.querySelector(':scope > a');
+      if (!toggle) return;
+
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = dropdown.classList.contains('open');
+
+        // Close everything else first
+        closeAllDropdowns(dropdown);
+
+        dropdown.classList.toggle('open', !isOpen);
+      });
+    });
+
+    // Submenu toggle (click)
+    submenus.forEach(submenu => {
+      // Use :scope > a to target only the direct child anchor tag
+      const toggle = submenu.querySelector(':scope > a');
+      if (!toggle) return;
+
+      toggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = submenu.classList.contains('open');
+
+        // Close other submenus at the same level (optional, but prevents menu overlapping)
+        submenus.forEach(s => {
+          if (s !== submenu && s.contains(submenu) === false) {
+             s.classList.remove('open');
+          }
+        });
+
+        submenu.classList.toggle('open', !isOpen);
+      });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function () {
+      closeAllDropdowns(null);
+    });
+
+    // Prevent click inside dropdown from closing it
+    document.querySelectorAll('.nav-dropdown-menu').forEach(menu => {
+      menu.addEventListener('click', function (e) { e.stopPropagation(); });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeAllDropdowns(null);
+      }
+    });
+  })();
+</script>
 </body>
 </html>
