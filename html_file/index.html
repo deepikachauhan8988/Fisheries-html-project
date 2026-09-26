@@ -91,7 +91,7 @@
   padding: 2px 10px;
   color: #164c7f;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 9px;
   white-space: nowrap;
   transition: all 0.2s ease;
   border-left: 3px solid transparent;
@@ -394,7 +394,7 @@
     }
     .uk-logo{
       width:128px;
-      height:66px;
+      height:60px;
       object-fit:contain;
       border-right:1px solid #b8cad9;
       padding-right:20px;
@@ -528,8 +528,9 @@
     }
     .hero-message{ flex:1; min-width:0; text-align:left; }
     .hero-message p{
-      color:#fff;
+      color: #000 !important;
       font-size:14px;
+      font-weight: 600;
     }
     .hero-title{ margin:0; color:#fff; font-size:20px; line-height:1.2; font-weight:700; }
     .hero-subtitle{ margin:13px 0 0; color:#fff; font-size:17px; line-height:1.45; font-weight:600; }
@@ -549,10 +550,18 @@
       cursor:pointer; transition:.2s;
     }
     .dot.active{background:#075095;transform:scale(1.15)}
+    
+    /* HERO TOPICS - FLEXBOX FOR SIDE-BY-SIDE */
     .hero-topics{
-      position:absolute; z-index:4; right:22px; top:74px;
-      width:311px; display:flex;  gap:10px;
-      align-items:center; text-align:center;
+      position:absolute; z-index:4; right:22px; top:97px;
+      width:340px; display:flex; flex-direction: row; gap:15px;
+      align-items:center; justify-content: space-between;
+    }
+    .hero-minister {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
     }
     .topic{
       display:flex; align-items:center; gap:11px;
@@ -764,11 +773,18 @@
       letter-spacing:.3px;
     }
     .progress-header i{ font-size:22px; color:#ffd45b; }
+    
+    /* FLEXBOX ADDED TO PROGRESS BODY FOR SIDE-BY-SIDE CHARTS */
     .progress-body{
-      grid-template-columns: 1fr 1.4fr;
-      gap:20px;
-      padding:22px;
-      align-items:stretch;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 22px;
+      align-items: stretch;
+    }
+    .progress-body .chart-container {
+      flex: 1;
+      min-width: 300px;
     }
     .stats-section{
       display:grid;
@@ -858,7 +874,7 @@
       opacity:.9;
     }
     @media (max-width: 992px){
-      .progress-body{ grid-template-columns:1fr; }
+      .progress-body{ flex-direction: column; }
       .chart-wrapper{ height:280px; }
     }
     @media (max-width: 576px){
@@ -901,7 +917,7 @@
       .department-copy p{font-size:14px}
       .hero{height:340px}
       .hero-content{width:64%;padding:20px 22px 10px 25px;gap:14px}
-      .hero-person{width:84px;height:84px;flex-basis:84px}
+      .hero-person{width:84px;height:522px;flex-basis:84px}
       .hero-title{font-size:27px}
       .hero-topics{width:190px;right:10px}
       .content-grid{grid-template-columns:1fr}
@@ -999,13 +1015,11 @@
 
           <ul class="nav-dropdown-menu submenu">
           
-            <li><a href="login.html">आंगनवाड़ी सेवायें</a></li>
-            <li><a href="login.html">राष्ट्रीय पोषण अभियान</a></li>
-            <li><a href="login.html">किशोरी बालिका योजना (SAG)</a></li>
-            <li><a href="login.html">आंगनवाड़ी भवन निर्माण</a></li>
-            <li><a href="login.html">सक्षम आंगनवाड़ी केन्द्र</a></li>
-           
-          
+            <li><a href="index.html">आंगनवाड़ी सेवायें</a></li>
+            <li><a href="index.html">राष्ट्रीय पोषण अभियान</a></li>
+            <li><a href="index.html">किशोरी बालिका योजना (SAG)</a></li>
+            <li><a href="index.html">आंगनवाड़ी भवन निर्माण</a></li>
+            <li><a href="index.html">सक्षम आंगनवाड़ी केन्द्र</a></li>
           </ul>
         </li>
 
@@ -1018,20 +1032,19 @@
 
           <ul class="nav-dropdown-menu submenu">
             <h6>मिशन शक्ति – सामर्थ्य	</h6>
-            <li><a href="login.html">हब (SHEW & DHEW)</a></li>
-            <li><a href="login.html">प्रधानमंत्री मातृ वन्दना योजना</a></li>
-            <li><a href="login.html">आंगनवाड़ी सह क्रेच केन्द्र</a></li>
-            <li><a href="login.html">सखी निवास</a></li>
-            <li><a href="login.html">जेंडर बजटिंग</a></li>
-            <li><a href="login.html">शक्ति सदन</a></li>
+            <li><a href="index.html">हब (SHEW & DHEW)</a></li>
+            <li><a href="index.html".html">प्रधानमंत्री मातृ वन्दना योजना</a></li>
+            <li><a href="index.html">आंगनवाड़ी सह क्रेच केन्द्र</a></li>
+            <li><a href="index.html">सखी निवास</a></li>
+            <li><a href="index.html">जेंडर बजटिंग</a></li>
+            <li><a href="index.html">शक्ति सदन</a></li>
             <h6>मिशन शक्ति – संबल	</h6>
-            <li><a href="login.html">बेटी बचाओ बेटी पढ़ाओ</a></li>
-            <li><a href="login.html">वन स्टॉप सेंटर</a></li>
-            <li><a href="login.html">वन स्टॉप सेंटर निर्माण</a></li>
-            <li><a href="login.html">महिला हेल्पलाइन 181</a></li>
+            <li><a href="index.html">बेटी बचाओ बेटी पढ़ाओ</a></li>
+            <li><a href="index.html">वन स्टॉप सेंटर</a></li>
+            <li><a href="index.html">वन स्टॉप सेंटर निर्माण</a></li>
+            <li><a href="index.html">महिला हेल्पलाइन 181</a></li>
           </ul>
         </li>
-
         <!-- OTHER STATE SCHEMES -->
         <li class="nav-submenu">
           <a href="#">
@@ -1040,9 +1053,9 @@
           </a>
 
           <ul class="nav-dropdown-menu submenu">
-            <li><a href="login.html">निर्भया फण्ड के अंतर्गत निर्माण</a></li>
-            <li><a href="login.html">SASCI के अंतर्गत निर्माण</a></li>
-            <li><a href="login.html">प्रधानमंत्री जनजातीय न्याय महाअभियान (PM - JANMAN)</a></li>
+            <li><a href="index.html">निर्भया फण्ड के अंतर्गत निर्माण</a></li>
+            <li><a href="index.html">SASCI के अंतर्गत निर्माण</a></li>
+            <li><a href="index.html">प्रधानमंत्री जनजातीय न्याय महाअभियान (PM - JANMAN)</a></li>
           </ul>
         </li>
 
@@ -1060,49 +1073,32 @@
         <!-- ICDS SYSTEM SCHEMES -->
         <li class="nav-submenu">
           <a href="#">
-            राज्य सहायतित योजनाएं
-
-            
+            राज्य सहायतित योजनाएं    
             <i class="fa-solid fa-chevron-right submenu-arrow"></i>
           </a>
-
           <ul class="nav-dropdown-menu submenu">
             <h6>आई. सीडी. एस. तंत्र के माध्यम से संचालित योजनाएँ</h6>
-            <li><a href="login.html">नंदा गौरा योजना</a></li>
-            <li><a href="login.html">मुख्यमंत्री महिला पोषण</a></li>
-            <li><a href="login.html">मुख्यमंत्री बाल पोषण</a></li>
-            <li><a href="login.html">मुख्यमंत्री आंचल अमृत योजना</a></li>
-            <li><a href="login.html">मुख्यमंत्री महालक्ष्मी योजना</a></li>
-            <li><a href="login.html">तीलू रौतेली एवं आंगनवाड़ी कार्यकर्ती पुरस्कार</a></li>
+         <li>
+  <a href="https://www.nandagaurauk.in/" target="_blank">
+    नंदा गौरा योजना
+  </a>
+</li>
+            <li><a href="index.html">मुख्यमंत्री महिला पोषण</a></li>
+            <li><a href="index.html">मुख्यमंत्री बाल पोषण</a></li>
+            <li><a href="index.html">मुख्यमंत्री आंचल अमृत योजना</a></li>
+            <li><a href="index.html">मुख्यमंत्री महालक्ष्मी योजना</a></li>
+            <li><a href="index.html">तीलू रौतेली एवं आंगनवाड़ी कार्यकर्ती पुरस्कार</a></li>
            <h6>उत्तराखंड महिला एवं बाल विकास समिति के माध्यम से संचालित योजनाएँ</h6>
 
-             <li><a href="login.html">उत्तराखंड महिला समेकित विकास योजना</a></li>
-            <li><a href="login.html">मुख्यमंत्री सतत् आजीविका योजना</a></li>
-            <li><a href="login.html">मुख्यमंत्री एकल महिला स्वरोजगार योजना</a></li>
-            <li><a href="login.html">मेरी सहेली सैनिटरी नैपकिन योजना</a></li>
-            <li><a href="login.html">बाल कल्याण निधि</a></li>
-            <li><a href="login.html">आंगनवाड़ी कर्मियों हेतु कल्याण कोष की योजना</a></li>
-            <li><a href="login.html">मुख्यमंत्री महिला एवं बाल बहुमुखी सहायता निधि योजना</a></li>
+             <li><a href="index.html">उत्तराखंड महिला समेकित विकास योजना</a></li>
+            <li><a href="index.html">मुख्यमंत्री सतत् आजीविका योजना</a></li>
+            <li><a href="index.html">मुख्यमंत्री एकल महिला स्वरोजगार योजना</a></li>
+            <li><a href="index.html">मेरी सहेली सैनिटरी नैपकिन योजना</a></li>
+            <li><a href="index.html">बाल कल्याण निधि</a></li>
+            <li><a href="index.html">आंगनवाड़ी कर्मियों हेतु कल्याण कोष की योजना</a></li>
+            <li><a href="index.html">मुख्यमंत्री महिला एवं बाल बहुमुखी सहायता निधि योजना</a></li>
           </ul>
         </li>
-
-        <!-- WOMEN & CHILD DEVELOPMENT COMMITTEE -->
-        <!-- <li class="nav-submenu">
-          <a href="#">
-            उत्तराखंड महिला एवं बाल विकास समिति के माध्यम से संचालित योजनाएँ
-            <i class="fa-solid fa-chevron-right submenu-arrow"></i>
-          </a>
-
-          <ul class="nav-dropdown-menu submenu">
-            <li><a href="login.html">उत्तराखंड महिला समेकित विकास योजना</a></li>
-            <li><a href="login.html">मुख्यमंत्री सतत् आजीविका योजना</a></li>
-            <li><a href="login.html">मुख्यमंत्री एकल महिला स्वरोजगार योजना</a></li>
-            <li><a href="login.html">मेरी सहेली सैनिटरी नैपकिन योजना</a></li>
-            <li><a href="login.html">बाल कल्याण निधि</a></li>
-            <li><a href="login.html">आंगनवाड़ी कर्मियों हेतु कल्याण कोष की योजना</a></li>
-            <li><a href="login.html">मुख्यमंत्री महिला एवं बाल बहुमुखी सहायता निधि योजना</a></li>
-          </ul>
-        </li> -->
 
         <!-- OTHER STATE SCHEMES -->
          <li class="nav-submenu">
@@ -1112,9 +1108,14 @@
           </a>
 
           <ul class="nav-dropdown-menu submenu">
-                       <li><a href="login.html">घरेलू हिंसा से महिला संरक्षण अधिनियम 2005</a></li>
-            <li><a href="login.html">बाल विवाह प्रतिषेध अधिनियम 2006</a></li>
-            <li><a href="login.html">महिलाओं का कार्यस्थल पर लैंगिक उत्पीड़न (निवारण, प्रतिषेध और प्रतितोष अधिनियम 2013)</a></li>
+                       <li><a href="index.html">घरेलू हिंसा से महिला संरक्षण अधिनियम 2005</a></li>
+            <li><a href="index.html">बाल विवाह प्रतिषेध अधिनियम 2006</a></li>
+          <li>
+  <a href="index.html">
+    महिलाओं का कार्यस्थल पर लैंगिक उत्पीड़न
+    (निवारण, प्रतिषेध और प्रतितोष अधिनियम 2013)
+  </a>
+</li>
           </ul>
         </li> 
 
@@ -1145,14 +1146,11 @@
           </div>
           <div class="header-right">
             <img src="../images/icds_logo.jpeg" class="icds-logo" alt="ICDS Logo">
-            <a href="#" class="login-btn" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <a href="../html_file/feedback.html" class="login-btn">
               <i class="fa-solid fa-right-to-bracket"></i>
               <span>FeedBack</span>
             </a>
-            <a href="#" class="login-btn">
-              <i class="fa-solid fa-address-book"></i>
-              <span>संपर्क करें</span>
-            </a>
+          
           </div>
         </div>
       </div>
@@ -1253,24 +1251,21 @@
 
       <div class="hero-topics">
         
-        <!-- LEFT COLUMN: MINISTER (IMAGE & INFO) -->
+        <!-- LEFT: MINISTER -->
         <div class="hero-minister">
-           <div class="hero-message">
-          <p>
-            महिला सशक्तिकरण, बाल संरक्षण एवं उत्तराखंड के समग्र विकास के लिए
-            निरंतर प्रयास।
-          </p>
-        </div>
-         
-         
+          <img class="hero-person" src="../images/rekha.png" alt="Minister Rekha Arya">
+          <div class="hero-person-info" style="text-align: left; margin-top: 0;">
+            <h3 style="margin: 0; font-size: 16px;">Smt. Rekha Arya</h3>
+            <p style="margin: 0; font-size: 11px;">Cabinet Minister of Women and Child Welfare</p>
+          </div>
         </div>
 
-        <!-- RIGHT COLUMN: MESSAGE -->
-        <div class="hero-person-info">
-           <img class="hero-person" src="../images/rekha.png" alt="Minister Rekha Arya">
-            <h3>Smt. Rekha Arya</h3>
-            <p>Cabinet Minister of Women and Child Welfare Uttarakhand</p>
-          </div>
+        <!-- RIGHT: MESSAGE -->
+        <div class="hero-message">
+          <p style="margin: 0; color: #fff; font-size: 14px;">
+            महिला सशक्तिकरण, बाल संरक्षण एवं उत्तराखंड के समग्र विकास के लिए निरंतर प्रयास।
+          </p>
+        </div>
 
       </div>
 
@@ -1314,14 +1309,14 @@
                 <div class="date-box"><strong>17</strong><span>Sep<br>2026</span></div>
                 <div>
                   <h4>आंगनवाड़ी कार्यकर्ती पुरस्कार 2025-26 हेतु नवीनतम सूचना <span class="new-badge">NEW</span></h4>
-                  <a href="../html_file/login.html">पूर्ण विज्ञप्ति →</a>
+                  <a href="../html_file/puruskarlogin.html">पूर्ण विज्ञप्ति →</a>
                 </div>
               </article>
               <article class="update">
                 <div class="date-box"><strong>15</strong><span>Sep<br>2026</span></div>
                 <div>
                   <h4> क्रेच वर्कर तथा क्रेच सहायिका भर्ती संबंधी सूचना </h4>
-                  <a href="#">पूर्ण विज्ञप्ति →</a>
+                  <a href="../html_file/bhartilogin.html">पूर्ण विज्ञप्ति →</a>
                 </div>
               </article>
               <article class="update">
@@ -1378,17 +1373,31 @@
     </div>
 
     <!-- ================= UTTARAKHAND PROGRESS CHART ================= -->
-    <section class="progress-section">
-      <div class="progress-body">
-        <!-- Right: Graph -->
-        <div class="chart-container">
-          <h3>जिले अनुसार प्रगति विवरण</h3>
-          <div class="chart-wrapper">
-            <canvas id="horizontalBarChart"></canvas>
-          </div>
+  <section class="progress-section">
+    <div class="progress-header">
+      <i class="fa-solid fa-chart-line"></i>
+      <h2>उत्तराखंड प्रगति विवरण</h2>
+    </div>
+    <div class="progress-body">
+      
+      <!-- LEFT: Bar Chart -->
+      <div class="chart-container">
+        <h3>जिले अनुसार प्रगति विवरण</h3>
+        <div class="chart-wrapper">
+          <canvas id="horizontalBarChart"></canvas>
         </div>
       </div>
-    </section>
+
+      <!-- RIGHT: Pie Chart -->
+      <div class="chart-container">
+        <h3>श्रेणी अनुसार वितरण</h3> <!-- You can change this title -->
+        <div class="chart-wrapper">
+          <canvas id="pieChart"></canvas>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
   </main>
 
@@ -1523,17 +1532,17 @@
     /* ================= SERVICES DATA & GALLERY ================= */
     const servicesData = [
       { name:"आंगनवाड़ी सेवाएँ", desc:"पूरक पोषण एवं प्रारंभिक शिक्षा",
-        images:['../images/images-3.jpeg','../images/images-8.jpeg','../images/image-1.jpeg','../images/image-2.jpeg'] },
+        images:['../images/images-6.jpeg','../images/agan_image-2.jpeg','../images/agan_image-3.jpeg','../images/agan_image-4.jpeg'] },
       { name:"मातृत्व एवं शिशु कल्याण", desc:"गर्भवती एवं धात्री महिला सहायता",
-        images:['../images/image-1.jpeg','../images/images-9.jpeg','../images/images-7.jpeg','../images/images-8.jpeg'] },
+        images:['../images/images-8.jpeg','../images/images-9.jpeg','../images/images-10.jpeg','../images/images-8.jpeg'] },
       { name:"बाल संरक्षण", desc:"बाल अधिकार एवं सुरक्षा व्यवस्था",
-        images:['../images/images-4.jpeg','../images/images-11.jpeg','../images/images-10.jpeg','../images/images-3.jpeg'] },
+        images:['../images/bal-s-image-1.jpeg','../images/bal-s-image-2.jpeg','../images/bal-s-image-3.jpeg','../images/bal-s-image-2.jpeg'] },
       { name:"पोषण अभियान", desc:"कुपोषण मुक्त उत्तराखंड अभियान",
-        images:['../images/images-6.jpeg','../images/images-11.jpeg','../images/images-8.jpeg','../images/images-9.jpeg'] },
+        images:['../images/p-abhiyan-3.jpeg','../images/p-abhiyan-2.jpeg','../images/p-abhiyan-3.jpeg','../images/p-abhiyan-2.jpeg'] },
       { name:"महिला सशक्तिकरण", desc:"आत्मनिर्भर महिला योजनाएँ",
         images:['../images/images-11.jpeg','../images/images-8.jpeg','../images/images-9.jpeg','../images/images-4.jpeg'] },
       { name:"योजनाओं की सूची", desc:"सभी सरकारी योजनाओं की जानकारी",
-        images:['../images/images-3.jpeg','../images/images-8.jpeg','../images/images-10.jpeg','../images/images-11.jpeg'] }
+        images:['../images/images-12.jpeg','../images/images-8.jpeg','../images/images-10.jpeg','../images/images-11.jpeg'] }
     ];
 
     function initServices() {
@@ -1641,9 +1650,11 @@
       }, START_DELAY);
     })();
 
-    /* ================= UTTARAKHAND PROGRESS CHART (Chart.js) ================= */
+    /* ================= UTTARAKHAND PROGRESS CHARTS (Chart.js) ================= */
     window.addEventListener('load', function(){
-      const ctx = document.getElementById('horizontalBarChart').getContext('2d');
+      
+      // ---- 1. BAR CHART (Left) ----
+      const barCtx = document.getElementById('horizontalBarChart').getContext('2d');
       const chartData = {
         labels: ['जिले', 'आंगनवाड़ी केंद्र', 'बच्चों के लिए योजनाएँ', 'महिला समूह'],
         datasets: [{
@@ -1667,7 +1678,7 @@
         }]
       };
 
-      new Chart(ctx, {
+      new Chart(barCtx, {
         type: 'bar',
         data: chartData,
         options: {
@@ -1707,8 +1718,50 @@
           animation: { duration: 2000, easing: 'easeInOutQuart' }
         }
       });
-    });
 
+      // ---- 2. PIE CHART (Right) ----
+      const pieCtx = document.getElementById('pieChart').getContext('2d');
+      const pieData = {
+        labels: ['महिला योजनाएँ', 'बाल विकास', 'पोषण अभियान', 'आंगनवाड़ी सेवाएँ'],
+        datasets: [{
+          label: 'वितरण',
+          data: [35, 25, 20, 20],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.85)',
+            'rgba(54, 162, 235, 0.85)',
+            'rgba(255, 206, 86, 0.85)',
+            'rgba(75, 192, 192, 0.85)'
+          ],
+          borderColor: '#ffffff',
+          borderWidth: 2
+        }]
+      };
+
+      new Chart(pieCtx, {
+        type: 'pie',
+        data: pieData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                color: '#ffffff',
+                font: { size: 12, weight: '600' },
+                padding: 15
+              }
+            },
+            tooltip: {
+              backgroundColor: 'rgba(0,0,0,0.8)',
+              titleFont: { size: 14 },
+              bodyFont: { size: 12 }
+            }
+          },
+          animation: { duration: 2000, easing: 'easeInOutQuart' }
+        }
+      });
+    });
 
     /* ============ DROPDOWN & SUBMENU - CLICK HANDLING (Mobile + Accessibility) ============ */
 (function () {

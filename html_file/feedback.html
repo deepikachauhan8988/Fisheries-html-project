@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Women Empowerment and Child Development Department Uttarakhand">
+  <title>फीडबैक | महिला सशक्तिकरण एवं बाल विकास विभाग | उत्तराखंड</title>
+
+  <link rel="icon" href="../images/uk_logo.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --gov-blue:#0b477f;
+      --gov-dark:#063a70;
+      --blue:#1262a0;
+      --text:#073b70;
+      --border:#cfe0ef;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:#f5f9fd;
+      color:var(--text);
+      font-family:"Hind","Inter",sans-serif;
+      font-size:16px;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+    a{text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* ================= FEEDBACK CARD ================= */
+    .login-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 15px;
+    }
+    .feed-back{
+      padding: 8px;
+    }
+    .login-card {
+      max-width: 650px; /* Increased width for form */
+      width: 100%;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(7, 59, 112, 0.12);
+      border: 1px solid var(--border);
+    }
+    .login-card-header {
+      background: linear-gradient(135deg, #174a8b, #176b9e);
+      color: #fff;
+      padding: 25px 30px;
+      text-align: center;
+    }
+    .login-card-header h2 { font-size: 24px; font-weight: 700; margin: 0 0 5px; }
+    .login-card-header p { margin: 0; font-size: 13px; opacity: 0.9; }
+    .login-card-body { padding: 30px; background: #fff; }
+    .login-card-body .form-label {
+      font-weight: 600; color: #333; margin-bottom: 7px; font-size: 14px; display: block;
+    }
+    .login-card-body .input-group { margin-bottom: 20px; }
+    .login-card-body .input-group-text {
+      background: #f1f5f9; border: 1px solid #d9e0e7; color: #174a8b;
+      min-width: 48px; justify-content: center; border-radius: 6px 0 0 6px;
+    }
+    .login-card-body .form-control,
+    .login-card-body .form-select {
+      height: 48px; border: 1px solid #d9e0e7; font-size: 14px; border-radius: 0 6px 6px 0;
+    }
+    .login-card-body .form-control:focus,
+    .login-card-body .form-select:focus {
+      border-color: #176b9e; box-shadow: 0 0 0 0.2rem rgba(23, 107, 158, 0.12);
+    }
+    /* Specific fix for textarea height */
+    .login-card-body textarea.form-control {
+      height: auto;
+      min-height: 120px;
+      padding-top: 12px;
+    }
+    .login-submit-btn {
+      width: 100%; height: 48px; border: none; border-radius: 7px;
+      background: linear-gradient(135deg, #174a8b, #176b9e); color: #fff;
+      font-size: 15px; font-weight: 600; transition: all 0.2s ease;
+    }
+    .login-submit-btn:hover {
+      background: linear-gradient(135deg, #123b70, #145c87); transform: translateY(-1px);
+    }
+    .login-card-footer {
+      text-align: center; background: #f8fafc; border-top: 1px solid #e5e7eb;
+      padding: 15px; font-size: 13px; color: #666;
+    }
+    .login-card-footer a { color: #174a8b; font-weight: 600; text-decoration: none; }
+    .login-card-footer a:hover { text-decoration: underline; }
+
+    /* ================= NAV DROPDOWN ================= */
+    .nav-dropdown { position: relative; }
+    .new-container{ max-width: 1242px !important; }
+    .nav-dropdown > .nav-dropdown-toggle { cursor: pointer; }
+    .nav-dropdown-menu {
+      display: none; position: absolute; top: 100%; left: 0;
+      min-width: 92px; padding: 8px 0; margin: 0; list-style: none;
+      background: #ffffff; border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(7, 59, 112, 0.18);
+      border: 1px solid #cfe0ef; z-index: 10000;
+      animation: dropdownFadeIn 0.25s ease;
+    }
+    @keyframes dropdownFadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .nav-dropdown:hover > .nav-dropdown-menu,
+    .nav-dropdown.open > .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu > li > a {
+      display: flex; align-items: center; padding: 2px 10px;
+      color: #164c7f; font-weight: 600; font-size: 9px; white-space: nowrap;
+      transition: all 0.2s ease; border-left: 3px solid transparent;
+    }
+    .nav-dropdown-menu > li > a:hover,
+    .nav-dropdown-menu > li > a.active {
+      background: #eaf5ff; color: #073f73; border-left-color: #073f73; padding-left: 22px;
+    }
+    .nav-dropdown-menu > li > a i { font-size: 12px; color: #073f73; }
+    .nav-dropdown-menu > li > a i.fa-circle-dot { font-size: 8px; color: #ef8b13; margin-right: 8px; }
+
+    /* SUB-DROPDOWN */
+    .nav-submenu { position: relative; }
+    .nav-dropdown-menu.submenu { top: 0; left: 100%; margin-left: 4px; min-width: 164px; }
+    .nav-submenu:hover > .submenu,
+    .nav-submenu.open > .submenu { display: block; }
+    .nav-dropdown:hover .nav-arrow,
+    .nav-dropdown.open .nav-arrow { transform: rotate(180deg); transition: transform 0.3s ease; }
+    .nav-arrow { transition: transform 0.3s ease; }
+    .nav-submenu:hover .submenu-arrow,
+    .nav-submenu.open .submenu-arrow { transform: rotate(90deg); transition: transform 0.3s ease; }
+    .submenu-arrow { transition: transform 0.3s ease; }
+    .nav-dropdown-menu.submenu h6 { font-size: 8px; color: red; padding: 2px 8px; }
+
+    /* ================= TOP BAR ================= */
+    .topbar{
+      background:linear-gradient(90deg,#0b477f,#0a4277,#0b477f);
+      color:#fff; min-height:48px;
+    }
+    .topbar .container,
+    .department-header .container { width:min(1480px,94%); margin:auto; }
+    .topbar-inner{
+      min-height:48px; display:flex; align-items:center;
+      justify-content:space-between; gap:20px;
+    }
+    .gov-brand{
+      color:#fff; font-weight:700; display:flex; align-items:center;
+      gap:10px; white-space:nowrap; font-size:16px;
+    }
+    .gov-brand i{font-size:19px}
+    .top-links{ display:flex; align-items:center; gap:27px; margin:0; padding:0; list-style:none; }
+    .top-links a{
+      color:#fff; font-weight:600; font-size:14px;
+      display:flex; align-items:center; gap:8px; transition:.2s;
+    }
+    .top-links a:hover{color:#ffd45b}
+    .mobile-toggle{ display:none; background:none; border:0; color:#fff; font-size:22px; }
+
+    /* ================= DEPARTMENT HEADER ================= */
+    .department-header{ background:#fff; border-bottom:1px solid #dbe8f2; }
+    .brand-row{
+      min-height:72px; display:flex; align-items:center;
+      justify-content:space-between; gap:22px;
+    }
+    .department-brand{ display:flex; align-items:center; gap:24px; min-width:0; }
+    .uk-logo{
+      width:128px; height:66px; object-fit:contain;
+      border-right:1px solid #b8cad9; padding-right:20px;
+    }
+    .department-copy h1{
+      margin:0 0 5px; color:#083f78; font-size:20px;
+      line-height:1.18; font-weight:700;
+    }
+    .department-copy p{
+      margin:0; color:#0c4179; font-family:Inter,sans-serif;
+      font-size:11px; line-height:1.45; font-weight:600;
+    }
+    .header-right { display: flex; align-items: center; gap: 25px; }
+    .icds-logo { width: 100px; height: 76px; object-fit: contain; }
+    .login-btn {
+      background: linear-gradient(90deg, #073f73, #0b4e8b);
+      color: #fff; padding: 10px 24px; border-radius: 6px;
+      font-size: 12px; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 2px 5px rgba(7, 59, 112, .2);
+      transition: all 0.3s ease; white-space: nowrap;
+      border: 1px solid #063a70; cursor: pointer;
+    }
+    .login-btn:hover { background: #063a70; color: #ffd45b; transform: translateY(-1px); box-shadow: 0 4px 8px rgba(7, 59, 112, .25); }
+    .login-btn i { font-size: 14px; }
+
+    /* ================= MAIN NAV ================= */
+    .main-nav{
+      background:linear-gradient(90deg,#073f73,#06477f,#073f73);
+      box-shadow:0 2px 7px rgba(0,0,0,.12);
+      position:relative; z-index:10;
+    }
+    .nav-inner{
+      width:min(1480px,94%); margin:auto;
+      display:flex; align-items:stretch; justify-content:center;
+    }
+    .nav-item{
+      flex:1; max-width:190px; color:#fff; min-height:48px;
+      padding:0 17px; display:flex; align-items:center; justify-content:center;
+      gap:9px; font-weight:600; font-size:16px;
+      border-bottom:4px solid transparent; transition:.2s;
+    }
+    .nav-item:hover, .nav-item.active{
+      background:rgba(255,255,255,.08);
+      border-bottom-color:#ffbf00; color:#fff;
+    }
+    .nav-item i{font-size:15px}
+
+    /* ================= FOOTER ================= */
+    footer{background:#063968;color:#fff;margin-top:0}
+    .footer-main{
+      width:min(1425px,94%);margin:auto;
+      padding:20px 0 14px;
+      display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:35px;
+    }
+    .footer-title{font-size:17px;font-weight:700;margin:0 0 7px}
+    footer p,footer a{color:#dceaf5;font-size:13px;line-height:1.5}
+    footer a{display:block;margin:4px 0}
+    .footer-bottom{
+      border-top:1px solid rgba(255,255,255,.16);
+      width:min(1425px,94%);margin:auto;padding:10px 0;
+      display:flex;align-items:center;justify-content:space-between;gap:15px;
+      font-family:Inter,sans-serif;font-size:11px;color:#dbeaf6;
+    }
+
+    /* ================= MOBILE ================= */
+    @media (max-width: 992px){
+      .top-links{gap:13px}
+      .nav-item{font-size:14px;padding:0 9px}
+      .brand-row{min-height:115px}
+      .uk-logo{width:100px;height:90px}
+      .department-copy h1{font-size:24px}
+      .department-copy p{font-size:14px}
+      .icds-logo { width: 80px; height: 70px; }
+      .login-btn { padding: 8px 16px; font-size: 13px; }
+      .nav-dropdown-menu {
+        position: static; display: none; min-width: 100%;
+        box-shadow: none; border: none; border-radius: 0;
+        background: #f5f9fd; padding: 4px 0;
+      }
+      .nav-dropdown.open > .nav-dropdown-menu { display: block; animation: dropdownFadeIn 0.25s ease; }
+      .nav-dropdown-menu.submenu {
+        position: static; left: auto; margin-left: 0;
+        min-width: 100%; background: #eaf5ff;
+      }
+      .nav-submenu.open > .submenu { display: block; }
+      .nav-dropdown-menu > li > a { padding: 10px 20px 10px 28px; font-size: 13px; }
+      .nav-dropdown-menu.submenu > li > a { padding-left: 40px; font-size: 12px; }
+      .nav-submenu.open .submenu-arrow { transform: rotate(90deg); }
+    }
+    @media (max-width: 768px){
+      .topbar-inner{min-height:50px; flex-wrap:wrap;}
+      .gov-brand{font-size:13px}
+      .mobile-toggle{display:block}
+      .top-links-wrap{display:none;width:100%;padding-bottom:10px}
+      .top-links-wrap.open{display:block}
+      .top-links{flex-direction:column;align-items:flex-start;gap:9px}
+      .top-links-group{width:100%;display:none}
+      .top-links-group.open{display:block}
+      .brand-row{min-height:96px}
+      .department-brand{gap:12px}
+      .uk-logo{width:76px;height:70px;padding-right:10px}
+      .department-copy h1{font-size:19px;line-height:1.2}
+      .department-copy p{font-size:12px;line-height:1.25}
+      .header-right { gap: 12px; }
+      .icds-logo { width: 60px; height: 55px; }
+      .login-btn span { display: none; }
+      .login-btn { padding: 10px 12px; }
+      .main-nav{overflow-x:auto}
+      .nav-inner{width:max-content;min-width:100%}
+      .nav-item{min-width:125px;font-size:13px;min-height:45px}
+      .footer-main{grid-template-columns:1fr;gap:15px}
+      .footer-bottom{flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width:480px){
+      body{font-size:14px}
+      .gov-brand{font-size:11px}
+      .department-copy h1{font-size:16px}
+      .department-copy p{font-size:10px}
+      .uk-logo{width:62px;height:60px}
+      .nav-item{min-width:112px}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP GOVERNMENT BAR -->
+  <header>
+    <div class="topbar">
+      <div class="container new-container">
+        <div class="topbar-inner">
+          <a href="#" class="gov-brand">
+            <i class="fa-solid fa-landmark"></i>
+            <span>उत्तराखंड सरकार &nbsp;|&nbsp; Govt. of Uttarakhand</span>
+          </a>
+          <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="top-links-group" id="topLinks">
+            <ul class="top-links">
+              <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+
+              <li class="nav-dropdown">
+                <a href="#" class="nav-dropdown-toggle">
+                  <i class="fa-solid fa-hand-holding-heart"></i>
+                  मेरी योजनाएँ
+                  <i class="fa-solid fa-chevron-down nav-arrow"></i>
+                </a>
+                <ul class="nav-dropdown-menu">
+
+                  <!-- CENTER GOVERNMENT -->
+                  <li class="nav-submenu">
+                    <a href="#">
+                      केंद्र सरकार
+                      <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+                    </a>
+                    <ul class="nav-dropdown-menu submenu">
+                      <li class="nav-submenu">
+                        <a href="#">
+                          मिशन सक्षम आंगनवाड़ी एवं पोषण 2.0
+                          <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-dropdown-menu submenu">
+                          <li><a href="login.html">आंगनवाड़ी सेवायें</a></li>
+                          <li><a href="login.html">राष्ट्रीय पोषण अभियान</a></li>
+                          <li><a href="login.html">किशोरी बालिका योजना (SAG)</a></li>
+                          <li><a href="login.html">आंगनवाड़ी भवन निर्माण</a></li>
+                          <li><a href="login.html">सक्षम आंगनवाड़ी केन्द्र</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="nav-submenu">
+                        <a href="#">
+                          मिशन शक्ति
+                          <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-dropdown-menu submenu">
+                          <h6>मिशन शक्ति – सामर्थ्य</h6>
+                          <li><a href="login.html">हब (SHEW & DHEW)</a></li>
+                          <li><a href="login.html">प्रधानमंत्री मातृ वन्दना योजना</a></li>
+                          <li><a href="login.html">आंगनवाड़ी सह क्रेच केन्द्र</a></li>
+                          <li><a href="login.html">सखी निवास</a></li>
+                          <li><a href="login.html">जेंडर बजटिंग</a></li>
+                          <li><a href="login.html">शक्ति सदन</a></li>
+                          <h6>मिशन शक्ति – संबल</h6>
+                          <li><a href="login.html">बेटी बचाओ बेटी पढ़ाओ</a></li>
+                          <li><a href="login.html">वन स्टॉप सेंटर</a></li>
+                          <li><a href="login.html">वन स्टॉप सेंटर निर्माण</a></li>
+                          <li><a href="login.html">महिला हेल्पलाइन 181</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="nav-submenu">
+                        <a href="#">
+                          अन्य योजनायें
+                          <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-dropdown-menu submenu">
+                          <li><a href="login.html">निर्भया फण्ड के अंतर्गत निर्माण</a></li>
+                          <li><a href="login.html">SASCI के अंतर्गत निर्माण</a></li>
+                          <li><a href="login.html">प्रधानमंत्री जनजातीय न्याय महाअभियान (PM - JANMAN)</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <!-- STATE GOVERNMENT -->
+                  <li class="nav-submenu">
+                    <a href="#">
+                      राज्य सरकार
+                      <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+                    </a>
+                    <ul class="nav-dropdown-menu submenu">
+                      <li class="nav-submenu">
+                        <a href="#">
+                          राज्य सहायतित योजनाएं
+                          <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-dropdown-menu submenu">
+                          <h6>आई. सीडी. एस. तंत्र के माध्यम से संचालित योजनाएँ</h6>
+                          <li><a href="login.html">नंदा गौरा योजना</a></li>
+                          <li><a href="login.html">मुख्यमंत्री महिला पोषण</a></li>
+                          <li><a href="login.html">मुख्यमंत्री बाल पोषण</a></li>
+                          <li><a href="login.html">मुख्यमंत्री आंचल अमृत योजना</a></li>
+                          <li><a href="login.html">मुख्यमंत्री महालक्ष्मी योजना</a></li>
+                          <li><a href="login.html">तीलू रौतेली एवं आंगनवाड़ी कार्यकर्ती पुरस्कार</a></li>
+                          <h6>उत्तराखंड महिला एवं बाल विकास समिति के माध्यम से संचालित योजनाएँ</h6>
+                          <li><a href="login.html">उत्तराखंड महिला समेकित विकास योजना</a></li>
+                          <li><a href="login.html">मुख्यमंत्री सतत् आजीविका योजना</a></li>
+                          <li><a href="login.html">मुख्यमंत्री एकल महिला स्वरोजगार योजना</a></li>
+                          <li><a href="login.html">मेरी सहेली सैनिटरी नैपकिन योजना</a></li>
+                          <li><a href="login.html">बाल कल्याण निधि</a></li>
+                          <li><a href="login.html">आंगनवाड़ी कर्मियों हेतु कल्याण कोष की योजना</a></li>
+                          <li><a href="login.html">मुख्यमंत्री महिला एवं बाल बहुमुखी सहायता निधि योजना</a></li>
+                        </ul>
+                      </li>
+
+                      <li class="nav-submenu">
+                        <a href="#">
+                          विभिन्न अधिनियमों के अधीन नोडल की भूमिका
+                          <i class="fa-solid fa-chevron-right submenu-arrow"></i>
+                        </a>
+                        <ul class="nav-dropdown-menu submenu">
+                          <li><a href="login.html">घरेलू हिंसा से महिला संरक्षण अधिनियम 2005</a></li>
+                          <li><a href="login.html">बाल विवाह प्रतिषेध अधिनियम 2006</a></li>
+                          <li><a href="login.html">महिलाओं का कार्यस्थल पर लैंगिक उत्पीड़न (निवारण, प्रतिषेध और प्रतितोष अधिनियम 2013)</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+              <li><a href="#"><i class="fa-solid fa-globe"></i> Official Website</a></li>
+              <li><a href="#"><i class="fa-solid fa-user-shield"></i> Admin Login</a></li>
+              <li><a href="#"><i class="fa-solid fa-phone"></i> Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEPARTMENT HEADER -->
+    <div class="department-header">
+      <div class="container">
+        <div class="brand-row">
+          <div class="department-brand">
+           <a href="index.html" class="department-brand">
+  <img 
+    src="../images/uk_logo.jpeg" 
+    class="uk-logo" 
+    alt="Uttarakhand Government Logo"
+  >
+
+  <div class="department-copy">
+    <h1>महिला सशक्तिकरण एवं बाल विकास विभाग</h1>
+    <p>
+      Women Empowerment &amp; Child Development Department,<br>
+      Uttarakhand
+    </p>
+  </div>
+</a>
+          </div>
+          <div class="header-right">
+            <img src="../images/icds_logo.jpeg" class="icds-logo" alt="ICDS Logo">
+            <a href="feedback.html" class="login-btn">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <span>FeedBack</span>
+            </a>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="main-nav">
+      <div class="nav-inner">
+        <!-- Nav items here -->
+      </div>
+    </nav>
+  </header>
+
+  <!-- FEEDBACK FORM SECTION -->
+  <div class="login-container" id="feedbackSection">
+    <div class="login-card">
+
+      <div class="login-card-header">
+        <h2><i class="fa-solid fa-comment-dots"></i> फीडबैक / Feedback</h2>
+        <p>अपनी अमूल्य राय दें / Please share your valuable feedback</p>
+      </div>
+
+   <div class="row feed-back">
+
+  <!-- Name -->
+  <div class="col-md-6 mb-3">
+    <label for="feedbackName" class="form-label">नाम / Name</label>
+    <div class="input-group">
+      <span class="input-group-text">
+        <i class="fa-solid fa-user"></i>
+      </span>
+      <input
+        type="text"
+        class="form-control"
+        id="feedbackName"
+        placeholder="Enter your name"
+        required
+      >
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="col-md-6 mb-3">
+    <label for="feedbackEmail" class="form-label">ईमेल / Email</label>
+    <div class="input-group">
+      <span class="input-group-text">
+        <i class="fa-solid fa-envelope"></i>
+      </span>
+      <input
+        type="email"
+        class="form-control"
+        id="feedbackEmail"
+        placeholder="Enter your email"
+        required
+      >
+    </div>
+  </div>
+
+  <!-- Mobile -->
+  <div class="col-md-6 mb-3">
+    <label for="feedbackMobile" class="form-label">मोबाइल नंबर / Mobile No.</label>
+    <div class="input-group">
+      <span class="input-group-text">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+      </span>
+      <input
+        type="tel"
+        class="form-control"
+        id="feedbackMobile"
+        placeholder="10-digit mobile number"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        required
+      >
+    </div>
+  </div>
+
+  <!-- Category -->
+<!-- Category -->
+<div class="col-md-6 mb-3">
+  <label for="feedbackCategory" class="form-label">
+    श्रेणी / Category
+  </label>
+
+  <div class="input-group">
+    <span class="input-group-text">
+      <i class="fa-solid fa-list"></i>
+    </span>
+
+    <select class="form-select" id="feedbackCategory" required>
+
+      <option value="" disabled selected>
+        श्रेणी चुनें / Select Category
+      </option>
+
+      <!-- ================= CENTER GOVERNMENT ================= -->
+      <optgroup label="केंद्र सरकार / Central Government">
+
+        <option value="anganwadi-services">
+          आंगनवाड़ी सेवायें
+        </option>
+
+        <option value="poshan-abhiyaan">
+          राष्ट्रीय पोषण अभियान
+        </option>
+
+        <option value="sag">
+          किशोरी बालिका योजना (SAG)
+        </option>
+
+        <option value="anganwadi-building">
+          आंगनवाड़ी भवन निर्माण
+        </option>
+
+        <option value="saksham-anganwadi">
+          सक्षम आंगनवाड़ी केन्द्र
+        </option>
+
+        <option value="shev-dhew">
+          हब (SHEW & DHEW)
+        </option>
+
+        <option value="pm-matru-vandana">
+          प्रधानमंत्री मातृ वन्दना योजना
+        </option>
+
+        <option value="anganwadi-creche">
+          आंगनवाड़ी सह क्रेच केन्द्र
+        </option>
+
+        <option value="sakhi-niwas">
+          सखी निवास
+        </option>
+
+        <option value="gender-budgeting">
+          जेंडर बजटिंग
+        </option>
+
+        <option value="shakti-sadan">
+          शक्ति सदन
+        </option>
+
+        <option value="beti-bachao-beti-padhao">
+          बेटी बचाओ बेटी पढ़ाओ
+        </option>
+
+        <option value="one-stop-center">
+          वन स्टॉप सेंटर
+        </option>
+
+        <option value="one-stop-center-building">
+          वन स्टॉप सेंटर निर्माण
+        </option>
+
+        <option value="women-helpline-181">
+          महिला हेल्पलाइन 181
+        </option>
+
+        <option value="nirbhaya-fund">
+          निर्भया फण्ड के अंतर्गत निर्माण
+        </option>
+
+        <option value="sasci">
+          SASCI के अंतर्गत निर्माण
+        </option>
+
+        <option value="pm-janman">
+          प्रधानमंत्री जनजातीय न्याय महाअभियान (PM - JANMAN)
+        </option>
+
+      </optgroup>
+
+
+      <!-- ================= STATE GOVERNMENT ================= -->
+      <optgroup label="राज्य सरकार / State Government">
+
+        <option value="nanda-gaura">
+          नंदा गौरा योजना
+        </option>
+
+        <option value="mukhyamantri-mahila-poshan">
+          मुख्यमंत्री महिला पोषण
+        </option>
+
+        <option value="mukhyamantri-bal-poshan">
+          मुख्यमंत्री बाल पोषण
+        </option>
+
+        <option value="aanchal-amrit">
+          मुख्यमंत्री आंचल अमृत योजना
+        </option>
+
+        <option value="mahalakshmi-yojana">
+          मुख्यमंत्री महालक्ष्मी योजना
+        </option>
+
+        <option value="tilu-rauteli">
+          तीलू रौतेली एवं आंगनवाड़ी कार्यकर्ती पुरस्कार
+        </option>
+
+        <option value="uttarakhand-mahila-samekit">
+          उत्तराखंड महिला समेकित विकास योजना
+        </option>
+
+        <option value="satat-ajivika">
+          मुख्यमंत्री सतत् आजीविका योजना
+        </option>
+
+        <option value="ekal-mahila-swarojgar">
+          मुख्यमंत्री एकल महिला स्वरोजगार योजना
+        </option>
+
+        <option value="meri-saheli">
+          मेरी सहेली सैनिटरी नैपकिन योजना
+        </option>
+
+        <option value="bal-kalyan-nidhi">
+          बाल कल्याण निधि
+        </option>
+
+        <option value="anganwadi-karmiyon-kalyan">
+          आंगनवाड़ी कर्मियों हेतु कल्याण कोष की योजना
+        </option>
+
+        <option value="mahila-bal-bahumukhi">
+          मुख्यमंत्री महिला एवं बाल बहुमुखी सहायता निधि योजना
+        </option>
+
+        <option value="domestic-violence-act">
+          घरेलू हिंसा से महिला संरक्षण अधिनियम 2005
+        </option>
+
+        <option value="child-marriage-act">
+          बाल विवाह प्रतिषेध अधिनियम 2006
+        </option>
+
+        <option value="workplace-harassment-act">
+          महिलाओं का कार्यस्थल पर लैंगिक उत्पीड़न
+          (निवारण, प्रतिषेध और प्रतितोष अधिनियम 2013)
+        </option>
+
+      </optgroup>
+
+
+      <!-- ================= GENERAL ================= -->
+      <optgroup label="सामान्य / General">
+
+        <option value="website-issue">
+          वेबसाइट संबंधी / Website Issue
+        </option>
+
+        <option value="departmental-work">
+          विभागीय कार्य / Departmental Work
+        </option>
+
+        <option value="general-query">
+          सामान्य जानकारी / General Query
+        </option>
+
+        <option value="other">
+          अन्य / Other
+        </option>
+
+      </optgroup>
+
+    </select>
+  </div>
+</div>
+
+  <!-- Message - Full Width -->
+  <div class="col-12 mb-3">
+    <label for="feedbackMessage" class="form-label">
+      संदेश / Message
+    </label>
+
+    <div class="input-group">
+      <span class="input-group-text">
+        <i class="fa-solid fa-comment"></i>
+      </span>
+
+      <textarea
+        class="form-control"
+        id="feedbackMessage"
+        placeholder="Write your feedback here..."
+        required
+      ></textarea>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="col-12">
+    <button type="submit" class="btn login-submit-btn">
+      <i class="fa-solid fa-paper-plane"></i>
+      सबमिट करें / Submit
+    </button>
+  </div>
+
+</div>
+
+      <div class="login-card-footer">
+        <span>हम आपके सुझावों की सराहना करते हैं! / We appreciate your suggestions!</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-main">
+      <div>
+        <h3 class="footer-title">Women Empowerment &amp; Child Development Department</h3>
+        <p>उत्तराखंड सरकार के अंतर्गत महिला सशक्तिकरण एवं बाल विकास विभाग का जालपृष्ठ। यहां महिलाओं और बच्चों के कल्याण, शिक्षा और स्वास्थ्य से जुड़ी योजनाओं की जानकारी उपलब्ध है।</p>
+      </div>
+      <div>
+        <h3 class="footer-title">Quick Links</h3>
+        <a href="#">About Us</a>
+        <a href="#">Schemes &amp; Programs</a>
+        <a href="#">Notifications</a>
+        <a href="#">RTI</a>
+      </div>
+      <div>
+        <h3 class="footer-title">Contact Us</h3>
+        <a href="#"><i class="fa-solid fa-location-dot"></i> Secretariat, Dehradun, UK</a>
+        <a href="#"><i class="fa-solid fa-phone"></i> +91-135-000-0000</a>
+        <a href="#"><i class="fa-solid fa-envelope"></i> contact@wecd.uk.gov.in</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Women Empowerment &amp; Child Development Department, Uttarakhand. All Rights Reserved.</span>
+      <span>Disclaimer &nbsp;|&nbsp; Privacy Policy &nbsp;|&nbsp; Sitemap &nbsp;|&nbsp; Contact Us</span>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /* ================= MOBILE MENU ================= */
+    const mobileToggle = document.getElementById("mobileToggle");
+    const topLinks = document.getElementById("topLinks");
+    mobileToggle.addEventListener("click", () => topLinks.classList.toggle("open"));
+
+    /* ================= FEEDBACK FORM SUBMIT ================= */
+    document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("फीडबैक सफलतापूर्वक सबमिट हो गया! (Demo)\nThank you for your feedback!");
+      // Optional: reset form after submission
+      this.reset();
+    });
+
+    /* ============ DROPDOWN & SUBMENU - CLICK HANDLING ============ */
+    (function () {
+      const dropdowns = document.querySelectorAll('.nav-dropdown');
+      const submenus  = document.querySelectorAll('.nav-submenu');
+
+      function closeAllDropdowns(except) {
+        dropdowns.forEach(d => { if (d !== except) d.classList.remove('open'); });
+        submenus.forEach(s => { if (s !== except) s.classList.remove('open'); });
+      }
+
+      dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector(':scope > a');
+        if (!toggle) return;
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const isOpen = dropdown.classList.contains('open');
+          closeAllDropdowns(dropdown);
+          dropdown.classList.toggle('open', !isOpen);
+        });
+      });
+
+      submenus.forEach(submenu => {
+        const toggle = submenu.querySelector(':scope > a');
+        if (!toggle) return;
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const isOpen = submenu.classList.contains('open');
+          submenus.forEach(s => {
+            if (s !== submenu && s.contains(submenu) === false) s.classList.remove('open');
+          });
+          submenu.classList.toggle('open', !isOpen);
+        });
+      });
+
+      document.addEventListener('click', function () { closeAllDropdowns(null); });
+
+      document.querySelectorAll('.nav-dropdown-menu').forEach(menu => {
+        menu.addEventListener('click', function (e) { e.stopPropagation(); });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeAllDropdowns(null);
+      });
+    })();
+  </script>
+</body>
+</html>
